@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */; };
+		03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD8C1D81D81D00B592C8 /* GameScene.sks */; };
+		03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8E1D81D81D00B592C8 /* GameScene.swift */; };
+		03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD901D81D81D00B592C8 /* GameViewController.swift */; };
+		03BAFD941D81D81D00B592C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD921D81D81D00B592C8 /* Main.storyboard */; };
+		03BAFD961D81D81D00B592C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD951D81D81D00B592C8 /* Assets.xcassets */; };
+		03BAFD991D81D81D00B592C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */; };
+		03BAFDA41D81D81D00B592C8 /* PettyCashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */; };
+		03BAFDAF1D81D81E00B592C8 /* PettyCashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFDAE1D81D81E00B592C8 /* PettyCashUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03BAFDA01D81D81D00B592C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03BAFD7F1D81D81D00B592C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03BAFD861D81D81D00B592C8;
+			remoteInfo = PettyCash;
+		};
+		03BAFDAB1D81D81D00B592C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03BAFD7F1D81D81D00B592C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03BAFD861D81D81D00B592C8;
+			remoteInfo = PettyCash;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03BAFD871D81D81D00B592C8 /* PettyCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PettyCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03BAFD8C1D81D81D00B592C8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		03BAFD8E1D81D81D00B592C8 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		03BAFD901D81D81D00B592C8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		03BAFD931D81D81D00B592C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03BAFD951D81D81D00B592C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03BAFD981D81D81D00B592C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		03BAFD9A1D81D81D00B592C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03BAFD9F1D81D81D00B592C8 /* PettyCashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PettyCashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PettyCashTests.swift; sourceTree = "<group>"; };
+		03BAFDA51D81D81D00B592C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03BAFDAA1D81D81D00B592C8 /* PettyCashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PettyCashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03BAFDAE1D81D81E00B592C8 /* PettyCashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PettyCashUITests.swift; sourceTree = "<group>"; };
+		03BAFDB01D81D81E00B592C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03BAFD841D81D81D00B592C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BAFD9C1D81D81D00B592C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BAFDA71D81D81D00B592C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03BAFD7E1D81D81D00B592C8 = {
+			isa = PBXGroup;
+			children = (
+				03BAFD891D81D81D00B592C8 /* PettyCash */,
+				03BAFDA21D81D81D00B592C8 /* PettyCashTests */,
+				03BAFDAD1D81D81D00B592C8 /* PettyCashUITests */,
+				03BAFD881D81D81D00B592C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03BAFD881D81D81D00B592C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFD871D81D81D00B592C8 /* PettyCash.app */,
+				03BAFD9F1D81D81D00B592C8 /* PettyCashTests.xctest */,
+				03BAFDAA1D81D81D00B592C8 /* PettyCashUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03BAFD891D81D81D00B592C8 /* PettyCash */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */,
+				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
+				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
+				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
+				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
+				03BAFD951D81D81D00B592C8 /* Assets.xcassets */,
+				03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */,
+				03BAFD9A1D81D81D00B592C8 /* Info.plist */,
+			);
+			path = PettyCash;
+			sourceTree = "<group>";
+		};
+		03BAFDA21D81D81D00B592C8 /* PettyCashTests */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */,
+				03BAFDA51D81D81D00B592C8 /* Info.plist */,
+			);
+			path = PettyCashTests;
+			sourceTree = "<group>";
+		};
+		03BAFDAD1D81D81D00B592C8 /* PettyCashUITests */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFDAE1D81D81E00B592C8 /* PettyCashUITests.swift */,
+				03BAFDB01D81D81E00B592C8 /* Info.plist */,
+			);
+			path = PettyCashUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03BAFD861D81D81D00B592C8 /* PettyCash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03BAFDB31D81D81E00B592C8 /* Build configuration list for PBXNativeTarget "PettyCash" */;
+			buildPhases = (
+				03BAFD831D81D81D00B592C8 /* Sources */,
+				03BAFD841D81D81D00B592C8 /* Frameworks */,
+				03BAFD851D81D81D00B592C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PettyCash;
+			productName = PettyCash;
+			productReference = 03BAFD871D81D81D00B592C8 /* PettyCash.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03BAFD9E1D81D81D00B592C8 /* PettyCashTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03BAFDB61D81D81E00B592C8 /* Build configuration list for PBXNativeTarget "PettyCashTests" */;
+			buildPhases = (
+				03BAFD9B1D81D81D00B592C8 /* Sources */,
+				03BAFD9C1D81D81D00B592C8 /* Frameworks */,
+				03BAFD9D1D81D81D00B592C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03BAFDA11D81D81D00B592C8 /* PBXTargetDependency */,
+			);
+			name = PettyCashTests;
+			productName = PettyCashTests;
+			productReference = 03BAFD9F1D81D81D00B592C8 /* PettyCashTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		03BAFDA91D81D81D00B592C8 /* PettyCashUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03BAFDB91D81D81E00B592C8 /* Build configuration list for PBXNativeTarget "PettyCashUITests" */;
+			buildPhases = (
+				03BAFDA61D81D81D00B592C8 /* Sources */,
+				03BAFDA71D81D81D00B592C8 /* Frameworks */,
+				03BAFDA81D81D81D00B592C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03BAFDAC1D81D81D00B592C8 /* PBXTargetDependency */,
+			);
+			name = PettyCashUITests;
+			productName = PettyCashUITests;
+			productReference = 03BAFDAA1D81D81D00B592C8 /* PettyCashUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03BAFD7F1D81D81D00B592C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Joshua O'Steen";
+				TargetAttributes = {
+					03BAFD861D81D81D00B592C8 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					03BAFD9E1D81D81D00B592C8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 03BAFD861D81D81D00B592C8;
+					};
+					03BAFDA91D81D81D00B592C8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 03BAFD861D81D81D00B592C8;
+					};
+				};
+			};
+			buildConfigurationList = 03BAFD821D81D81D00B592C8 /* Build configuration list for PBXProject "PettyCash" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 03BAFD7E1D81D81D00B592C8;
+			productRefGroup = 03BAFD881D81D81D00B592C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03BAFD861D81D81D00B592C8 /* PettyCash */,
+				03BAFD9E1D81D81D00B592C8 /* PettyCashTests */,
+				03BAFDA91D81D81D00B592C8 /* PettyCashUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03BAFD851D81D81D00B592C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */,
+				03BAFD991D81D81D00B592C8 /* LaunchScreen.storyboard in Resources */,
+				03BAFD961D81D81D00B592C8 /* Assets.xcassets in Resources */,
+				03BAFD941D81D81D00B592C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BAFD9D1D81D81D00B592C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BAFDA81D81D81D00B592C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03BAFD831D81D81D00B592C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
+				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
+				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BAFD9B1D81D81D00B592C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BAFDA41D81D81D00B592C8 /* PettyCashTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BAFDA61D81D81D00B592C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BAFDAF1D81D81E00B592C8 /* PettyCashUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03BAFDA11D81D81D00B592C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03BAFD861D81D81D00B592C8 /* PettyCash */;
+			targetProxy = 03BAFDA01D81D81D00B592C8 /* PBXContainerItemProxy */;
+		};
+		03BAFDAC1D81D81D00B592C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03BAFD861D81D81D00B592C8 /* PettyCash */;
+			targetProxy = 03BAFDAB1D81D81D00B592C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		03BAFD921D81D81D00B592C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03BAFD931D81D81D00B592C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03BAFD981D81D81D00B592C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03BAFDB11D81D81E00B592C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03BAFDB21D81D81E00B592C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03BAFDB41D81D81E00B592C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PettyCash/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		03BAFDB51D81D81E00B592C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PettyCash/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		03BAFDB71D81D81E00B592C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PettyCashTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PettyCash.app/PettyCash";
+			};
+			name = Debug;
+		};
+		03BAFDB81D81D81E00B592C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PettyCashTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCashTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PettyCash.app/PettyCash";
+			};
+			name = Release;
+		};
+		03BAFDBA1D81D81E00B592C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PettyCashUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCashUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PettyCash;
+			};
+			name = Debug;
+		};
+		03BAFDBB1D81D81E00B592C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PettyCashUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCashUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PettyCash;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03BAFD821D81D81D00B592C8 /* Build configuration list for PBXProject "PettyCash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03BAFDB11D81D81E00B592C8 /* Debug */,
+				03BAFDB21D81D81E00B592C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03BAFDB31D81D81E00B592C8 /* Build configuration list for PBXNativeTarget "PettyCash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03BAFDB41D81D81E00B592C8 /* Debug */,
+				03BAFDB51D81D81E00B592C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03BAFDB61D81D81E00B592C8 /* Build configuration list for PBXNativeTarget "PettyCashTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03BAFDB71D81D81E00B592C8 /* Debug */,
+				03BAFDB81D81D81E00B592C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03BAFDB91D81D81E00B592C8 /* Build configuration list for PBXNativeTarget "PettyCashUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03BAFDBA1D81D81E00B592C8 /* Debug */,
+				03BAFDBB1D81D81E00B592C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03BAFD7F1D81D81D00B592C8 /* Project object */;
+}
