@@ -1,0 +1,865 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		002CC2BFE1BF0D6883EAA72B55EBDA72 /* SelectorDatePickerRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743DDEC3DE3A43DE845D32BC83A6E41D /* SelectorDatePickerRowFormer.swift */; };
+		0248D844F00EA447E0BCF48D8615C0A2 /* FormLabelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F156962470CF5C5D1D1E3E8BE7AC476 /* FormLabelHeaderView.swift */; };
+		043AE90438947CFDBB906E145A417B7C /* CustomRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6BD6F39A667B845C61D9254199563 /* CustomRowFormer.swift */; };
+		099788C8A0F4AC704C6D6B1DDD832AF0 /* FormStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30DF11C3B3BCC38763A698B91F8F4ED /* FormStepperCell.swift */; };
+		12937A4F554E9DEF35546F7E53092A89 /* FormTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79339FAE621FE83CBB47C546E6C5B4A5 /* FormTextViewCell.swift */; };
+		1651404BF5F8997F4F7D1E1D7CD1B8CA /* PathMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4753E440EE62F86DAFBF280BD112D824 /* PathMenu.swift */; };
+		174CC2269909901D491DF64ACCA8C37E /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69610F618B11FA92B496C6380F6676 /* FormCell.swift */; };
+		2827F0609108B69322A9981B5E1E4116 /* Former.h in Headers */ = {isa = PBXBuildFile; fileRef = 534179E88B6396D806F6CC7201AA553F /* Former.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E556C5FBB781A9708783A30B2124797 /* StepperRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048088C622D449786A74D41FEFF7E786 /* StepperRowFormer.swift */; };
+		31A3DA29A043892C3AEF4BA0352EBDF3 /* PathMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C788C87D986D169840053F560D7263B8 /* PathMenuItem.swift */; };
+		3280A95CB7FF1A2501113F3F521CA237 /* FormSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F288FBF3C2EE270456668D0D4F697 /* FormSwitchCell.swift */; };
+		3721E91E880030C73BBAE614B479E4EB /* ViewFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9C6CAEBC36A602701F565819C9995D /* ViewFormer.swift */; };
+		3DC0A86E4D89A401477364CF8CD73A98 /* InlinePickerRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE08BF091408E027A1B94BB6563DFFC /* InlinePickerRowFormer.swift */; };
+		40A72ADEA22A07A31673387DDEFF9139 /* FormerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FA85BD3BB9AA8E27D7C858B9D57862 /* FormerProtocol.swift */; };
+		452A4FB41B239ADA1F50D077E6D52C2A /* FormInlinePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC8020094CCAE2715748A943A9630F /* FormInlinePickerCell.swift */; };
+		4D9B38B065F35F633FA49D606F8150BD /* FormDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBD8F4BA55D3DAF325797199289ED41 /* FormDatePickerCell.swift */; };
+		4E099D4A0452BCA807FC249DFF719922 /* SectionFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97002AE006FC5E02B55E9602D5752F80 /* SectionFormer.swift */; };
+		5427D5D1E3D2159A06A86275920518EA /* CheckRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C7BA959BE519E20F2FE23FC8F0A22 /* CheckRowFormer.swift */; };
+		57DB472403F3FEF372E7A6FBF66DB87E /* FormPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8B1DC4696050253E6C6EBDD3BB01F /* FormPickerCell.swift */; };
+		5BD477ACEDEC9DC483ECA24B10F5FE0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		5BDEB1941727713E10C17996AD91D910 /* SwitchRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFE53F864932FBA05464C9171778A8B /* SwitchRowFormer.swift */; };
+		5D88B38860B6EA4504CF6D0CA4DD35C9 /* PathMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E93871095228A2226039F47768C2770 /* PathMenu-dummy.m */; };
+		5DA8F0E77126E515FFC036C41207A2BF /* BaseViewFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D3A6E1D8735115670F1165F91401C /* BaseViewFormer.swift */; };
+		633ADB525829CACC2F8E33D6CC7AB4F0 /* DatePickerRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C502419E26F01F95D71BE4026B4610C4 /* DatePickerRowFormer.swift */; };
+		67D88B09B3CBD2FBDFD595D4225AC714 /* FormCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38211F0F8AD450F4E3176CCE6B25F505 /* FormCheckCell.swift */; };
+		6C3EC5853048EFD36D2805895A8E057A /* SegmentedRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF64985C95A9FDD3764EA4F1195224E /* SegmentedRowFormer.swift */; };
+		6C7C70448AAF11557E75C2197D0083D3 /* LabelViewFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9BCB0EF98FF1284D081B7FD140CDC /* LabelViewFormer.swift */; };
+		6D3A1605DD91EEF6DC4FD208211A3DEE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		74D81C785F26A24C43C1B0A6B7182248 /* BaseRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D43D789096E3539E1C0DC5D4DBD079 /* BaseRowFormer.swift */; };
+		7873BF12564A7CA735F2D8D90C22E8FB /* InlineDatePickerRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D628DAC83925905F49100456731B183E /* InlineDatePickerRowFormer.swift */; };
+		7D13532E5F5277FB1762987D993E906B /* FormSelectorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CBB9CDE31B5A630672C084C572828 /* FormSelectorPickerCell.swift */; };
+		93FA9E8C73608A58147E1B2F0E3D687A /* LabelRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6925CA66D08421EA82D46F9B21D8D02 /* LabelRowFormer.swift */; };
+		9AA04C3C57F10B96862C52A47D583260 /* SelectorPickerRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7961A9DB604D8057CAE2C3D8C8ED941E /* SelectorPickerRowFormer.swift */; };
+		9DBBAF2EBCB60BF32F511A03663977F3 /* FormSegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664994AAB1B71E2948EDFBB2145D065B /* FormSegmentedCell.swift */; };
+		A8975C1982FCA38DCB3C1D6336AFE816 /* PickerRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A45C996451BD2FED074CE6521D9CA8 /* PickerRowFormer.swift */; };
+		AADB13169A72A64F2DAF2484558A17EA /* UITableViewCell+Former.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8947FD13117308B2CFF6CD3E384EEAE /* UITableViewCell+Former.swift */; };
+		B2BB37E0C68F644FEBB3D406C32AEB25 /* Pods-PettyCash-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E20B8A0DC2C10A6A6A0B6C09AB0D492 /* Pods-PettyCash-dummy.m */; };
+		BAF350252004027BBC5887743BE4F28C /* Pods-PettyCash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FEA27F27906FD56560A6A9D44652921 /* Pods-PettyCash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BECB0F4B442F029B68105B0B3FE5A27C /* RowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90298389DAC1F3972A580671DFC73A67 /* RowFormer.swift */; };
+		C9272D06FFA180407A509EC3A8A61AC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		CC72BC2A27E3D5E7558EF0E29DE9608F /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5324436CC65840A22A7ABD2C49523466 /* FormViewController.swift */; };
+		D0F6C7C9787B86A475CF8716587DBFF8 /* CustomViewFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C769D3A811B8D7B0071022B530DC /* CustomViewFormer.swift */; };
+		D3902B9865245AFED32C755615EAC7BD /* FormHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE3E30BAF81E979E55DA5857E99E18C /* FormHeaderFooterView.swift */; };
+		D57517AD8044C5DDC55111C953B5D067 /* Former-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F702C8B8867774B4B03BBF75F1A701DB /* Former-dummy.m */; };
+		D59F9BD4BA223BC2F212BFF2E394E6B7 /* Former-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A59C62C189E03DD71C65CC356F386F0F /* Former-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6619C39550F7B88EF059D4A22FFAFFD /* FormSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E58FF27EC513ED8883DEE7EDDB20C2 /* FormSliderCell.swift */; };
+		D6F04886703F9DC06929845DBD9947EB /* TextFieldRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0367D4BD96C7D33BAEE580B70A6906B2 /* TextFieldRowFormer.swift */; };
+		DA7F46A9F86244A13054F6D20736D72B /* FormSelectorDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E189D8A26F7722D648037CCA55A456E /* FormSelectorDatePickerCell.swift */; };
+		E1E2180D8113197E0CC97872828ED5C2 /* FormLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB28B16325E129924BFFF1A66D2A6AF9 /* FormLabelCell.swift */; };
+		E26151CDF788721AD0E244372389F9EB /* FormTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB653D649B778CEC98D2ED613FEA0A31 /* FormTextFieldCell.swift */; };
+		E40926B2B81858537B4508290684EE2D /* FormLabelFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0628BD69165800AF0ABA7BED74C5423E /* FormLabelFooterView.swift */; };
+		EAD440DA796BACE8AE3B76FA8FCD412F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		EB5E9C1581087351C9DF064851D0DC3D /* PathMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52E57F0C8FE3BD197E241DDC1DAC2640 /* PathMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF579B14B5DC267DDF0DC7A8B282C6C8 /* FormInlineDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8CF106C948D1A8B3EF374343F924FD /* FormInlineDatePickerCell.swift */; };
+		F6DA4337DD6F668DD718901B0CD7B4B5 /* Former.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9A14563749D7BB0018155776DD920 /* Former.swift */; };
+		FDDBC6340052A560147B4FB27ED18986 /* SliderRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C1C894FD5595F294CE4CCBE8EC085B /* SliderRowFormer.swift */; };
+		FF54875678972D8C401702E7882D15E9 /* TextViewRowFormer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBFB4A953A5E9696CFCA4D55A71E7D /* TextViewRowFormer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4845A0E2061BBF638C87AB74ED85918D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74CB1562008169CD46736E6F113D9CE9;
+			remoteInfo = PathMenu;
+		};
+		4D01F075C66BBB858384593182B36406 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 980933AEBFB68262FC5D0C757539CEE4;
+			remoteInfo = Former;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0367D4BD96C7D33BAEE580B70A6906B2 /* TextFieldRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldRowFormer.swift; path = Former/RowFormers/TextFieldRowFormer.swift; sourceTree = "<group>"; };
+		048088C622D449786A74D41FEFF7E786 /* StepperRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepperRowFormer.swift; path = Former/RowFormers/StepperRowFormer.swift; sourceTree = "<group>"; };
+		04A6BD6F39A667B845C61D9254199563 /* CustomRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomRowFormer.swift; path = Former/RowFormers/CustomRowFormer.swift; sourceTree = "<group>"; };
+		0628BD69165800AF0ABA7BED74C5423E /* FormLabelFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormLabelFooterView.swift; path = Former/Views/FormLabelFooterView.swift; sourceTree = "<group>"; };
+		0D9CBB9CDE31B5A630672C084C572828 /* FormSelectorPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormSelectorPickerCell.swift; path = Former/Cells/FormSelectorPickerCell.swift; sourceTree = "<group>"; };
+		0E93871095228A2226039F47768C2770 /* PathMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PathMenu-dummy.m"; sourceTree = "<group>"; };
+		0F156962470CF5C5D1D1E3E8BE7AC476 /* FormLabelHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormLabelHeaderView.swift; path = Former/Views/FormLabelHeaderView.swift; sourceTree = "<group>"; };
+		118D3A6E1D8735115670F1165F91401C /* BaseViewFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseViewFormer.swift; path = Former/ViewFormers/BaseViewFormer.swift; sourceTree = "<group>"; };
+		1394EFAAB4C4C763F628FAB970C85F2B /* Pods-PettyCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PettyCash.release.xcconfig"; sourceTree = "<group>"; };
+		145C3AFC69325A41FEBEEF01AEA84124 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		260F288FBF3C2EE270456668D0D4F697 /* FormSwitchCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormSwitchCell.swift; path = Former/Cells/FormSwitchCell.swift; sourceTree = "<group>"; };
+		2DE3E30BAF81E979E55DA5857E99E18C /* FormHeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormHeaderFooterView.swift; path = Former/Views/FormHeaderFooterView.swift; sourceTree = "<group>"; };
+		2E20B8A0DC2C10A6A6A0B6C09AB0D492 /* Pods-PettyCash-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PettyCash-dummy.m"; sourceTree = "<group>"; };
+		36D43D789096E3539E1C0DC5D4DBD079 /* BaseRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRowFormer.swift; path = Former/RowFormers/BaseRowFormer.swift; sourceTree = "<group>"; };
+		38211F0F8AD450F4E3176CCE6B25F505 /* FormCheckCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormCheckCell.swift; path = Former/Cells/FormCheckCell.swift; sourceTree = "<group>"; };
+		3AF81AFD3104FCAA44C552C185B2B948 /* Pods-PettyCash-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PettyCash-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4753E440EE62F86DAFBF280BD112D824 /* PathMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathMenu.swift; path = PathMenu/PathMenu.swift; sourceTree = "<group>"; };
+		484173400298BFFF02EA31E483257696 /* Pods-PettyCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PettyCash.debug.xcconfig"; sourceTree = "<group>"; };
+		52E57F0C8FE3BD197E241DDC1DAC2640 /* PathMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PathMenu-umbrella.h"; sourceTree = "<group>"; };
+		5324436CC65840A22A7ABD2C49523466 /* FormViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormViewController.swift; path = Former/Controllers/FormViewController.swift; sourceTree = "<group>"; };
+		534179E88B6396D806F6CC7201AA553F /* Former.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Former.h; path = Former/Former.h; sourceTree = "<group>"; };
+		5E189D8A26F7722D648037CCA55A456E /* FormSelectorDatePickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormSelectorDatePickerCell.swift; path = Former/Cells/FormSelectorDatePickerCell.swift; sourceTree = "<group>"; };
+		6324EB6309908A2F52C23197F8A3EE68 /* PathMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PathMenu.xcconfig; sourceTree = "<group>"; };
+		654708E01D5560776AE96FB2D5E704CB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		664994AAB1B71E2948EDFBB2145D065B /* FormSegmentedCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormSegmentedCell.swift; path = Former/Cells/FormSegmentedCell.swift; sourceTree = "<group>"; };
+		6880D5EF92952B214EEC4141C7604946 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69C1C894FD5595F294CE4CCBE8EC085B /* SliderRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SliderRowFormer.swift; path = Former/RowFormers/SliderRowFormer.swift; sourceTree = "<group>"; };
+		6BE9BCB0EF98FF1284D081B7FD140CDC /* LabelViewFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelViewFormer.swift; path = Former/ViewFormers/LabelViewFormer.swift; sourceTree = "<group>"; };
+		6FEA27F27906FD56560A6A9D44652921 /* Pods-PettyCash-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PettyCash-umbrella.h"; sourceTree = "<group>"; };
+		70E58FF27EC513ED8883DEE7EDDB20C2 /* FormSliderCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormSliderCell.swift; path = Former/Cells/FormSliderCell.swift; sourceTree = "<group>"; };
+		740C7BA959BE519E20F2FE23FC8F0A22 /* CheckRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckRowFormer.swift; path = Former/RowFormers/CheckRowFormer.swift; sourceTree = "<group>"; };
+		743DDEC3DE3A43DE845D32BC83A6E41D /* SelectorDatePickerRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorDatePickerRowFormer.swift; path = Former/RowFormers/SelectorDatePickerRowFormer.swift; sourceTree = "<group>"; };
+		79339FAE621FE83CBB47C546E6C5B4A5 /* FormTextViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormTextViewCell.swift; path = Former/Cells/FormTextViewCell.swift; sourceTree = "<group>"; };
+		7961A9DB604D8057CAE2C3D8C8ED941E /* SelectorPickerRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorPickerRowFormer.swift; path = Former/RowFormers/SelectorPickerRowFormer.swift; sourceTree = "<group>"; };
+		7C69610F618B11FA92B496C6380F6676 /* FormCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormCell.swift; path = Former/Cells/FormCell.swift; sourceTree = "<group>"; };
+		7CB2F341FB5FE968E58EDF1C674852BB /* Pods-PettyCash-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PettyCash-resources.sh"; sourceTree = "<group>"; };
+		7CFE53F864932FBA05464C9171778A8B /* SwitchRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchRowFormer.swift; path = Former/RowFormers/SwitchRowFormer.swift; sourceTree = "<group>"; };
+		83DCE11EC9C36267FCD28B4A2EEEF5DA /* Former-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Former-prefix.pch"; sourceTree = "<group>"; };
+		8620F8DDA4DDE349F6544BD7CDF68533 /* PathMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PathMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D8CF106C948D1A8B3EF374343F924FD /* FormInlineDatePickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormInlineDatePickerCell.swift; path = Former/Cells/FormInlineDatePickerCell.swift; sourceTree = "<group>"; };
+		90298389DAC1F3972A580671DFC73A67 /* RowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowFormer.swift; path = Former/Commons/RowFormer.swift; sourceTree = "<group>"; };
+		90CBFB4A953A5E9696CFCA4D55A71E7D /* TextViewRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextViewRowFormer.swift; path = Former/RowFormers/TextViewRowFormer.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97002AE006FC5E02B55E9602D5752F80 /* SectionFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SectionFormer.swift; path = Former/Commons/SectionFormer.swift; sourceTree = "<group>"; };
+		9FE8B1DC4696050253E6C6EBDD3BB01F /* FormPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormPickerCell.swift; path = Former/Cells/FormPickerCell.swift; sourceTree = "<group>"; };
+		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A59C62C189E03DD71C65CC356F386F0F /* Former-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Former-umbrella.h"; sourceTree = "<group>"; };
+		AB28B16325E129924BFFF1A66D2A6AF9 /* FormLabelCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormLabelCell.swift; path = Former/Cells/FormLabelCell.swift; sourceTree = "<group>"; };
+		AD4ADF732176D92BCB6C040DF684E103 /* Pods-PettyCash-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PettyCash-frameworks.sh"; sourceTree = "<group>"; };
+		B8947FD13117308B2CFF6CD3E384EEAE /* UITableViewCell+Former.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+Former.swift"; path = "Former/Helpers/UITableViewCell+Former.swift"; sourceTree = "<group>"; };
+		BEEEFF8A6711A28930B90B1F10F039C8 /* Former.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Former.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C502419E26F01F95D71BE4026B4610C4 /* DatePickerRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerRowFormer.swift; path = Former/RowFormers/DatePickerRowFormer.swift; sourceTree = "<group>"; };
+		C788C87D986D169840053F560D7263B8 /* PathMenuItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathMenuItem.swift; path = PathMenu/PathMenuItem.swift; sourceTree = "<group>"; };
+		CAB1298B854A3C2A1163AB9EF5EA0F59 /* PathMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PathMenu.modulemap; sourceTree = "<group>"; };
+		CB653D649B778CEC98D2ED613FEA0A31 /* FormTextFieldCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormTextFieldCell.swift; path = Former/Cells/FormTextFieldCell.swift; sourceTree = "<group>"; };
+		CD9C6CAEBC36A602701F565819C9995D /* ViewFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewFormer.swift; path = Former/Commons/ViewFormer.swift; sourceTree = "<group>"; };
+		D0DC8020094CCAE2715748A943A9630F /* FormInlinePickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormInlinePickerCell.swift; path = Former/Cells/FormInlinePickerCell.swift; sourceTree = "<group>"; };
+		D1934461B4C7A52B83AAA8C317102CA7 /* Pods-PettyCash-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PettyCash-acknowledgements.plist"; sourceTree = "<group>"; };
+		D1B8336C7B6A10A31BD39BE328239EF8 /* Former.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Former.modulemap; sourceTree = "<group>"; };
+		D5FA85BD3BB9AA8E27D7C858B9D57862 /* FormerProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormerProtocol.swift; path = Former/Commons/FormerProtocol.swift; sourceTree = "<group>"; };
+		D628DAC83925905F49100456731B183E /* InlineDatePickerRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineDatePickerRowFormer.swift; path = Former/RowFormers/InlineDatePickerRowFormer.swift; sourceTree = "<group>"; };
+		DF08C769D3A811B8D7B0071022B530DC /* CustomViewFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomViewFormer.swift; path = Former/ViewFormers/CustomViewFormer.swift; sourceTree = "<group>"; };
+		E022DBD3DBA4FC1CAE2BF5FAB9679D51 /* Former.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Former.xcconfig; sourceTree = "<group>"; };
+		E30DF11C3B3BCC38763A698B91F8F4ED /* FormStepperCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormStepperCell.swift; path = Former/Cells/FormStepperCell.swift; sourceTree = "<group>"; };
+		E6FC06E7169AF883B2B4AEC18D394B92 /* Pods_PettyCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PettyCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EC0B1D16C8D70B031B766B51AD8F4047 /* PathMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PathMenu-prefix.pch"; sourceTree = "<group>"; };
+		EDF64985C95A9FDD3764EA4F1195224E /* SegmentedRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedRowFormer.swift; path = Former/RowFormers/SegmentedRowFormer.swift; sourceTree = "<group>"; };
+		EEBD8F4BA55D3DAF325797199289ED41 /* FormDatePickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormDatePickerCell.swift; path = Former/Cells/FormDatePickerCell.swift; sourceTree = "<group>"; };
+		EEE08BF091408E027A1B94BB6563DFFC /* InlinePickerRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlinePickerRowFormer.swift; path = Former/RowFormers/InlinePickerRowFormer.swift; sourceTree = "<group>"; };
+		F3BCCC3FA5161563BCFC23C3D783E59D /* Pods-PettyCash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PettyCash.modulemap"; sourceTree = "<group>"; };
+		F5A45C996451BD2FED074CE6521D9CA8 /* PickerRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerRowFormer.swift; path = Former/RowFormers/PickerRowFormer.swift; sourceTree = "<group>"; };
+		F6925CA66D08421EA82D46F9B21D8D02 /* LabelRowFormer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelRowFormer.swift; path = Former/RowFormers/LabelRowFormer.swift; sourceTree = "<group>"; };
+		F702C8B8867774B4B03BBF75F1A701DB /* Former-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Former-dummy.m"; sourceTree = "<group>"; };
+		F8B9A14563749D7BB0018155776DD920 /* Former.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Former.swift; path = Former/Commons/Former.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		519982371881FD7F47A2EA3CB8BF490D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9272D06FFA180407A509EC3A8A61AC3 /* Foundation.framework in Frameworks */,
+				5BD477ACEDEC9DC483ECA24B10F5FE0E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		987EC3C38FC8F3A296A2E2895C458D4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D3A1605DD91EEF6DC4FD208211A3DEE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F480A32287C0B2EB3EC2C5AC3AE11931 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD440DA796BACE8AE3B76FA8FCD412F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13804F73ADB347FF08ECFC044410AFEE /* Pods-PettyCash */ = {
+			isa = PBXGroup;
+			children = (
+				654708E01D5560776AE96FB2D5E704CB /* Info.plist */,
+				F3BCCC3FA5161563BCFC23C3D783E59D /* Pods-PettyCash.modulemap */,
+				3AF81AFD3104FCAA44C552C185B2B948 /* Pods-PettyCash-acknowledgements.markdown */,
+				D1934461B4C7A52B83AAA8C317102CA7 /* Pods-PettyCash-acknowledgements.plist */,
+				2E20B8A0DC2C10A6A6A0B6C09AB0D492 /* Pods-PettyCash-dummy.m */,
+				AD4ADF732176D92BCB6C040DF684E103 /* Pods-PettyCash-frameworks.sh */,
+				7CB2F341FB5FE968E58EDF1C674852BB /* Pods-PettyCash-resources.sh */,
+				6FEA27F27906FD56560A6A9D44652921 /* Pods-PettyCash-umbrella.h */,
+				484173400298BFFF02EA31E483257696 /* Pods-PettyCash.debug.xcconfig */,
+				1394EFAAB4C4C763F628FAB970C85F2B /* Pods-PettyCash.release.xcconfig */,
+			);
+			name = "Pods-PettyCash";
+			path = "Target Support Files/Pods-PettyCash";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		629534499DC3AC7CACCDAC9655746F7A /* PathMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4753E440EE62F86DAFBF280BD112D824 /* PathMenu.swift */,
+				C788C87D986D169840053F560D7263B8 /* PathMenuItem.swift */,
+				D8CBF557BC40B0E49488194C028EBD52 /* Support Files */,
+			);
+			path = PathMenu;
+			sourceTree = "<group>";
+		};
+		671A93F0E871F500EDB16B93C9F700F6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				13804F73ADB347FF08ECFC044410AFEE /* Pods-PettyCash */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				8A373E5FDECC995BFD8CD61D5D515C80 /* Pods */,
+				A9662A9D1BDF31B5CA107E5E79A65C9D /* Products */,
+				671A93F0E871F500EDB16B93C9F700F6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8A373E5FDECC995BFD8CD61D5D515C80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A16B7D1D8743D2248CA260E126B0CE0E /* Former */,
+				629534499DC3AC7CACCDAC9655746F7A /* PathMenu */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A16B7D1D8743D2248CA260E126B0CE0E /* Former */ = {
+			isa = PBXGroup;
+			children = (
+				36D43D789096E3539E1C0DC5D4DBD079 /* BaseRowFormer.swift */,
+				118D3A6E1D8735115670F1165F91401C /* BaseViewFormer.swift */,
+				740C7BA959BE519E20F2FE23FC8F0A22 /* CheckRowFormer.swift */,
+				04A6BD6F39A667B845C61D9254199563 /* CustomRowFormer.swift */,
+				DF08C769D3A811B8D7B0071022B530DC /* CustomViewFormer.swift */,
+				C502419E26F01F95D71BE4026B4610C4 /* DatePickerRowFormer.swift */,
+				7C69610F618B11FA92B496C6380F6676 /* FormCell.swift */,
+				38211F0F8AD450F4E3176CCE6B25F505 /* FormCheckCell.swift */,
+				EEBD8F4BA55D3DAF325797199289ED41 /* FormDatePickerCell.swift */,
+				534179E88B6396D806F6CC7201AA553F /* Former.h */,
+				F8B9A14563749D7BB0018155776DD920 /* Former.swift */,
+				D5FA85BD3BB9AA8E27D7C858B9D57862 /* FormerProtocol.swift */,
+				2DE3E30BAF81E979E55DA5857E99E18C /* FormHeaderFooterView.swift */,
+				8D8CF106C948D1A8B3EF374343F924FD /* FormInlineDatePickerCell.swift */,
+				D0DC8020094CCAE2715748A943A9630F /* FormInlinePickerCell.swift */,
+				AB28B16325E129924BFFF1A66D2A6AF9 /* FormLabelCell.swift */,
+				0628BD69165800AF0ABA7BED74C5423E /* FormLabelFooterView.swift */,
+				0F156962470CF5C5D1D1E3E8BE7AC476 /* FormLabelHeaderView.swift */,
+				9FE8B1DC4696050253E6C6EBDD3BB01F /* FormPickerCell.swift */,
+				664994AAB1B71E2948EDFBB2145D065B /* FormSegmentedCell.swift */,
+				5E189D8A26F7722D648037CCA55A456E /* FormSelectorDatePickerCell.swift */,
+				0D9CBB9CDE31B5A630672C084C572828 /* FormSelectorPickerCell.swift */,
+				70E58FF27EC513ED8883DEE7EDDB20C2 /* FormSliderCell.swift */,
+				E30DF11C3B3BCC38763A698B91F8F4ED /* FormStepperCell.swift */,
+				260F288FBF3C2EE270456668D0D4F697 /* FormSwitchCell.swift */,
+				CB653D649B778CEC98D2ED613FEA0A31 /* FormTextFieldCell.swift */,
+				79339FAE621FE83CBB47C546E6C5B4A5 /* FormTextViewCell.swift */,
+				5324436CC65840A22A7ABD2C49523466 /* FormViewController.swift */,
+				D628DAC83925905F49100456731B183E /* InlineDatePickerRowFormer.swift */,
+				EEE08BF091408E027A1B94BB6563DFFC /* InlinePickerRowFormer.swift */,
+				F6925CA66D08421EA82D46F9B21D8D02 /* LabelRowFormer.swift */,
+				6BE9BCB0EF98FF1284D081B7FD140CDC /* LabelViewFormer.swift */,
+				F5A45C996451BD2FED074CE6521D9CA8 /* PickerRowFormer.swift */,
+				90298389DAC1F3972A580671DFC73A67 /* RowFormer.swift */,
+				97002AE006FC5E02B55E9602D5752F80 /* SectionFormer.swift */,
+				EDF64985C95A9FDD3764EA4F1195224E /* SegmentedRowFormer.swift */,
+				743DDEC3DE3A43DE845D32BC83A6E41D /* SelectorDatePickerRowFormer.swift */,
+				7961A9DB604D8057CAE2C3D8C8ED941E /* SelectorPickerRowFormer.swift */,
+				69C1C894FD5595F294CE4CCBE8EC085B /* SliderRowFormer.swift */,
+				048088C622D449786A74D41FEFF7E786 /* StepperRowFormer.swift */,
+				7CFE53F864932FBA05464C9171778A8B /* SwitchRowFormer.swift */,
+				0367D4BD96C7D33BAEE580B70A6906B2 /* TextFieldRowFormer.swift */,
+				90CBFB4A953A5E9696CFCA4D55A71E7D /* TextViewRowFormer.swift */,
+				B8947FD13117308B2CFF6CD3E384EEAE /* UITableViewCell+Former.swift */,
+				CD9C6CAEBC36A602701F565819C9995D /* ViewFormer.swift */,
+				B4355C10319A7E537B47173DBC95B380 /* Support Files */,
+			);
+			path = Former;
+			sourceTree = "<group>";
+		};
+		A9662A9D1BDF31B5CA107E5E79A65C9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEEEFF8A6711A28930B90B1F10F039C8 /* Former.framework */,
+				8620F8DDA4DDE349F6544BD7CDF68533 /* PathMenu.framework */,
+				E6FC06E7169AF883B2B4AEC18D394B92 /* Pods_PettyCash.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4355C10319A7E537B47173DBC95B380 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1B8336C7B6A10A31BD39BE328239EF8 /* Former.modulemap */,
+				E022DBD3DBA4FC1CAE2BF5FAB9679D51 /* Former.xcconfig */,
+				F702C8B8867774B4B03BBF75F1A701DB /* Former-dummy.m */,
+				83DCE11EC9C36267FCD28B4A2EEEF5DA /* Former-prefix.pch */,
+				A59C62C189E03DD71C65CC356F386F0F /* Former-umbrella.h */,
+				145C3AFC69325A41FEBEEF01AEA84124 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Former";
+			sourceTree = "<group>";
+		};
+		D8CBF557BC40B0E49488194C028EBD52 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6880D5EF92952B214EEC4141C7604946 /* Info.plist */,
+				CAB1298B854A3C2A1163AB9EF5EA0F59 /* PathMenu.modulemap */,
+				6324EB6309908A2F52C23197F8A3EE68 /* PathMenu.xcconfig */,
+				0E93871095228A2226039F47768C2770 /* PathMenu-dummy.m */,
+				EC0B1D16C8D70B031B766B51AD8F4047 /* PathMenu-prefix.pch */,
+				52E57F0C8FE3BD197E241DDC1DAC2640 /* PathMenu-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PathMenu";
+			sourceTree = "<group>";
+		};
+		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */,
+				E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		832AC43CBD5363F2E405204673883FB6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAF350252004027BBC5887743BE4F28C /* Pods-PettyCash-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68A4235C08CF4B6C458ADBD698D15A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5E9C1581087351C9DF064851D0DC3D /* PathMenu-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F88D9223A54B77C4CB5702ECFD806F33 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D59F9BD4BA223BC2F212BFF2E394E6B7 /* Former-umbrella.h in Headers */,
+				2827F0609108B69322A9981B5E1E4116 /* Former.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		74CB1562008169CD46736E6F113D9CE9 /* PathMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BE62153F767B5A53C6554C4B0EECCBC /* Build configuration list for PBXNativeTarget "PathMenu" */;
+			buildPhases = (
+				949EB2A6D88FDF14D91721D9E5DC6D7C /* Sources */,
+				987EC3C38FC8F3A296A2E2895C458D4D /* Frameworks */,
+				D68A4235C08CF4B6C458ADBD698D15A2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PathMenu;
+			productName = PathMenu;
+			productReference = 8620F8DDA4DDE349F6544BD7CDF68533 /* PathMenu.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		95FF7DB4CE744F8D1E33FB23A3F3A0DD /* Pods-PettyCash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 350D7DAE0A867455317F70ECA24E026B /* Build configuration list for PBXNativeTarget "Pods-PettyCash" */;
+			buildPhases = (
+				FE52CA8CB4E69C168085AE5937528532 /* Sources */,
+				F480A32287C0B2EB3EC2C5AC3AE11931 /* Frameworks */,
+				832AC43CBD5363F2E405204673883FB6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B91E4ED7F358F233ABD701E3B5BC8085 /* PBXTargetDependency */,
+				B4DBE789D6D374A6CF3ED8039FE18A59 /* PBXTargetDependency */,
+			);
+			name = "Pods-PettyCash";
+			productName = "Pods-PettyCash";
+			productReference = E6FC06E7169AF883B2B4AEC18D394B92 /* Pods_PettyCash.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		980933AEBFB68262FC5D0C757539CEE4 /* Former */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D30C336D5124961EDED1B7202DE8A490 /* Build configuration list for PBXNativeTarget "Former" */;
+			buildPhases = (
+				955164A2499B14122FF983D999DB2A83 /* Sources */,
+				519982371881FD7F47A2EA3CB8BF490D /* Frameworks */,
+				F88D9223A54B77C4CB5702ECFD806F33 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Former;
+			productName = Former;
+			productReference = BEEEFF8A6711A28930B90B1F10F039C8 /* Former.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A9662A9D1BDF31B5CA107E5E79A65C9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				980933AEBFB68262FC5D0C757539CEE4 /* Former */,
+				74CB1562008169CD46736E6F113D9CE9 /* PathMenu */,
+				95FF7DB4CE744F8D1E33FB23A3F3A0DD /* Pods-PettyCash */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		949EB2A6D88FDF14D91721D9E5DC6D7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D88B38860B6EA4504CF6D0CA4DD35C9 /* PathMenu-dummy.m in Sources */,
+				1651404BF5F8997F4F7D1E1D7CD1B8CA /* PathMenu.swift in Sources */,
+				31A3DA29A043892C3AEF4BA0352EBDF3 /* PathMenuItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		955164A2499B14122FF983D999DB2A83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74D81C785F26A24C43C1B0A6B7182248 /* BaseRowFormer.swift in Sources */,
+				5DA8F0E77126E515FFC036C41207A2BF /* BaseViewFormer.swift in Sources */,
+				5427D5D1E3D2159A06A86275920518EA /* CheckRowFormer.swift in Sources */,
+				043AE90438947CFDBB906E145A417B7C /* CustomRowFormer.swift in Sources */,
+				D0F6C7C9787B86A475CF8716587DBFF8 /* CustomViewFormer.swift in Sources */,
+				633ADB525829CACC2F8E33D6CC7AB4F0 /* DatePickerRowFormer.swift in Sources */,
+				174CC2269909901D491DF64ACCA8C37E /* FormCell.swift in Sources */,
+				67D88B09B3CBD2FBDFD595D4225AC714 /* FormCheckCell.swift in Sources */,
+				4D9B38B065F35F633FA49D606F8150BD /* FormDatePickerCell.swift in Sources */,
+				D57517AD8044C5DDC55111C953B5D067 /* Former-dummy.m in Sources */,
+				F6DA4337DD6F668DD718901B0CD7B4B5 /* Former.swift in Sources */,
+				40A72ADEA22A07A31673387DDEFF9139 /* FormerProtocol.swift in Sources */,
+				D3902B9865245AFED32C755615EAC7BD /* FormHeaderFooterView.swift in Sources */,
+				EF579B14B5DC267DDF0DC7A8B282C6C8 /* FormInlineDatePickerCell.swift in Sources */,
+				452A4FB41B239ADA1F50D077E6D52C2A /* FormInlinePickerCell.swift in Sources */,
+				E1E2180D8113197E0CC97872828ED5C2 /* FormLabelCell.swift in Sources */,
+				E40926B2B81858537B4508290684EE2D /* FormLabelFooterView.swift in Sources */,
+				0248D844F00EA447E0BCF48D8615C0A2 /* FormLabelHeaderView.swift in Sources */,
+				57DB472403F3FEF372E7A6FBF66DB87E /* FormPickerCell.swift in Sources */,
+				9DBBAF2EBCB60BF32F511A03663977F3 /* FormSegmentedCell.swift in Sources */,
+				DA7F46A9F86244A13054F6D20736D72B /* FormSelectorDatePickerCell.swift in Sources */,
+				7D13532E5F5277FB1762987D993E906B /* FormSelectorPickerCell.swift in Sources */,
+				D6619C39550F7B88EF059D4A22FFAFFD /* FormSliderCell.swift in Sources */,
+				099788C8A0F4AC704C6D6B1DDD832AF0 /* FormStepperCell.swift in Sources */,
+				3280A95CB7FF1A2501113F3F521CA237 /* FormSwitchCell.swift in Sources */,
+				E26151CDF788721AD0E244372389F9EB /* FormTextFieldCell.swift in Sources */,
+				12937A4F554E9DEF35546F7E53092A89 /* FormTextViewCell.swift in Sources */,
+				CC72BC2A27E3D5E7558EF0E29DE9608F /* FormViewController.swift in Sources */,
+				7873BF12564A7CA735F2D8D90C22E8FB /* InlineDatePickerRowFormer.swift in Sources */,
+				3DC0A86E4D89A401477364CF8CD73A98 /* InlinePickerRowFormer.swift in Sources */,
+				93FA9E8C73608A58147E1B2F0E3D687A /* LabelRowFormer.swift in Sources */,
+				6C7C70448AAF11557E75C2197D0083D3 /* LabelViewFormer.swift in Sources */,
+				A8975C1982FCA38DCB3C1D6336AFE816 /* PickerRowFormer.swift in Sources */,
+				BECB0F4B442F029B68105B0B3FE5A27C /* RowFormer.swift in Sources */,
+				4E099D4A0452BCA807FC249DFF719922 /* SectionFormer.swift in Sources */,
+				6C3EC5853048EFD36D2805895A8E057A /* SegmentedRowFormer.swift in Sources */,
+				002CC2BFE1BF0D6883EAA72B55EBDA72 /* SelectorDatePickerRowFormer.swift in Sources */,
+				9AA04C3C57F10B96862C52A47D583260 /* SelectorPickerRowFormer.swift in Sources */,
+				FDDBC6340052A560147B4FB27ED18986 /* SliderRowFormer.swift in Sources */,
+				2E556C5FBB781A9708783A30B2124797 /* StepperRowFormer.swift in Sources */,
+				5BDEB1941727713E10C17996AD91D910 /* SwitchRowFormer.swift in Sources */,
+				D6F04886703F9DC06929845DBD9947EB /* TextFieldRowFormer.swift in Sources */,
+				FF54875678972D8C401702E7882D15E9 /* TextViewRowFormer.swift in Sources */,
+				AADB13169A72A64F2DAF2484558A17EA /* UITableViewCell+Former.swift in Sources */,
+				3721E91E880030C73BBAE614B479E4EB /* ViewFormer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE52CA8CB4E69C168085AE5937528532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BB37E0C68F644FEBB3D406C32AEB25 /* Pods-PettyCash-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4DBE789D6D374A6CF3ED8039FE18A59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PathMenu;
+			target = 74CB1562008169CD46736E6F113D9CE9 /* PathMenu */;
+			targetProxy = 4845A0E2061BBF638C87AB74ED85918D /* PBXContainerItemProxy */;
+		};
+		B91E4ED7F358F233ABD701E3B5BC8085 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Former;
+			target = 980933AEBFB68262FC5D0C757539CEE4 /* Former */;
+			targetProxy = 4D01F075C66BBB858384593182B36406 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1815D3CF3B3382D63EDCF43877C69D59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 484173400298BFFF02EA31E483257696 /* Pods-PettyCash.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-PettyCash/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PettyCash/Pods-PettyCash.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_PettyCash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		42E9BD60135EC29DB6462C8EF24EBA64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E022DBD3DBA4FC1CAE2BF5FAB9679D51 /* Former.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Former/Former-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Former/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Former/Former.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Former;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		43369697B55511C6AA6DB601B1F3EFFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6324EB6309908A2F52C23197F8A3EE68 /* PathMenu.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PathMenu/PathMenu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PathMenu/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PathMenu/PathMenu.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PathMenu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5D0DB8FEFD3E7B9166F46E7D2F46387B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6324EB6309908A2F52C23197F8A3EE68 /* PathMenu.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PathMenu/PathMenu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PathMenu/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PathMenu/PathMenu.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PathMenu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A81CE0399DA49811B26D43919DD3C9FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1394EFAAB4C4C763F628FAB970C85F2B /* Pods-PettyCash.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-PettyCash/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PettyCash/Pods-PettyCash.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_PettyCash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F45A8DB00E9DBF8E2353CF3BC19417D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E022DBD3DBA4FC1CAE2BF5FAB9679D51 /* Former.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Former/Former-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Former/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Former/Former.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Former;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2BE62153F767B5A53C6554C4B0EECCBC /* Build configuration list for PBXNativeTarget "PathMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43369697B55511C6AA6DB601B1F3EFFF /* Debug */,
+				5D0DB8FEFD3E7B9166F46E7D2F46387B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034014829C1E4434983CF3A690C12017 /* Debug */,
+				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		350D7DAE0A867455317F70ECA24E026B /* Build configuration list for PBXNativeTarget "Pods-PettyCash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1815D3CF3B3382D63EDCF43877C69D59 /* Debug */,
+				A81CE0399DA49811B26D43919DD3C9FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D30C336D5124961EDED1B7202DE8A490 /* Build configuration list for PBXNativeTarget "Former" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42E9BD60135EC29DB6462C8EF24EBA64 /* Debug */,
+				F45A8DB00E9DBF8E2353CF3BC19417D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

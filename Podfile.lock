@@ -1,0 +1,15 @@
+PODS:
+  - Former (1.4.0)
+  - PathMenu (1.1.0)
+
+DEPENDENCIES:
+  - Former
+  - PathMenu
+
+SPEC CHECKSUMS:
+  Former: 98a7915b1b2383270edfaee9eed785df4a259048
+  PathMenu: 3743f569d97645c3eb673a67388d176258d183d5
+
+PODFILE CHECKSUM: 2f61e0aaf968e17fd1fa4e1d8d85fa497db12e2d
+
+COCOAPODS: 1.0.1
