@@ -6,5 +6,6 @@ target 'PettyCash' do
   pod 'PathMenu'
   pod 'Former'
   pod 'ChameleonFramework/Swift'
+  pod 'DZNEmptyDataSet'
 
 end

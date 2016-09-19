@@ -2,19 +2,22 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - DZNEmptyDataSet (1.8.1)
   - Former (1.4.0)
   - PathMenu (1.1.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
+  - DZNEmptyDataSet
   - Former
   - PathMenu
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Former: 98a7915b1b2383270edfaee9eed785df4a259048
   PathMenu: 3743f569d97645c3eb673a67388d176258d183d5
 
-PODFILE CHECKSUM: f9fa645292ea2628c73e55b5634010fb1681ca2e
+PODFILE CHECKSUM: 06189e2e907ca2efd03ec0259799b51c8c96cf44
 
 COCOAPODS: 1.0.1
