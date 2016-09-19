@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import PathMenu
+import ChameleonFramework
 
 class GameViewController: UIViewController {
 
@@ -26,11 +27,15 @@ class GameViewController: UIViewController {
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
+            scene.backgroundColor = UIColor.flatSkyBlueColor()
+            //scene.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatGreenColor(), UIColor.flatWhiteColor(), UIColor.flatSkyBlueColor()])
+            //scene.backgroundColor = UIColor(gradientStyle: UIGradientStyle.TopToBottom, withFrame: self.view.bounds, andColors: [UIColor.flatGreenColor(), UIColor.flatWhiteColor(), UIColor.flatSkyBlueColor()])
             
             skView.presentScene(scene)
-            
-            self.makePathMenu()
         }
+        
+        self.makePathMenu()
+        
     }
 
     override func shouldAutorotate() -> Bool {
@@ -86,7 +91,6 @@ class GameViewController: UIViewController {
         menu.animationDuration = 0.5
         
         view.addSubview(menu)
-        view.backgroundColor = UIColor(red:0.96, green:0.94, blue:0.92, alpha:1)
         
     }
     
