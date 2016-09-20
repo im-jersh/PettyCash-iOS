@@ -8,27 +8,27 @@
 
 import UIKit
 
-public class FormSwitchCell: FormCell, SwitchFormableRow {
+open class FormSwitchCell: FormCell, SwitchFormableRow {
     
     // MARK: Public
     
-    public private(set) weak var titleLabel: UILabel!
-    public private(set) weak var switchButton: UISwitch!
+    open fileprivate(set) weak var titleLabel: UILabel!
+    open fileprivate(set) weak var switchButton: UISwitch!
     
-    public func formTitleLabel() -> UILabel? {
+    open func formTitleLabel() -> UILabel? {
         return titleLabel
     }
     
-    public func formSwitch() -> UISwitch {
+    open func formSwitch() -> UISwitch {
         return switchButton
     }
     
-    public override func setup() {
+    open override func setup() {
         super.setup()
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.insertSubview(titleLabel, atIndex: 0)
+        contentView.insertSubview(titleLabel, at: 0)
         self.titleLabel = titleLabel
         
         let switchButton = UISwitch()
@@ -36,14 +36,14 @@ public class FormSwitchCell: FormCell, SwitchFormableRow {
         self.switchButton = switchButton
 
         let constraints = [
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-0-[label]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[label]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["label": titleLabel]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-15-[label(>=0)]",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-15-[label(>=0)]",
                 options: [],
                 metrics: nil,
                 views: ["label": titleLabel]

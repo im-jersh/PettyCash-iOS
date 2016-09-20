@@ -15,43 +15,43 @@ public protocol StepperFormableRow: FormableRow {
     func formDisplayLabel() -> UILabel?
 }
 
-public class StepperRowFormer<T: UITableViewCell where T: StepperFormableRow>
-: BaseRowFormer<T>, Formable {
+open class StepperRowFormer<T: UITableViewCell>
+: BaseRowFormer<T>, Formable where T: StepperFormableRow {
     
     // MARK: Public
     
-    public var value: Double = 0
-    public var titleDisabledColor: UIColor? = .lightGrayColor()
-    public var displayDisabledColor: UIColor? = .lightGrayColor()
+    open var value: Double = 0
+    open var titleDisabledColor: UIColor? = .lightGray
+    open var displayDisabledColor: UIColor? = .lightGray
     
-    public required init(instantiateType: Former.InstantiateType = .Class, cellSetup: (T -> Void)? = nil) {
+    public required init(instantiateType: Former.InstantiateType = .class, cellSetup: ((T) -> Void)? = nil) {
         super.init(instantiateType: instantiateType, cellSetup: cellSetup)
     }
     
-    public final func onValueChanged(handler: (Double -> Void)) -> Self {
+    public final func onValueChanged(_ handler: @escaping ((Double) -> Void)) -> Self {
         onValueChanged = handler
         return self
     }
     
-    public final func displayTextFromValue(handler: (Double -> String?)) -> Self {
+    public final func displayTextFromValue(_ handler: @escaping ((Double) -> String?)) -> Self {
         displayTextFromValue = handler
         return self
     }
     
-    public override func cellInitialized(cell: T) {
+    open override func cellInitialized(_ cell: T) {
         super.cellInitialized(cell)
-        cell.formStepper().addTarget(self, action: #selector(StepperRowFormer.valueChanged(_:)), forControlEvents: .ValueChanged)
+        cell.formStepper().addTarget(self, action: #selector(StepperRowFormer.valueChanged(_:)), for: .valueChanged)
     }
     
-    public override func update() {
+    open override func update() {
         super.update()
         
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         let titleLabel = cell.formTitleLabel()
         let displayLabel = cell.formDisplayLabel()
         let stepper = cell.formStepper()
         stepper.value = value
-        stepper.enabled = enabled
+        stepper.isEnabled = enabled
         displayLabel?.text = displayTextFromValue?(value) ?? "\(value)"
         
         if enabled {
@@ -62,24 +62,24 @@ public class StepperRowFormer<T: UITableViewCell where T: StepperFormableRow>
             displayColor = nil
             stepperTintColor = nil
         } else {
-            if titleColor == nil { titleColor = titleLabel?.textColor ?? .blackColor() }
-            if displayColor == nil { displayColor = displayLabel?.textColor ?? .blackColor() }
+            if titleColor == nil { titleColor = titleLabel?.textColor ?? .black }
+            if displayColor == nil { displayColor = displayLabel?.textColor ?? .black }
             if stepperTintColor == nil { stepperTintColor = stepper.tintColor }
             titleLabel?.textColor = titleDisabledColor
             displayLabel?.textColor = displayDisabledColor
-            stepper.tintColor = stepperTintColor?.colorWithAlphaComponent(0.5)
+            stepper.tintColor = stepperTintColor?.withAlphaComponent(0.5)
         }
     }
     
     // MARK: Private
     
-    private final var onValueChanged: (Double -> Void)?
-    private final var displayTextFromValue: (Double -> String?)?
-    private final var titleColor: UIColor?
-    private final var displayColor: UIColor?
-    private final var stepperTintColor: UIColor?
+    fileprivate final var onValueChanged: ((Double) -> Void)?
+    fileprivate final var displayTextFromValue: ((Double) -> String?)?
+    fileprivate final var titleColor: UIColor?
+    fileprivate final var displayColor: UIColor?
+    fileprivate final var stepperTintColor: UIColor?
     
-    private dynamic func valueChanged(stepper: UIStepper) {
+    fileprivate dynamic func valueChanged(_ stepper: UIStepper) {
         let value = stepper.value
         self.value = value
         cell.formDisplayLabel()?.text = displayTextFromValue?(value) ?? "\(value)"
