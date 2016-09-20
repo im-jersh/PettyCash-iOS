@@ -26,8 +26,8 @@ class GameViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            scene.backgroundColor = UIColor.flatSkyBlueColor()
+            scene.scaleMode = .aspectFill
+            scene.backgroundColor = UIColor.flatSkyBlue()
             //scene.backgroundColor = GradientColor(.TopToBottom, frame: view.frame, colors: [UIColor.flatGreenColor(), UIColor.flatWhiteColor(), UIColor.flatSkyBlueColor()])
             //scene.backgroundColor = UIColor(gradientStyle: UIGradientStyle.TopToBottom, withFrame: self.view.bounds, andColors: [UIColor.flatGreenColor(), UIColor.flatWhiteColor(), UIColor.flatSkyBlueColor()])
             
@@ -38,15 +38,15 @@ class GameViewController: UIViewController {
         
     }
 
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
         } else {
-            return .All
+            return .all
         }
     }
 
@@ -55,7 +55,7 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
@@ -81,7 +81,7 @@ class GameViewController: UIViewController {
         let menu = PathMenu(frame: view.bounds, startItem: startItem, items: items)
         menu.delegate = self
         
-        menu.startPoint     = CGPointMake(UIScreen.mainScreen().bounds.width/2, view.frame.size.height - 30.0)
+        menu.startPoint     = CGPoint(x: UIScreen.main.bounds.width/2, y: view.frame.size.height - 30.0)
         menu.menuWholeAngle = CGFloat(M_PI) - CGFloat(M_PI/5)
         menu.rotateAngle    = -CGFloat(M_PI_2) + CGFloat(M_PI/5) * 1/2
         menu.timeOffset     = 0.0
@@ -99,23 +99,23 @@ class GameViewController: UIViewController {
 
 extension GameViewController : PathMenuDelegate {
 
-    func pathMenu(menu: PathMenu, didSelectIndex idx: Int) {
+    func pathMenu(_ menu: PathMenu, didSelectIndex idx: Int) {
         print("Item \(idx) selected")
     }
     
-    func pathMenuWillAnimateOpen(menu: PathMenu) {
+    func pathMenuWillAnimateOpen(_ menu: PathMenu) {
         
     }
     
-    func pathMenuWillAnimateClose(menu: PathMenu) {
+    func pathMenuWillAnimateClose(_ menu: PathMenu) {
         
     }
     
-    func pathMenuDidFinishAnimationOpen(menu: PathMenu) {
+    func pathMenuDidFinishAnimationOpen(_ menu: PathMenu) {
         
     }
     
-    func pathMenuDidFinishAnimationClose(menu: PathMenu) {
+    func pathMenuDidFinishAnimationClose(_ menu: PathMenu) {
         
     }
     

@@ -8,33 +8,33 @@
 
 import UIKit
 
-public class FormPickerCell: FormCell, PickerFormableRow {
+open class FormPickerCell: FormCell, PickerFormableRow {
     
     // MARK: Public
     
-    public private(set) weak var pickerView: UIPickerView!
+    open fileprivate(set) weak var pickerView: UIPickerView!
     
-    public func formPickerView() -> UIPickerView {
+    open func formPickerView() -> UIPickerView {
         return pickerView
     }
     
-    public override func setup() {
+    open override func setup() {
         super.setup()
         
         let pickerView = UIPickerView()
         pickerView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.insertSubview(pickerView, atIndex: 0)
+        contentView.insertSubview(pickerView, at: 0)
         self.pickerView = pickerView
         
         let constraints = [
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-15-[picker]-15-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-15-[picker]-15-|",
                 options: [],
                 metrics: nil,
                 views: ["picker": pickerView]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-0-[picker]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[picker]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["picker": pickerView]

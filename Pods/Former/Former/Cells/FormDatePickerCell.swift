@@ -8,33 +8,33 @@
 
 import UIKit
 
-public class FormDatePickerCell: FormCell, DatePickerFormableRow {
+open class FormDatePickerCell: FormCell, DatePickerFormableRow {
     
     // MARK: Public
     
-    public private(set) weak var datePicker: UIDatePicker!
+    open fileprivate(set) weak var datePicker: UIDatePicker!
     
-    public func formDatePicker() -> UIDatePicker {
+    open func formDatePicker() -> UIDatePicker {
         return datePicker
     }
     
-    public override func setup() {
+    open override func setup() {
         super.setup()
         
         let datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
-        contentView.insertSubview(datePicker, atIndex: 0)
+        contentView.insertSubview(datePicker, at: 0)
         self.datePicker = datePicker
         
         let constraints = [
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-15-[picker]-15-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-15-[picker]-15-|",
                 options: [],
                 metrics: nil,
                 views: ["picker": datePicker]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-0-[picker]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[picker]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["picker": datePicker]

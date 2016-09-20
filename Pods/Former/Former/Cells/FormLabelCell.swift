@@ -8,57 +8,57 @@
 
 import UIKit
 
-public class FormLabelCell: FormCell, LabelFormableRow {
+open class FormLabelCell: FormCell, LabelFormableRow {
     
     // MARK: Public
     
-    public private(set) weak var titleLabel: UILabel!
-    public private(set) weak var subTextLabel: UILabel!
+    open fileprivate(set) weak var titleLabel: UILabel!
+    open fileprivate(set) weak var subTextLabel: UILabel!
     
-    public func formTextLabel() -> UILabel? {
+    open func formTextLabel() -> UILabel? {
         return titleLabel
     }
     
-    public func formSubTextLabel() -> UILabel? {
+    open func formSubTextLabel() -> UILabel? {
         return subTextLabel
     }
     
-    public override func updateWithRowFormer(rowFormer: RowFormer) {
+    open override func updateWithRowFormer(_ rowFormer: RowFormer) {
         super.updateWithRowFormer(rowFormer)
-        rightConst.constant = (accessoryType == .None) ? -15 : 0
+        rightConst.constant = (accessoryType == .none) ? -15 : 0
     }
     
-    public override func setup() {
+    open override func setup() {
         super.setup()
         
         let titleLabel = UILabel()
-        titleLabel.setContentHuggingPriority(500, forAxis: .Horizontal)
+        titleLabel.setContentHuggingPriority(500, for: .horizontal)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.insertSubview(titleLabel, atIndex: 0)
+        self.contentView.insertSubview(titleLabel, at: 0)
         self.titleLabel = titleLabel
         
         let subTextLabel = UILabel()
-        subTextLabel.textColor = .lightGrayColor()
-        subTextLabel.textAlignment = .Right
+        subTextLabel.textColor = .lightGray
+        subTextLabel.textAlignment = .right
         subTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.insertSubview(subTextLabel, atIndex: 0)
+        self.contentView.insertSubview(subTextLabel, at: 0)
         self.subTextLabel = subTextLabel
         
         let constraints = [
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-0-[title]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[title]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["title": titleLabel]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-0-[sub]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[sub]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["sub": subTextLabel]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-15-[title]-10-[sub(>=0)]",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-15-[title]-10-[sub(>=0)]",
                 options: [],
                 metrics: nil,
                 views: ["title": titleLabel, "sub": subTextLabel]
@@ -66,10 +66,10 @@ public class FormLabelCell: FormCell, LabelFormableRow {
             ].flatMap { $0 }
         let rightConst = NSLayoutConstraint(
             item: subTextLabel,
-            attribute: .Trailing,
-            relatedBy: .Equal,
+            attribute: .trailing,
+            relatedBy: .equal,
             toItem: contentView,
-            attribute: .Trailing,
+            attribute: .trailing,
             multiplier: 1,
             constant: 0
         )
@@ -79,5 +79,5 @@ public class FormLabelCell: FormCell, LabelFormableRow {
     
     // MARK: Private
     
-    private weak var rightConst: NSLayoutConstraint!
+    fileprivate weak var rightConst: NSLayoutConstraint!
 }

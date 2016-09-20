@@ -10,10 +10,10 @@ import UIKit
 
 public protocol FormableRow: class {
     
-    func updateWithRowFormer(rowFormer: RowFormer)
+    func updateWithRowFormer(_ rowFormer: RowFormer)
 }
 
-public class RowFormer {
+open class RowFormer {
     
     // MARK: Public
     
@@ -22,34 +22,34 @@ public class RowFormer {
     public final var rowHeight: CGFloat = 44
     public final var isEditing = false
     public final var enabled = true { didSet { update() } }
-    public var canBecomeEditing: Bool {
+    open var canBecomeEditing: Bool {
         return false
     }
     
     internal init<T: UITableViewCell>(
         cellType: T.Type,
         instantiateType: Former.InstantiateType,
-        cellSetup: (T -> Void)? = nil) {
+        cellSetup: ((T) -> Void)? = nil) {
             self.cellType = cellType
             self.instantiateType = instantiateType
             self.cellSetup = { cellSetup?(($0 as! T)) }
             initialized()
     }
     
-    public final func cellSetup(handler: (UITableViewCell -> Void)) -> Self {
+    public final func cellSetup(_ handler: @escaping ((UITableViewCell) -> Void)) -> Self {
         cellSetup = handler
         return self
     }
     
-    public final func dynamicRowHeight(handler: ((UITableView, NSIndexPath) -> CGFloat)) -> Self {
+    public final func dynamicRowHeight(_ handler: @escaping ((UITableView, IndexPath) -> CGFloat)) -> Self {
         dynamicRowHeight = handler
         return self
     }
     
-    public func initialized() {}
+    open func initialized() {}
     
-    public func update() {
-        cellInstance.userInteractionEnabled = enabled
+    open func update() {
+        cellInstance.isUserInteractionEnabled = enabled
         onUpdate?(self)
         
         if let formableRow = cellInstance as? FormableRow {
@@ -66,7 +66,7 @@ public class RowFormer {
         }
     }
     
-    public func cellSelected(indexPath: NSIndexPath) {
+    open func cellSelected(_ indexPath: IndexPath) {
         if enabled {
             onSelected?(self)
         }
@@ -74,21 +74,21 @@ public class RowFormer {
 
     // MARK: Internal
 
-    internal final var cellSetup: (UITableViewCell -> Void)?
-    internal final var onSelected: (RowFormer -> Void)?
-    internal final var onUpdate: (RowFormer -> Void)?
-    internal final var dynamicRowHeight: ((UITableView, NSIndexPath) -> CGFloat)?
+    internal final var cellSetup: ((UITableViewCell) -> Void)?
+    internal final var onSelected: ((RowFormer) -> Void)?
+    internal final var onUpdate: ((RowFormer) -> Void)?
+    internal final var dynamicRowHeight: ((UITableView, IndexPath) -> CGFloat)?
     
     internal final var cellInstance: UITableViewCell {
         if _cellInstance == nil {
             var cell: UITableViewCell?
             switch instantiateType {
-            case .Class:
-                cell = cellType.init(style: .Default, reuseIdentifier: nil)
-            case .Nib(nibName: let nibName):
-                cell = NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil)!.first as? UITableViewCell
+            case .class:
+                cell = cellType.init(style: .default, reuseIdentifier: nil)
+            case .nib(nibName: let nibName):
+                cell = Bundle.main.loadNibNamed(nibName, owner: nil, options: nil)!.first as? UITableViewCell
                 assert(cell != nil, "[Former] Failed to load cell from nib (\(nibName)).")
-            case .NibBundle(nibName: let nibName, bundle: let bundle):
+            case .nibBundle(nibName: let nibName, bundle: let bundle):
                 cell = bundle.loadNibNamed(nibName, owner: nil, options: nil)!.first as? UITableViewCell
                 assert(cell != nil, "[Former] Failed to load cell from nib (nibName: \(nibName), bundle: \(bundle)).")
             }
@@ -99,10 +99,10 @@ public class RowFormer {
         return _cellInstance!
     }
     
-    internal func cellInstanceInitialized(cell: UITableViewCell) {}
+    internal func cellInstanceInitialized(_ cell: UITableViewCell) {}
     
     // MARK: Private
     
-    private final var _cellInstance: UITableViewCell?
-    private final let instantiateType: Former.InstantiateType
+    fileprivate final var _cellInstance: UITableViewCell?
+    fileprivate final let instantiateType: Former.InstantiateType
 }

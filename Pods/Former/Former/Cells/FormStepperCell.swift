@@ -8,38 +8,38 @@
 
 import UIKit
 
-public class FormStepperCell: FormCell, StepperFormableRow {
+open class FormStepperCell: FormCell, StepperFormableRow {
     
     // MARK: Public
     
-    public private(set) weak var titleLabel: UILabel!
-    public private(set) weak var displayLabel: UILabel!
-    public private(set) weak var stepper: UIStepper!
+    open fileprivate(set) weak var titleLabel: UILabel!
+    open fileprivate(set) weak var displayLabel: UILabel!
+    open fileprivate(set) weak var stepper: UIStepper!
     
-    public func formTitleLabel() -> UILabel? {
+    open func formTitleLabel() -> UILabel? {
         return titleLabel
     }
     
-    public func formDisplayLabel() -> UILabel? {
+    open func formDisplayLabel() -> UILabel? {
         return displayLabel
     }
     
-    public func formStepper() -> UIStepper {
+    open func formStepper() -> UIStepper {
         return stepper
     }
     
-    public override func setup() {
+    open override func setup() {
         super.setup()
         
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.insertSubview(titleLabel, atIndex: 0)
+        contentView.insertSubview(titleLabel, at: 0)
         self.titleLabel = titleLabel
         
         let displayLabel = UILabel()
-        displayLabel.textColor = .lightGrayColor()
+        displayLabel.textColor = .lightGray
         displayLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.insertSubview(displayLabel, atIndex: 0)
+        contentView.insertSubview(displayLabel, at: 0)
         self.displayLabel = displayLabel
         
         let stepper = UIStepper()
@@ -47,20 +47,20 @@ public class FormStepperCell: FormCell, StepperFormableRow {
         self.stepper = stepper
         
         let constraints = [
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-0-[title]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[title]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["title": titleLabel]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-0-[display]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[display]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["display": displayLabel]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-15-[title]-(>=0)-[display]-5-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-15-[title]-(>=0)-[display]-5-|",
                 options: [],
                 metrics: nil,
                 views: ["title": titleLabel, "display": displayLabel]

@@ -10,33 +10,33 @@ import UIKit
 
 public protocol FormableView: class {
     
-    func updateWithViewFormer(viewFormer: ViewFormer)
+    func updateWithViewFormer(_ viewFormer: ViewFormer)
 }
 
-public class ViewFormer {
+open class ViewFormer {
     
     // MARK: Public
     
-    public var viewHeight: CGFloat = 10
+    open var viewHeight: CGFloat = 10
     
     internal init<T: UITableViewHeaderFooterView>(
         viewType: T.Type,
         instantiateType: Former.InstantiateType,
-        viewSetup: (T -> Void)? = nil) {
+        viewSetup: ((T) -> Void)? = nil) {
             self.viewType = viewType
             self.instantiateType = instantiateType
             self.viewSetup = { viewSetup?(($0 as! T)) }
             initialized()
     }
     
-    public func dynamicViewHeight(handler: ((UITableView, /*section:*/Int) -> CGFloat)) -> Self {
+    open func dynamicViewHeight(_ handler: @escaping ((UITableView, /*section:*/Int) -> CGFloat)) -> Self {
         dynamicViewHeight = handler
         return self
     }
     
-    public func initialized() {}
+    open func initialized() {}
     
-    public func update() {
+    open func update() {
         if let formableView = viewInstance as? FormableView {
             formableView.updateWithViewFormer(self)
         }
@@ -50,12 +50,12 @@ public class ViewFormer {
         if _viewInstance == nil {
             var view: UITableViewHeaderFooterView?
             switch instantiateType {
-            case .Class:
+            case .class:
                 view = viewType.init(reuseIdentifier: nil)
-            case .Nib(nibName: let nibName):
-                view = NSBundle.mainBundle().loadNibNamed(nibName, owner: nil, options: nil)!.first as? UITableViewHeaderFooterView
+            case .nib(nibName: let nibName):
+                view = Bundle.main.loadNibNamed(nibName, owner: nil, options: nil)!.first as? UITableViewHeaderFooterView
                 assert(view != nil, "[Former] Failed to load header footer view from nib (\(nibName)).")
-            case .NibBundle(nibName: let nibName, bundle: let bundle):
+            case .nibBundle(nibName: let nibName, bundle: let bundle):
                 view = bundle.loadNibNamed(nibName, owner: nil, options: nil)!.first as? UITableViewHeaderFooterView
                 assert(view != nil, "[Former] Failed to load header footer view from nib (nibName: \(nibName)), bundle: (\(bundle)).")
             }
@@ -66,12 +66,12 @@ public class ViewFormer {
         return _viewInstance!
     }
     
-    internal func viewInstanceInitialized(view: UITableViewHeaderFooterView) {}
+    internal func viewInstanceInitialized(_ view: UITableViewHeaderFooterView) {}
     
     // MARK: Private
     
-    private var _viewInstance: UITableViewHeaderFooterView?
-    private final let viewType: UITableViewHeaderFooterView.Type
-    private final let instantiateType: Former.InstantiateType
-    private final let viewSetup: (UITableViewHeaderFooterView -> Void)
+    fileprivate var _viewInstance: UITableViewHeaderFooterView?
+    fileprivate final let viewType: UITableViewHeaderFooterView.Type
+    fileprivate final let instantiateType: Former.InstantiateType
+    fileprivate final let viewSetup: ((UITableViewHeaderFooterView) -> Void)
 }

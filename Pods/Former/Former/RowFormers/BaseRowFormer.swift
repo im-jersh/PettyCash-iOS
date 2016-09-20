@@ -8,17 +8,17 @@
 
 import UIKit
 
-public class BaseRowFormer<T: UITableViewCell>: RowFormer {
+open class BaseRowFormer<T: UITableViewCell>: RowFormer {
     
     // MARK: Public
     
-    public var cell: T {
+    open var cell: T {
         return cellInstance as! T
     }
     
     required public init(
-        instantiateType: Former.InstantiateType = .Class,
-        cellSetup: (T -> Void)? = nil) {
+        instantiateType: Former.InstantiateType = .class,
+        cellSetup: ((T) -> Void)? = nil) {
         super.init(
             cellType: T.self,
             instantiateType: instantiateType,
@@ -26,21 +26,21 @@ public class BaseRowFormer<T: UITableViewCell>: RowFormer {
             )
     }
     
-    public final func cellSetup(handler: (T -> Void)) -> Self {
+    public final func cellSetup(_ handler: @escaping ((T) -> Void)) -> Self {
         cellSetup = { handler(($0 as! T)) }
         return self
     }
     
-    public final func cellUpdate(@noescape update: (T -> Void)) -> Self {
+    public final func cellUpdate(_ update: ((T) -> Void)) -> Self {
         update(cell)
         return self
     }
     
-    public func cellInitialized(cell: T) {}
+    open func cellInitialized(_ cell: T) {}
     
     // MARK: Internal
     
-    override func cellInstanceInitialized(cell: UITableViewCell) {
+    override func cellInstanceInitialized(_ cell: UITableViewCell) {
         cellInitialized(cell as! T)
     }
 }

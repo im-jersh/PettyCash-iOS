@@ -8,13 +8,13 @@
 
 import UIKit
 
-public class FormViewController: UIViewController {
+open class FormViewController: UIViewController {
     
     // MARK: Public
     
-    public let tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect.zero, style: .Grouped)
-        tableView.backgroundColor = .clearColor()
+    open let tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect.zero, style: .grouped)
+        tableView.backgroundColor = .clear
         tableView.contentInset.bottom = 10
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
@@ -23,27 +23,27 @@ public class FormViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    public lazy var former: Former = Former(tableView: self.tableView)
+    open lazy var former: Former = Former(tableView: self.tableView)
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
     // MARK: Private
     
-    private final func setup() {
-        view.backgroundColor = .groupTableViewBackgroundColor()
-        view.insertSubview(tableView, atIndex: 0)
+    fileprivate final func setup() {
+        view.backgroundColor = .groupTableViewBackground
+        view.insertSubview(tableView, at: 0)
         let tableConstraints = [
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "V:|-0-[table]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[table]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["table": tableView]
             ),
-            NSLayoutConstraint.constraintsWithVisualFormat(
-                "H:|-0-[table]-0-|",
+            NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[table]-0-|",
                 options: [],
                 metrics: nil,
                 views: ["table": tableView]
