@@ -94,6 +94,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		032172761D9DB5CC001D04E7 /* Models 🛠 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Models 🛠";
+			sourceTree = "<group>";
+		};
+		032172771D9DB5D7001D04E7 /* View Controllers 🎨 */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
+			);
+			name = "View Controllers 🎨";
+			sourceTree = "<group>";
+		};
+		032172781D9DB5DF001D04E7 /* Controllers 🚦 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Controllers 🚦";
+			sourceTree = "<group>";
+		};
+		032172791D9DB5F1001D04E7 /* Engines 🚀 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Engines 🚀";
+			sourceTree = "<group>";
+		};
+		0321727A1D9DB5F7001D04E7 /* Views 🌅 */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
+				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
+				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
+			);
+			name = "Views 🌅";
+			sourceTree = "<group>";
+		};
+		0321727B1D9DB676001D04E7 /* Misc. 🔰 */ = {
+			isa = PBXGroup;
+			children = (
+				03708F951D90F61A0088BA20 /* PettyCash.entitlements */,
+				03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */,
+				03BAFD951D81D81D00B592C8 /* Assets.xcassets */,
+				03BAFD9A1D81D81D00B592C8 /* Info.plist */,
+			);
+			name = "Misc. 🔰";
+			sourceTree = "<group>";
+		};
 		03BAFD7E1D81D81D00B592C8 = {
 			isa = PBXGroup;
 			children = (
@@ -119,15 +169,13 @@
 		03BAFD891D81D81D00B592C8 /* PettyCash */ = {
 			isa = PBXGroup;
 			children = (
-				03708F951D90F61A0088BA20 /* PettyCash.entitlements */,
 				03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */,
-				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
-				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
-				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
-				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
-				03BAFD951D81D81D00B592C8 /* Assets.xcassets */,
-				03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */,
-				03BAFD9A1D81D81D00B592C8 /* Info.plist */,
+				032172761D9DB5CC001D04E7 /* Models 🛠 */,
+				0321727A1D9DB5F7001D04E7 /* Views 🌅 */,
+				032172781D9DB5DF001D04E7 /* Controllers 🚦 */,
+				032172771D9DB5D7001D04E7 /* View Controllers 🎨 */,
+				032172791D9DB5F1001D04E7 /* Engines 🚀 */,
+				0321727B1D9DB676001D04E7 /* Misc. 🔰 */,
 			);
 			path = PettyCash;
 			sourceTree = "<group>";
