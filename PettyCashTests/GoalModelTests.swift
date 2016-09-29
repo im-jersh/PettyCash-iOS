@@ -17,7 +17,7 @@ class GoalModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.testCKRecord = self.createMockRecord()
+        self.testCKRecord = self.createMockGoalRecord()
     }
     
     override func tearDown() {
@@ -41,9 +41,9 @@ class GoalModelTests: XCTestCase {
         
         let goal = Goal(fromRecord: self.testCKRecord)
         
-        XCTAssertEqual(goal.id, "testRecord")
-        XCTAssertEqual(goal.description, "Test description")
-        XCTAssertEqual(goal.startDate, self.testStartDate as! Date)
+        XCTAssertEqual(goal.id, "testGoalRecord")
+        XCTAssertEqual(goal.description, "Test goal description")
+        XCTAssertEqual(goal.startDate, self.testStartDate as? Date)
         XCTAssertEqual(goal.amount, 100.0)
         XCTAssertEqual(goal.priority, Priority.low)
         
@@ -72,16 +72,16 @@ class GoalModelTests: XCTestCase {
         XCTAssertFalse(goal.complete)
     }
     
-    func createMockRecord() -> CKRecord {
+    func createMockGoalRecord() -> CKRecord {
         
         // Create the record
-        let recordID = CKRecordID(recordName: "testRecord")
+        let recordID = CKRecordID(recordName: "testGoalRecord")
         let record = CKRecord(recordType: "Goal", recordID: recordID)
         
         self.testStartDate = NSDate()
         
         // Add the required fields
-        record.setObject(NSString(string: "Test description"), forKey: GoalKey.description.rawValue)
+        record.setObject(NSString(string: "Test goal description"), forKey: GoalKey.description.rawValue)
         record.setObject(self.testStartDate, forKey: GoalKey.startDate.rawValue)
         record.setObject(NSNumber(value: 100.0), forKey: GoalKey.amount.rawValue)
         record.setObject(NSNumber(value: Priority.low.rawValue), forKey: GoalKey.priority.rawValue)

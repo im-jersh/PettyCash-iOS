@@ -13,6 +13,8 @@
 		032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727F1D9DB7F2001D04E7 /* Transaction.swift */; };
 		032172811D9DB7F2001D04E7 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727F1D9DB7F2001D04E7 /* Transaction.swift */; };
 		032172831D9DBC94001D04E7 /* GoalModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172821D9DBC94001D04E7 /* GoalModelTests.swift */; };
+		032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172841D9DD090001D04E7 /* TransactionModelTests.swift */; };
+		032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172861D9DD5CB001D04E7 /* Extensions.swift */; };
 		03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03708F961D90F6300088BA20 /* CloudKit.framework */; };
 		03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */; };
 		03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD8C1D81D81D00B592C8 /* GameScene.sks */; };
@@ -47,6 +49,8 @@
 		0321727C1D9DB79B001D04E7 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		0321727F1D9DB7F2001D04E7 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		032172821D9DBC94001D04E7 /* GoalModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalModelTests.swift; sourceTree = "<group>"; };
+		032172841D9DD090001D04E7 /* TransactionModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModelTests.swift; sourceTree = "<group>"; };
+		032172861D9DD5CB001D04E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		03708F951D90F61A0088BA20 /* PettyCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PettyCash.entitlements; sourceTree = "<group>"; };
 		03708F961D90F6300088BA20 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		03BAFD871D81D81D00B592C8 /* PettyCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PettyCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,7 @@
 		0321727B1D9DB676001D04E7 /* Misc. 🔰 */ = {
 			isa = PBXGroup;
 			children = (
+				032172861D9DD5CB001D04E7 /* Extensions.swift */,
 				03708F951D90F61A0088BA20 /* PettyCash.entitlements */,
 				03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */,
 				03BAFD951D81D81D00B592C8 /* Assets.xcassets */,
@@ -193,8 +198,9 @@
 		03BAFDA21D81D81D00B592C8 /* PettyCashTests */ = {
 			isa = PBXGroup;
 			children = (
-				03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */,
 				032172821D9DBC94001D04E7 /* GoalModelTests.swift */,
+				032172841D9DD090001D04E7 /* TransactionModelTests.swift */,
+				03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */,
 				03BAFDA51D81D81D00B592C8 /* Info.plist */,
 			);
 			path = PettyCashTests;
@@ -480,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */,
+				032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */,
 				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
 				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
@@ -491,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */,
 				0321727E1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				03BAFDA41D81D81D00B592C8 /* PettyCashTests.swift in Sources */,
 				032172831D9DBC94001D04E7 /* GoalModelTests.swift in Sources */,
