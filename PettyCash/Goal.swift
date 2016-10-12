@@ -8,6 +8,7 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 // Indicates various levels of priority
 enum Priority : Int {
@@ -79,5 +80,33 @@ struct Goal {
         
     }
     
+    init(with description: String, startDate: Date, amount: Double, priority: Priority, andEndDate endDate: Date?) {
+        
+        // TODO: Make strategy to create unique id's
+        let idString = String(NSDate().hashValue) + "_" + UIDevice.current.name + "_" + "goal"
+        
+        self.id = idString.toBase64()
+        self.description = description
+        self.startDate = startDate
+        self.amount = amount
+        self.priority = priority
+        self.endDate = endDate
+        
+    }
+    
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

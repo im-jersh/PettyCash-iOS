@@ -35,7 +35,7 @@ struct Transaction {
     init(for amount: Double, withDescription description: String, andDate date: Date = Date()) {
         
         // TODO: Make strategy to create unique id's
-        let idString = String(NSDate().hashValue) + "_" + UIDevice.current.name
+        let idString = String(NSDate().hashValue) + "_" + UIDevice.current.name + "_" + "transaction"
         
         self.id = idString.toBase64()
         self.amount = amount
