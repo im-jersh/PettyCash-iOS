@@ -16,6 +16,9 @@
 		032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172841D9DD090001D04E7 /* TransactionModelTests.swift */; };
 		032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172861D9DD5CB001D04E7 /* Extensions.swift */; };
 		03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03708F961D90F6300088BA20 /* CloudKit.framework */; };
+		03B25D4B1DB0432800F0661C /* SVSlidingPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B25D4A1DB0432800F0661C /* SVSlidingPanelViewController.swift */; };
+		03B25D4D1DB13D5D00F0661C /* SlidingMenuOptionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B25D4C1DB13D5D00F0661C /* SlidingMenuOptionsManager.swift */; };
+		03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */; };
 		03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */; };
 		03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD8C1D81D81D00B592C8 /* GameScene.sks */; };
 		03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8E1D81D81D00B592C8 /* GameScene.swift */; };
@@ -56,6 +59,9 @@
 		032172861D9DD5CB001D04E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		03708F951D90F61A0088BA20 /* PettyCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PettyCash.entitlements; sourceTree = "<group>"; };
 		03708F961D90F6300088BA20 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		03B25D4A1DB0432800F0661C /* SVSlidingPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVSlidingPanelViewController.swift; sourceTree = "<group>"; };
+		03B25D4C1DB13D5D00F0661C /* SlidingMenuOptionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingMenuOptionsManager.swift; sourceTree = "<group>"; };
+		03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuViewController.swift; sourceTree = "<group>"; };
 		03BAFD871D81D81D00B592C8 /* PettyCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PettyCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BAFD8C1D81D81D00B592C8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -123,6 +129,8 @@
 		032172771D9DB5D7001D04E7 /* View Controllers 🎨 */ = {
 			isa = PBXGroup;
 			children = (
+				03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */,
+				03B25D4A1DB0432800F0661C /* SVSlidingPanelViewController.swift */,
 				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
 			);
 			name = "View Controllers 🎨";
@@ -131,6 +139,7 @@
 		032172781D9DB5DF001D04E7 /* Controllers 🚦 */ = {
 			isa = PBXGroup;
 			children = (
+				03B25D4C1DB13D5D00F0661C /* SlidingMenuOptionsManager.swift */,
 			);
 			name = "Controllers 🚦";
 			sourceTree = "<group>";
@@ -493,9 +502,12 @@
 				901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */,
 				0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */,
+				03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */,
+				03B25D4B1DB0432800F0661C /* SVSlidingPanelViewController.swift in Sources */,
 				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
 				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
+				03B25D4D1DB13D5D00F0661C /* SlidingMenuOptionsManager.swift in Sources */,
 				032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
