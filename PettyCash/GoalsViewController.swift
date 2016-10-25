@@ -63,9 +63,15 @@ class GoalsViewController: UIViewController {
 // MARK: DZNEmptyDataSet Data Source & Delegate
 extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        
+        return UIImage(named: "piggy-bank")!
+        
+    }
+    
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
-        let text = "Create a Goal to Get Started!"
+        let text = "You Don't Have Any Goals Yet"
         
         let attributes = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 18.0), NSForegroundColorAttributeName : UIColor.darkGray]
         
@@ -75,7 +81,7 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
-        let text = "Let's start by creating a goal. Before you know it, you'll be saving money and having fun doing so!"
+        let text = "Let's start by creating a goal. Before you know it, you'll be saving money and having fun doing it!"
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -89,7 +95,7 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
         
-        let attributes = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17.0), NSForegroundColorAttributeName : UIColor.flatSkyBlue() ] as [String : Any]
+        let attributes = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17.0), NSForegroundColorAttributeName : UIColor.flatLime() ] as [String : Any]
         
         return NSAttributedString(string: "Let's Do It", attributes: attributes)
         
