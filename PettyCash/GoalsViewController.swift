@@ -31,5 +31,14 @@ class GoalsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+// MARK: Actions
+    @IBAction func menuBarButtonWasTapped(_ sender: AnyObject) {
+        self.slideMenuController()?.openLeft()
+    }
+    
 
 }
+
+

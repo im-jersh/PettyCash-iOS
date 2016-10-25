@@ -32,4 +32,11 @@ class SettingsViewController: UIViewController {
     }
     */
 
+    
+// MARK: Actions
+    @IBAction func menuBarButtonWasTapped(_ sender: AnyObject) {
+        self.slideMenuController()?.openLeft()
+    }
+    
+    
 }

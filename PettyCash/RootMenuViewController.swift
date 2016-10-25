@@ -86,6 +86,13 @@ class RootMenuViewController: UIViewController {
         view.addSubview(menu)
         
     }
+    
+    
+// MARK: Actions
+    @IBAction func menuButtonWasTapped(_ sender: AnyObject) {
+        self.slideMenuController()?.openLeft()
+    }
+    
 
 }
 
