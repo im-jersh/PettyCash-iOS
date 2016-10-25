@@ -58,13 +58,11 @@ extension AppDelegate {
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController") as! RootMenuViewController
         let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
         
-        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-        
         //UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
         
-        menuViewController.mainViewController = nvc
+        menuViewController.mainViewController = mainViewController
         
-        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: menuViewController)
+        let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: menuViewController)
         slideMenuController.automaticallyAdjustsScrollViewInsets = true
         slideMenuController.delegate = mainViewController
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
