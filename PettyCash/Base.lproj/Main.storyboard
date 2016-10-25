@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="-364" y="191"/>
         </scene>
-        <!--Goals View Controller-->
+        <!--Goals-->
         <scene sceneID="wby-IQ-Jkg">
             <objects>
                 <viewController storyboardIdentifier="GoalsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sUL-gN-1di" customClass="GoalsViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,20 +110,76 @@
                     <view key="view" contentMode="scaleToFill" id="YQt-uK-Phe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4qi-4x-ZNe">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4qi-4x-ZNe" secondAttribute="trailing" id="7El-HQ-oT4"/>
+                            <constraint firstItem="4qi-4x-ZNe" firstAttribute="top" secondItem="YQt-uK-Phe" secondAttribute="top" id="UAa-wB-5Kg"/>
+                            <constraint firstItem="JCz-QJ-4TC" firstAttribute="top" secondItem="4qi-4x-ZNe" secondAttribute="bottom" id="ZKN-YW-Xye"/>
+                            <constraint firstItem="4qi-4x-ZNe" firstAttribute="leading" secondItem="YQt-uK-Phe" secondAttribute="leading" id="iI6-Qo-NJH"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="V0z-ow-6dz">
+                    <navigationItem key="navigationItem" title="Goals" id="V0z-ow-6dz">
+                        <barButtonItem key="backBarButtonItem" title="Goals" id="sqM-Py-pvg"/>
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="LH3-CW-aCa">
                             <connections>
                                 <action selector="menuBarButtonWasTapped:" destination="sUL-gN-1di" id="rn5-MV-fqk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vt4-TG-mUu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vt4-TG-mUu">
+                            <connections>
+                                <action selector="addGoalButtonWasTapped:" destination="sUL-gN-1di" id="jJu-fU-a1r"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="4qi-4x-ZNe" id="rga-Uw-ZBV"/>
+                        <segue destination="qeq-jY-1Db" kind="presentation" identifier="addGoalSegue" id="eBm-T6-Mmg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahq-bJ-ZX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3079" y="-150"/>
+        </scene>
+        <!--Create Goal-->
+        <scene sceneID="vfb-Rp-EnH">
+            <objects>
+                <viewController storyboardIdentifier="CreateGoalViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O8I-5t-c2u" customClass="CreateGoalViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ct-k6-Bff"/>
+                        <viewControllerLayoutGuide type="bottom" id="nQ5-cQ-4la"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pZn-Yq-Hjg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Create Goal" id="WZK-Xq-JE1">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4fB-Q4-sM1">
+                            <connections>
+                                <action selector="cancelBarButtonWasTapped:" destination="O8I-5t-c2u" id="84D-kO-gP4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Abj-ix-iIc">
+                            <connections>
+                                <action selector="saveBarButtonWasTapped:" destination="O8I-5t-c2u" id="FI4-Yn-A9g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="yxr-i6-qaM" kind="unwind" identifier="unwindToGoalsListSegue" unwindAction="unwindToGoalsListWithSegue:" id="0Ws-d8-nlJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAA-KN-nbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yxr-i6-qaM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4705" y="-152"/>
         </scene>
         <!--Root Menu View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -280,6 +336,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="av1-5y-vzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="621.60000000000002" y="637.33133433283365"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jVC-92-7EW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qeq-jY-1Db" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJH-Nl-bnl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O8I-5t-c2u" kind="relationship" relationship="rootViewController" id="4ov-PN-4Lh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EJC-o6-btE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3900" y="-152.47376311844079"/>
         </scene>
     </scenes>
 </document>
