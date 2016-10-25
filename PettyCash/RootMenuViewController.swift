@@ -9,6 +9,7 @@
 import UIKit
 import PathMenu
 import ChameleonFramework
+import SlideMenuControllerSwift
 
 class RootMenuViewController: UIViewController {
 
@@ -112,4 +113,53 @@ extension RootMenuViewController : PathMenuDelegate {
     }
     
 }
+
+
+extension RootMenuViewController : SlideMenuControllerDelegate {
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

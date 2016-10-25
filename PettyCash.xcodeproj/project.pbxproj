@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0194E4B8734029D59F357AE0 /* Pods_PettyCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5875ADB5E6F194948E4C0A9A /* Pods_PettyCash.framework */; };
+		030460271DBFE750008B52F0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030460261DBFE750008B52F0 /* MenuViewController.swift */; };
+		030460291DBFEEAA008B52F0 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030460281DBFEEAA008B52F0 /* GoalsViewController.swift */; };
+		0304602B1DBFEEB5008B52F0 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */; };
+		0304602D1DBFEEBF008B52F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */; };
 		0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727C1D9DB79B001D04E7 /* Goal.swift */; };
 		0321727E1D9DB79B001D04E7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727C1D9DB79B001D04E7 /* Goal.swift */; };
 		032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727F1D9DB7F2001D04E7 /* Transaction.swift */; };
@@ -50,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030460261DBFE750008B52F0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		030460281DBFEEAA008B52F0 /* GoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
+		0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0321727C1D9DB79B001D04E7 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		0321727F1D9DB7F2001D04E7 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		032172821D9DBC94001D04E7 /* GoalModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalModelTests.swift; sourceTree = "<group>"; };
@@ -125,8 +133,12 @@
 		032172771D9DB5D7001D04E7 /* View Controllers 🎨 */ = {
 			isa = PBXGroup;
 			children = (
+				030460261DBFE750008B52F0 /* MenuViewController.swift */,
 				03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */,
 				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
+				030460281DBFEEAA008B52F0 /* GoalsViewController.swift */,
+				0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */,
+				0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers 🎨";
 			sourceTree = "<group>";
@@ -496,11 +508,15 @@
 				901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */,
 				0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */,
+				0304602B1DBFEEB5008B52F0 /* ExpensesViewController.swift in Sources */,
 				03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */,
+				030460271DBFE750008B52F0 /* MenuViewController.swift in Sources */,
 				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
 				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
 				032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */,
+				030460291DBFEEAA008B52F0 /* GoalsViewController.swift in Sources */,
+				0304602D1DBFEEBF008B52F0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

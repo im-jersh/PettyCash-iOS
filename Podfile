@@ -7,7 +7,7 @@ target 'PettyCash' do
     pod 'Former'
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
-
+    pod 'SlideMenuControllerSwift'
 end
 
 target 'PettyCashTests' do
@@ -15,6 +15,7 @@ target 'PettyCashTests' do
     pod 'Former'
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
+    pod 'SlideMenuControllerSwift'
 end
 
 post_install do |installer|
