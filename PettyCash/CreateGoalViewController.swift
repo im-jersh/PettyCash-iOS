@@ -42,6 +42,9 @@ class CreateGoalViewController : FormViewController {
     @IBAction func saveBarButtonWasTapped(_ sender: AnyObject) {
         
         // Validate inputs
+        guard self.validateForm() else {
+            return
+        }
         
         // Save the goal to CloudKit
         
@@ -61,35 +64,102 @@ extension CreateGoalViewController {
     
     func buildForm() {
         
-        self.form = Section("Section 1")
+        form = Section()
             <<< TextRow(GoalKey.description.rawValue) { row in
-                row.title = "Goal"
+                
+            // UI
+                row.title = "Goal *"
                 row.placeholder = "Description"
+                
+            // Validation
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnDemand
+            }.onRowValidationChanged { cell, row in
+                cell.textLabel?.textColor = .red
             }
             <<< DecimalRow(GoalKey.amount.rawValue) { row in
-                row.title = "Amount"
-                row.placeholder = "$$$"
+                
+            // UI
+                row.title = "Amount *"
+                row.placeholder = "$100.00"
+                
+            // Format the value
+                row.useFormatterDuringInput = true
+                let formatter = CurrencyFormatter()
+                formatter.locale = .current
+                formatter.numberStyle = .currency
+                row.formatter = formatter
+                
+            // Validation
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnDemand
+            }.onRowValidationChanged { cell, row in
+                cell.textLabel?.textColor = .red
             }
-        +++ Section("Section 2")
+        +++ Section(footer: "You can optionally add a future end date that you would like to have the full amount saved by.")
+            <<< SwitchRow("Set End Date"){ row in
+                
+            // UI
+                row.title = row.tag
+            }
             <<< DateInlineRow(GoalKey.endDate.rawValue) { row in
+                
+            // UI
                 row.title = "End Date"
-                row.placeholder = "Optional"
+                
+            // Conditional
+                row.hidden = .function(["Set End Date"], { form -> Bool in
+                    let row: RowOf<Bool>! = form.rowBy(tag: "Set End Date")
+                    return row.value ?? false == false
+                })
+                
+            // Validation
+                row.add(rule: RuleGreaterThan(min: Date.tomorrow()))
+                row.validationOptions = .validatesOnChange
+            }.cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.text = "Date Must Be In Future"
+                    cell.textLabel?.textColor = .red
+                }
             }
-        +++ Section("Section 3")
-            <<< SegmentedRow(GoalKey.priority.rawValue) { row in
-                row.title = "Priority"
-                row.options = ["Low", "Medium", "High"]
-                row.value = "Low"
+        +++ Section(footer: "* Required Field")
+            <<< SegmentedRow<Priority>(GoalKey.priority.rawValue) { row in
+                
+            // UI
+                row.title = "Priority *"
+                row.options = [Priority.low, Priority.medium, Priority.high]
+                row.value = Priority.low
             }
+        
+    }
+    
+    func validateForm() -> Bool {
+        
+        return self.form.validate().isEmpty
         
     }
     
 }
 
 
+class CurrencyFormatter : NumberFormatter, FormatterProtocol {
+    override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, range rangep: UnsafeMutablePointer<NSRange>?) throws {
+        guard obj != nil else { return }
+        let str = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+        obj?.pointee = NSNumber(value: (Double(str) ?? 0.0)/Double(pow(10.0, Double(minimumFractionDigits))))
+    }
+    
+    func getNewPosition(forPosition position: UITextPosition, inTextInput textInput: UITextInput, oldValue: String?, newValue: String?) -> UITextPosition {
+        return textInput.position(from: position, offset:((newValue?.characters.count ?? 0) - (oldValue?.characters.count ?? 0))) ?? position
+    }
+}
 
 
-
+extension Date {
+    static func tomorrow() -> Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    }
+}
 
 
 
