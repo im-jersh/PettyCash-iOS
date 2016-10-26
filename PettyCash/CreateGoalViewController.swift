@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import Eureka
 
-class CreateGoalViewController: UIViewController {
+class CreateGoalViewController : FormViewController {
+    
+// MARK: Outlets
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Create the form
+        self.buildForm()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,3 +54,77 @@ class CreateGoalViewController: UIViewController {
     }
 
 }
+
+
+// MARK: Eureka Form
+extension CreateGoalViewController {
+    
+    func buildForm() {
+        
+        self.form = Section("Section 1")
+            <<< TextRow(GoalKey.description.rawValue) { row in
+                row.title = "Goal"
+                row.placeholder = "Description"
+            }
+            <<< DecimalRow(GoalKey.amount.rawValue) { row in
+                row.title = "Amount"
+                row.placeholder = "$$$"
+            }
+        +++ Section("Section 2")
+            <<< DateInlineRow(GoalKey.endDate.rawValue) { row in
+                row.title = "End Date"
+                row.placeholder = "Optional"
+            }
+        +++ Section("Section 3")
+            <<< SegmentedRow(GoalKey.priority.rawValue) { row in
+                row.title = "Priority"
+                row.options = ["Low", "Medium", "High"]
+                row.value = "Low"
+            }
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

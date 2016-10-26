@@ -3,24 +3,24 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - DZNEmptyDataSet (1.8.1)
-  - Former (1.4.0)
+  - Eureka (2.0.0-beta.1)
   - PathMenu (1.1.0)
   - SlideMenuControllerSwift (3.0.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
   - DZNEmptyDataSet
-  - Former
+  - Eureka (~> 2.0.0-beta.1)
   - PathMenu
   - SlideMenuControllerSwift
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Former: 98a7915b1b2383270edfaee9eed785df4a259048
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   PathMenu: 3743f569d97645c3eb673a67388d176258d183d5
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
 
-PODFILE CHECKSUM: 067f60a930e8ab05c301eabc6628d8937156024d
+PODFILE CHECKSUM: 2c6974d5531144b586ea3694d3a0c7540dbb712b
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
