@@ -9,6 +9,8 @@
 import UIKit
 import DZNEmptyDataSet
 
+let goalRowIdentifier = "GoalRowIdentifier"
+
 class GoalsViewController: UIViewController {
     
 // MARK: Outlets
@@ -17,14 +19,16 @@ class GoalsViewController: UIViewController {
     
     
 // MARK: Properties
+    fileprivate var goals : Goals = Goals()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.emptyDataSetSource = self
-        self.tableView.emptyDataSetDelegate = self
         
         self.tableView.tableFooterView = UIView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +61,35 @@ class GoalsViewController: UIViewController {
     }
     
 
+}
+
+
+// MARK: UITableView DataSource & Delegate
+extension GoalsViewController : UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.goals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Create a cell and get the corresponding Goal
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: goalRowIdentifier) else {
+            return UITableViewCell()
+        }
+        let goal = self.goals[indexPath.row]
+        
+        // Configure the cell
+        cell.textLabel?.text = goal.description
+        cell.detailTextLabel?.text = goal.formattedAmount()
+        
+        return cell
+    }
+    
 }
 
 
@@ -109,6 +142,21 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     
 }
+
+
+// MARK: Public Methods
+extension GoalsViewController {
+    
+    public func addGoalToList(_ goal: Goal) {
+        self.goals.append(goal)
+    }
+    
+}
+
+
+
+
+
 
 
 

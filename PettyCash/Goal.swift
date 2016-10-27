@@ -94,6 +94,17 @@ struct Goal {
         
     }
     
+
+// MARK: Instance Methods
+    func formattedAmount() -> String {
+        let amount = self.amount as NSNumber
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = NSLocale.current
+        
+        return formatter.string(from: amount)!
+    }
     
 }
 

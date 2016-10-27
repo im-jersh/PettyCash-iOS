@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="-364" y="191"/>
         </scene>
-        <!--Goals-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="wby-IQ-Jkg">
             <objects>
                 <viewController storyboardIdentifier="GoalsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sUL-gN-1di" customClass="GoalsViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,6 +113,38 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4qi-4x-ZNe">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GoalRowIdentifier" textLabel="MOo-rs-bnu" detailTextLabel="5sN-xC-zTs" rowHeight="100" style="IBUITableViewCellStyleValue1" id="6lZ-tG-Kb4">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lZ-tG-Kb4" id="lxa-g4-Lyj">
+                                            <frame key="frameInset" width="375" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MOo-rs-bnu">
+                                                    <frame key="frameInset" minX="15" minY="39" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5sN-xC-zTs">
+                                                    <frame key="frameInset" minX="316" minY="39" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sUL-gN-1di" id="aYn-rs-Teh"/>
+                                    <outlet property="delegate" destination="sUL-gN-1di" id="UqW-uU-Pfo"/>
+                                    <outlet property="emptyDataSetDelegate" destination="sUL-gN-1di" id="9ER-so-8W6"/>
+                                    <outlet property="emptyDataSetSource" destination="sUL-gN-1di" id="xKL-pC-zNU"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahq-bJ-ZX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3079" y="-150"/>
+            <point key="canvasLocation" x="3077.5999999999999" y="-150.67466266866569"/>
         </scene>
         <!--Create Goal-->
         <scene sceneID="vfb-Rp-EnH">

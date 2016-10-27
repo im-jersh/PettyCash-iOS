@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 
+
 class CreateGoalViewController : FormViewController {
     
 // MARK: Outlets
@@ -27,15 +28,22 @@ class CreateGoalViewController : FormViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+
+// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        // Check to see if the sender is a Goal. If it is, we should pass that object back to the Goal List Controller
+        if sender is Goal && segue.identifier == "unwindToGoalsListSegue" {
+            if let destination = segue.destination as? GoalsViewController {
+                destination.addGoalToList(sender as! Goal)
+            }
+        }
     }
-    */
+    
     
     
 // MARK: Actions
@@ -46,10 +54,13 @@ class CreateGoalViewController : FormViewController {
             return
         }
         
-        // Save the goal to CloudKit
+        // Create and save the goal to CloudKit
+        guard let goal = self.extractFormValues() else {
+            return
+        }
         
         // Return to the list
-        self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: nil)
+        self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
     }
     
     @IBAction func cancelBarButtonWasTapped(_ sender: AnyObject) {
@@ -67,11 +78,11 @@ extension CreateGoalViewController {
         form = Section()
             <<< TextRow(GoalKey.description.rawValue) { row in
                 
-            // UI
+                // UI
                 row.title = "Goal *"
                 row.placeholder = "Description"
                 
-            // Validation
+                // Validation
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnDemand
             }.onRowValidationChanged { cell, row in
@@ -79,18 +90,18 @@ extension CreateGoalViewController {
             }
             <<< DecimalRow(GoalKey.amount.rawValue) { row in
                 
-            // UI
+                // UI
                 row.title = "Amount *"
                 row.placeholder = "$100.00"
                 
-            // Format the value
+                // Format the value
                 row.useFormatterDuringInput = true
                 let formatter = CurrencyFormatter()
                 formatter.locale = .current
                 formatter.numberStyle = .currency
                 row.formatter = formatter
                 
-            // Validation
+                // Validation
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnDemand
             }.onRowValidationChanged { cell, row in
@@ -99,21 +110,22 @@ extension CreateGoalViewController {
         +++ Section(footer: "You can optionally add a future end date that you would like to have the full amount saved by.")
             <<< SwitchRow("Set End Date"){ row in
                 
-            // UI
+                // UI
                 row.title = row.tag
+                row.value = false
             }
             <<< DateInlineRow(GoalKey.endDate.rawValue) { row in
                 
-            // UI
+                // UI
                 row.title = "End Date"
                 
-            // Conditional
+                // Conditional
                 row.hidden = .function(["Set End Date"], { form -> Bool in
                     let row: RowOf<Bool>! = form.rowBy(tag: "Set End Date")
                     return row.value ?? false == false
                 })
                 
-            // Validation
+                // Validation
                 row.add(rule: RuleGreaterThan(min: Date.tomorrow()))
                 row.validationOptions = .validatesOnChange
             }.cellUpdate { cell, row in
@@ -125,7 +137,7 @@ extension CreateGoalViewController {
         +++ Section(footer: "* Required Field")
             <<< SegmentedRow<Priority>(GoalKey.priority.rawValue) { row in
                 
-            // UI
+                // UI
                 row.title = "Priority *"
                 row.options = [Priority.low, Priority.medium, Priority.high]
                 row.value = Priority.low
@@ -137,6 +149,27 @@ extension CreateGoalViewController {
         
         return self.form.validate().isEmpty
         
+    }
+    
+    func extractFormValues() -> Goal? {
+        
+        // Get all the values as a dictionary
+        let formValuesDictionary = self.form.values(includeHidden: false)
+        
+        // Extract the required values
+        guard let description = formValuesDictionary[GoalKey.description.rawValue] as? String, let amount = formValuesDictionary[GoalKey.amount.rawValue] as? Double, let priority = formValuesDictionary[GoalKey.priority.rawValue] as? Priority, let endDateIsVisible = formValuesDictionary["Set End Date"] as? Bool else {
+            // We have an issue with the form inputs. Maybe the validation failed somehow?
+            return nil
+        }
+        
+        // See if the the end date field was shown
+        if endDateIsVisible {
+            // The user made the end date visible. However, they could have left the row empty. Either way, the endDate property of a Goal is optional so we can just assign whatever value is in the dictionary directly to the Goal
+            let endDate = formValuesDictionary[GoalKey.endDate.rawValue] as? Date
+            return Goal(with: description, startDate: Date(), amount: amount, priority: priority, andEndDate: endDate)
+        }
+        
+        return Goal(with: description, startDate: Date(), amount: amount, priority: priority, andEndDate: nil)
     }
     
 }
