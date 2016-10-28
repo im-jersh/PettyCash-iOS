@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import MBCircularProgressBar
+import MBCircularProgressBar
 
 class GoalCell: UITableViewCell {
     
@@ -15,7 +15,7 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var goalDescriptionLabel: UILabel!
     @IBOutlet weak var goalEndDateLabel: UILabel!
-    @IBOutlet weak var goalProgressBar: UIView!
+    @IBOutlet weak var goalProgressBar: MBCircularProgressBarView!
     
 
     override func awakeFromNib() {

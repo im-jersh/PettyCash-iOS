@@ -94,7 +94,7 @@ extension GoalsViewController : UITableViewDataSource, UITableViewDelegate {
         
         // Configure the cell
         cell.goalDescriptionLabel.text = goal.description
-        //cell.goalProgressBar.value = CGFloat(goal.progress * 100)
+        cell.goalProgressBar.value = CGFloat(goal.progress * 100)
         if let endDate = goal.formattedEndDate() {
             cell.goalEndDateLabel.text = "End Date: " + endDate
         } else { cell.goalEndDateLabel.text = "" }
