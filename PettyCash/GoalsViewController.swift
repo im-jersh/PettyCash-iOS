@@ -19,16 +19,25 @@ class GoalsViewController: UIViewController {
     
     
 // MARK: Properties
-    fileprivate var goals : Goals = Goals()
+    fileprivate var goals : Goals = Goals() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 120
         self.tableView.tableFooterView = UIView()
+        
+        // Make some test data
+        self.dummyData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,14 +87,17 @@ extension GoalsViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Create a cell and get the corresponding Goal
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: goalRowIdentifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: goalRowIdentifier) as? GoalCell else {
             return UITableViewCell()
         }
         let goal = self.goals[indexPath.row]
         
         // Configure the cell
-        cell.textLabel?.text = goal.description
-        cell.detailTextLabel?.text = goal.formattedAmount()
+        cell.goalDescriptionLabel.text = goal.description
+        cell.goalProgressBar.value = CGFloat(goal.progress * 100)
+        if let endDate = goal.formattedEndDate() {
+            cell.goalEndDateLabel.text = "End Date: " + endDate
+        } else { cell.goalEndDateLabel.text = "" }
         
         return cell
     }
@@ -149,6 +161,17 @@ extension GoalsViewController {
     
     public func addGoalToList(_ goal: Goal) {
         self.goals.append(goal)
+    }
+    
+    public func dummyData() {
+        
+        var testGoal = Goal(with: "Test Goal #1", startDate: Date(), amount: 100.00, priority: Priority.low, andEndDate: Date.tomorrow())
+        let testTransaction = Transaction(for: 37.0, withDescription: "Some random goal contribution")
+        
+        testGoal.addTransaction(testTransaction)
+        
+        self.goals.append(testGoal)
+        
     }
     
 }
