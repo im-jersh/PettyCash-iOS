@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0194E4B8734029D59F357AE0 /* Pods_PettyCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5875ADB5E6F194948E4C0A9A /* Pods_PettyCash.framework */; };
+		030460271DBFE750008B52F0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030460261DBFE750008B52F0 /* MenuViewController.swift */; };
+		030460291DBFEEAA008B52F0 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030460281DBFEEAA008B52F0 /* GoalsViewController.swift */; };
+		0304602B1DBFEEB5008B52F0 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */; };
+		0304602D1DBFEEBF008B52F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */; };
+		0304602F1DC01C51008B52F0 /* CreateGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0304602E1DC01C51008B52F0 /* CreateGoalViewController.swift */; };
+		030460321DC333B9008B52F0 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030460311DC333B8008B52F0 /* GoalCell.swift */; };
+		0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727C1D9DB79B001D04E7 /* Goal.swift */; };
+		0321727E1D9DB79B001D04E7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727C1D9DB79B001D04E7 /* Goal.swift */; };
+		032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727F1D9DB7F2001D04E7 /* Transaction.swift */; };
+		032172811D9DB7F2001D04E7 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321727F1D9DB7F2001D04E7 /* Transaction.swift */; };
+		032172831D9DBC94001D04E7 /* GoalModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172821D9DBC94001D04E7 /* GoalModelTests.swift */; };
+		032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172841D9DD090001D04E7 /* TransactionModelTests.swift */; };
+		032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172861D9DD5CB001D04E7 /* Extensions.swift */; };
+		03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03708F961D90F6300088BA20 /* CloudKit.framework */; };
+		03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */; };
 		03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */; };
 		03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD8C1D81D81D00B592C8 /* GameScene.sks */; };
 		03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8E1D81D81D00B592C8 /* GameScene.swift */; };
@@ -18,6 +33,9 @@
 		03BAFDA41D81D81D00B592C8 /* PettyCashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */; };
 		03BAFDAF1D81D81E00B592C8 /* PettyCashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFDAE1D81D81E00B592C8 /* PettyCashUITests.swift */; };
 		60D8EF1E32BD15F022F9447D /* Pods_PettyCashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13FA6AE2347E14ED1D4D60C /* Pods_PettyCashTests.framework */; };
+		901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
+		901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
+		901BAFA81DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +56,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030460261DBFE750008B52F0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		030460281DBFEEAA008B52F0 /* GoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
+		0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0304602E1DC01C51008B52F0 /* CreateGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGoalViewController.swift; sourceTree = "<group>"; };
+		030460311DC333B8008B52F0 /* GoalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
+		0321727C1D9DB79B001D04E7 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		0321727F1D9DB7F2001D04E7 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		032172821D9DBC94001D04E7 /* GoalModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalModelTests.swift; sourceTree = "<group>"; };
+		032172841D9DD090001D04E7 /* TransactionModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModelTests.swift; sourceTree = "<group>"; };
+		032172861D9DD5CB001D04E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		03708F951D90F61A0088BA20 /* PettyCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PettyCash.entitlements; sourceTree = "<group>"; };
+		03708F961D90F6300088BA20 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuViewController.swift; sourceTree = "<group>"; };
 		03BAFD871D81D81D00B592C8 /* PettyCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PettyCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BAFD8C1D81D81D00B592C8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -59,6 +91,7 @@
 		3F7CD0BA553EF3AA37179159 /* Pods-PettyCashTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PettyCashTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PettyCashTests/Pods-PettyCashTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57B3AE64E35C86902DFAFB9E /* Pods-PettyCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PettyCash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PettyCash/Pods-PettyCash.debug.xcconfig"; sourceTree = "<group>"; };
 		5875ADB5E6F194948E4C0A9A /* Pods_PettyCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PettyCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		901BAFA51DA6E5CC0083EA97 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		A13FA6AE2347E14ED1D4D60C /* Pods_PettyCashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PettyCashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0F05AF281BC05D8E7DA55C /* Pods-PettyCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PettyCash.release.xcconfig"; path = "Pods/Target Support Files/Pods-PettyCash/Pods-PettyCash.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0194E4B8734029D59F357AE0 /* Pods_PettyCash.framework in Frameworks */,
+				03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +124,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		032172761D9DB5CC001D04E7 /* Models 🛠 */ = {
+			isa = PBXGroup;
+			children = (
+				0321727C1D9DB79B001D04E7 /* Goal.swift */,
+				0321727F1D9DB7F2001D04E7 /* Transaction.swift */,
+				901BAFA51DA6E5CC0083EA97 /* Pet.swift */,
+			);
+			name = "Models 🛠";
+			sourceTree = "<group>";
+		};
+		032172771D9DB5D7001D04E7 /* View Controllers 🎨 */ = {
+			isa = PBXGroup;
+			children = (
+				0304602E1DC01C51008B52F0 /* CreateGoalViewController.swift */,
+				030460261DBFE750008B52F0 /* MenuViewController.swift */,
+				03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */,
+				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
+				030460281DBFEEAA008B52F0 /* GoalsViewController.swift */,
+				0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */,
+				0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */,
+			);
+			name = "View Controllers 🎨";
+			sourceTree = "<group>";
+		};
+		032172781D9DB5DF001D04E7 /* Controllers 🚦 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Controllers 🚦";
+			sourceTree = "<group>";
+		};
+		032172791D9DB5F1001D04E7 /* Engines 🚀 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Engines 🚀";
+			sourceTree = "<group>";
+		};
+		0321727A1D9DB5F7001D04E7 /* Views 🌅 */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
+				030460311DC333B8008B52F0 /* GoalCell.swift */,
+				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
+				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
+			);
+			name = "Views 🌅";
+			sourceTree = "<group>";
+		};
+		0321727B1D9DB676001D04E7 /* Misc. 🔰 */ = {
+			isa = PBXGroup;
+			children = (
+				032172861D9DD5CB001D04E7 /* Extensions.swift */,
+				03708F951D90F61A0088BA20 /* PettyCash.entitlements */,
+				03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */,
+				03BAFD951D81D81D00B592C8 /* Assets.xcassets */,
+				03BAFD9A1D81D81D00B592C8 /* Info.plist */,
+			);
+			name = "Misc. 🔰";
+			sourceTree = "<group>";
+		};
 		03BAFD7E1D81D81D00B592C8 = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +211,12 @@
 			isa = PBXGroup;
 			children = (
 				03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */,
-				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
-				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
-				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
-				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
-				03BAFD951D81D81D00B592C8 /* Assets.xcassets */,
-				03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */,
-				03BAFD9A1D81D81D00B592C8 /* Info.plist */,
+				032172761D9DB5CC001D04E7 /* Models 🛠 */,
+				0321727A1D9DB5F7001D04E7 /* Views 🌅 */,
+				032172781D9DB5DF001D04E7 /* Controllers 🚦 */,
+				032172771D9DB5D7001D04E7 /* View Controllers 🎨 */,
+				032172791D9DB5F1001D04E7 /* Engines 🚀 */,
+				0321727B1D9DB676001D04E7 /* Misc. 🔰 */,
 			);
 			path = PettyCash;
 			sourceTree = "<group>";
@@ -130,6 +224,8 @@
 		03BAFDA21D81D81D00B592C8 /* PettyCashTests */ = {
 			isa = PBXGroup;
 			children = (
+				032172821D9DBC94001D04E7 /* GoalModelTests.swift */,
+				032172841D9DD090001D04E7 /* TransactionModelTests.swift */,
 				03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */,
 				03BAFDA51D81D81D00B592C8 /* Info.plist */,
 			);
@@ -159,6 +255,7 @@
 		88E5683EFC78B95C8712B21F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03708F961D90F6300088BA20 /* CloudKit.framework */,
 				03F9AA3D1D8F6E80003A802D /* CoreGraphics.framework */,
 				03F9AA3B1D8F6E78003A802D /* QuartzCore.framework */,
 				5875ADB5E6F194948E4C0A9A /* Pods_PettyCash.framework */,
@@ -241,7 +338,19 @@
 				TargetAttributes = {
 					03BAFD861D81D81D00B592C8 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = P9T3VX888M;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					03BAFD9E1D81D81D00B592C8 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -317,7 +426,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		43FCFAE52422C906F3230D93 /* [CP] Copy Pods Resources */ = {
@@ -377,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F793A9CD4A083ABA3DFCE405 /* [CP] Embed Pods Frameworks */ = {
@@ -402,9 +511,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */,
+				0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */,
+				032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */,
+				0304602F1DC01C51008B52F0 /* CreateGoalViewController.swift in Sources */,
+				0304602B1DBFEEB5008B52F0 /* ExpensesViewController.swift in Sources */,
+				03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */,
+				030460271DBFE750008B52F0 /* MenuViewController.swift in Sources */,
 				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
 				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
+				032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */,
+				030460291DBFEEAA008B52F0 /* GoalsViewController.swift in Sources */,
+				030460321DC333B9008B52F0 /* GoalCell.swift in Sources */,
+				0304602D1DBFEEBF008B52F0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +532,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */,
+				0321727E1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				03BAFDA41D81D81D00B592C8 /* PettyCashTests.swift in Sources */,
+				901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */,
+				032172831D9DBC94001D04E7 /* GoalModelTests.swift in Sources */,
+				032172811D9DB7F2001D04E7 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03BAFDAF1D81D81E00B592C8 /* PettyCashUITests.swift in Sources */,
+				901BAFA81DA6E5CC0083EA97 /* Pet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +681,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PettyCash/PettyCash.entitlements;
+				DEVELOPMENT_TEAM = P9T3VX888M;
 				INFOPLIST_FILE = PettyCash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCash;
@@ -569,6 +697,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PettyCash/PettyCash.entitlements;
+				DEVELOPMENT_TEAM = P9T3VX888M;
 				INFOPLIST_FILE = PettyCash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.capstone.fs2016.PettyCash;
