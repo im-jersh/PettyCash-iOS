@@ -9,7 +9,7 @@ target 'PettyCash' do
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
-    pod 'MBCircularProgressBar'
+    
 end
 
 target 'PettyCashTests' do

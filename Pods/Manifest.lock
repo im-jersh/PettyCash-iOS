@@ -4,7 +4,6 @@ PODS:
     - ChameleonFramework/Default
   - DZNEmptyDataSet (1.8.1)
   - Eureka (2.0.0-beta.1)
-  - MBCircularProgressBar (0.3.4)
   - PathMenu (1.1.0)
   - SlideMenuControllerSwift (3.0.0)
 
@@ -12,7 +11,6 @@ DEPENDENCIES:
   - ChameleonFramework/Swift
   - DZNEmptyDataSet
   - Eureka (~> 2.0.0-beta.1)
-  - MBCircularProgressBar
   - PathMenu
   - SlideMenuControllerSwift
 
@@ -20,10 +18,9 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
-  MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   PathMenu: 3743f569d97645c3eb673a67388d176258d183d5
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
 
-PODFILE CHECKSUM: d28d01e52c30d739c14f73a6f93fdb1f939153c5
+PODFILE CHECKSUM: a8d9a1dfda3e0181a971707db7f492b844d18d58
 
 COCOAPODS: 1.1.1
