@@ -39,7 +39,7 @@ struct Goal {
     let endDate : Date?                     // The date the user would like to achieve the goal by
     let amount : Double                     // The amount of the goal
     let priority : Priority                 // The goal's priority among other goals
-    var transactions : Transactions?        // A collection of transactions that have contributed to the progress of this goal
+    private(set) var transactions : Transactions?        // A collection of transactions that have contributed to the progress of this goal
     
     
 // MARK: Computed Properties
@@ -77,7 +77,7 @@ struct Goal {
         self.endDate = record.object(forKey: GoalKey.endDate.rawValue) as? Date
         self.amount = record.object(forKey: GoalKey.amount.rawValue) as! Double
         self.priority = Priority(rawValue: record.object(forKey: GoalKey.priority.rawValue) as! Int)!
-        
+        self.transactions = Transactions()
     }
     
     init(with description: String, startDate: Date, amount: Double, priority: Priority, andEndDate endDate: Date?) {
@@ -91,9 +91,35 @@ struct Goal {
         self.amount = amount
         self.priority = priority
         self.endDate = endDate
-        
+        self.transactions = Transactions()
     }
     
+
+// MARK: Instance Methods
+    func formattedAmount() -> String {
+        let amount = self.amount as NSNumber
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = NSLocale.current
+        
+        return formatter.string(from: amount)!
+    }
+    
+    func formattedEndDate() -> String? {
+        
+        guard let endDate = self.endDate else {
+            return nil
+        }
+        
+        return DateFormatter.localizedString(from: endDate, dateStyle: .short, timeStyle: .none)
+    }
+    
+    mutating func addTransaction(_ transaction: Transaction) {
+        
+        self.transactions?.append(transaction)
+        
+    }
     
 }
 

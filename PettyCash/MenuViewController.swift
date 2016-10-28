@@ -84,14 +84,9 @@ extension MenuViewController {
     func createViewControllers() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let goalsVC = storyboard.instantiateViewController(withIdentifier: "GoalsViewController") as! GoalsViewController
-        self.goalsViewController = UINavigationController(rootViewController: goalsVC)
-        
-        let expensesVC = storyboard.instantiateViewController(withIdentifier: "ExpensesViewController") as! ExpensesViewController
-        self.expensesViewController = UINavigationController(rootViewController: expensesVC)
-        
-        let settingsVC = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-        self.settingsViewController = UINavigationController(rootViewController: settingsVC)
+        self.goalsViewController = storyboard.instantiateViewController(withIdentifier: "GoalsNavController")
+        self.expensesViewController = storyboard.instantiateViewController(withIdentifier: "ExpensesNavController")
+        self.settingsViewController = storyboard.instantiateViewController(withIdentifier: "SettingsNavController")
     }
     
 }

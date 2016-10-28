@@ -1,18 +1,19 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
 
 target 'PettyCash' do
 
     pod 'PathMenu'
-    pod 'Former'
+    pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
+    pod 'MBCircularProgressBar'
 end
 
 target 'PettyCashTests' do
     pod 'PathMenu'
-    pod 'Former'
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
