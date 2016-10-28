@@ -8,8 +8,13 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UITableViewController {
 
+// MARK: Outlets
+    @IBOutlet weak var testDataButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +41,14 @@ class SettingsViewController: UIViewController {
 // MARK: Actions
     @IBAction func menuBarButtonWasTapped(_ sender: AnyObject) {
         self.slideMenuController()?.openLeft()
+    }
+    
+    @IBAction func useTestDataButtonWasTapped(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func resetButtonWasTapped(_ sender: AnyObject) {
+        
     }
     
     
