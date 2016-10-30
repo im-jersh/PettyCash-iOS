@@ -16,6 +16,7 @@ enum TransactionKey : String {
     case description = "description"
     case date = "date"
     case amount = "amount"
+    case goal = "goal"
 }
 
 typealias Transactions = [Transaction]
