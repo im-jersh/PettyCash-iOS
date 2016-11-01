@@ -30,7 +30,7 @@ enum GoalKey : String {
 typealias Goals = [Goal]
 
 
-struct Goal {
+class Goal {
     
 // MARK: Properties
     let id : String                         // The unique id to the corresponding CKRecord
@@ -115,7 +115,7 @@ struct Goal {
         return DateFormatter.localizedString(from: endDate, dateStyle: .short, timeStyle: .none)
     }
     
-    mutating func addTransaction(_ transaction: Transaction) {
+    func addTransaction(_ transaction: Transaction) {
         
         self.transactions?.append(transaction)
         

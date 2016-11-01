@@ -34,15 +34,25 @@ class CKEngine {
     
     class func seedDummyData() {
         
-        // Delete existing zones (effectively deleting all records)
-        self.delete(zones: RecordZone.savings, RecordZone.expenses)
+        // Delete the appropriate zones first by creating an operation to delete the zones by ID.
+        // This effectively deletes all the records within the zone
+        let savingsZoneID = CKRecordZoneID(zoneName: RecordZone.savings.zoneName, ownerName: CKOwnerDefaultName)
+        let deleteZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: nil, recordZoneIDsToDelete: [savingsZoneID])
+        deleteZoneOperation.modifyRecordZonesCompletionBlock = { savedRecordZones, deletedRecordZoneIDs, error in
+            print("Deleted record zone")
+        }
         
-        // Create the zones and corresponding dummy data
-        let savingsZone = CKRecordZone(zoneName: RecordZone.savings.zoneName)
-        self.saveRecordZone(savingsZone)
+        // Make a new zone and the operation to save it
+        let savingsZone = CKRecordZone(zoneID: savingsZoneID)
+        let saveNewZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: [savingsZone], recordZoneIDsToDelete: nil)
+        saveNewZoneOperation.modifyRecordZonesCompletionBlock = { savedRecordZones, deletedRecordZoneIDs, error in
+            print("Created record zone")
+        }
         
-        let expensesZone = CKRecordZone(zoneName: RecordZone.expenses.zoneName)
-        self.saveRecordZone(expensesZone)
+        // Make the delete operation a dependency of the save new operation then add them to the queue for execution
+        saveNewZoneOperation.addDependency(deleteZoneOperation)
+        self.privateDatabase.add(deleteZoneOperation)
+        self.privateDatabase.add(saveNewZoneOperation)
         
         // Create some goals with transactions
         let firstGoal = CKRecord(recordType: RecordType.goal.rawValue, zoneID: savingsZone.zoneID)
@@ -52,13 +62,7 @@ class CKEngine {
         firstGoal.setObject(200.00 as NSNumber, forKey: GoalKey.amount.rawValue)
         firstGoal.setObject(Priority.high.rawValue as NSNumber, forKey: GoalKey.priority.rawValue)
         
-        self.privateDatabase.save(firstGoal) { record, error in
-            if error != nil {
-                fatalError("*** ERROR SAVING DUMMY GOAL ***")
-            }
-        }
-        
-        let reference = CKReference(record: firstGoal, action: CKReferenceAction.deleteSelf)
+        let reference = CKReference(record: firstGoal, action: .none)
         let firstTrans = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: savingsZone.zoneID)
         firstTrans.setObject("Dummy savings transaction #1" as NSString, forKey: TransactionKey.description.rawValue)
         firstTrans.setObject(Date.days(away: -9) as NSDate, forKey: TransactionKey.date.rawValue)
@@ -71,84 +75,168 @@ class CKEngine {
         secondTrans.setObject(3.22 as NSNumber, forKey: TransactionKey.amount.rawValue)
         secondTrans.setObject(reference, forKey: TransactionKey.goal.rawValue)
         
-        self.privateDatabase.save(firstTrans) { record, error in
-            if error != nil {
-                fatalError("*** ERROR SAVING DUMMY GOAL ***")
-            }
+        // Make a save records operation that is dependent on the create zone operation
+        let saveDummyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [firstGoal, firstTrans, secondTrans], recordIDsToDelete: nil)
+        saveDummyRecordsOperation.modifyRecordsCompletionBlock = { savedRecords, deletedRecordIDs, error in
+            print("Saved dummy data to private database")
         }
+        saveDummyRecordsOperation.addDependency(saveNewZoneOperation)
         
-        self.privateDatabase.save(secondTrans) { record, error in
-            if error != nil {
-                fatalError("*** ERROR SAVING DUMMY GOAL ***")
-            }
-        }
-        
+        self.privateDatabase.add(saveDummyRecordsOperation)
         
     }
     
-    private class func delete(zones zonesToDelete: RecordZone...) {
+
+    func fetchAllGoals(completionHandler: @escaping (CKResult<Goals>?, Error?) -> Void) {
         
-        // Get a reference to all the zones in the private database
-        self.privateDatabase.fetchAllRecordZones { (returnZones, error) in
-            
-            if error != nil {
-                fatalError("*** ERROR FETCHING ALL RECORD ZONES ***")
+        // A result wrapper that we will return upon successful completion of the method
+        let result : CKResult<[String:Any]> = CKResult(result: Dictionary<String,Any>())
+        
+        // Fetch all the goals
+        let allGoalsOperation = FetchAllGoalsOperation(result: result)
+        CKEngine.privateDatabase.add(allGoalsOperation)
+        
+        let finishedOperation = BlockOperation { [unowned result] in
+            print("FETCH COMPLETED")
+            guard let goals = result.value?["goals"] as? Goals else {
+                let error = NSError(domain: "cloudkit", code: 1, userInfo: nil)
+                completionHandler(nil, error)
+                return
             }
-            
-            guard let returnZones = returnZones else {
-                fatalError("*** FETCHING ALL ZONES RETURNED NO ZONES IDs ***")
-            }
-            
-            for zone in returnZones {
-                guard let zoneType = RecordZone(rawValue: zone.zoneID.zoneName) else {
-                    continue
-                }
-                
-                if zonesToDelete.contains(zoneType) {
-                    self.privateDatabase.delete(withRecordZoneID: zone.zoneID) { zoneID, error in
-                        if error != nil {
-                            fatalError("*** ERROR DELETING ZONE WITH ID: \(zoneID?.zoneName) ***")
-                        } else {
-                            print("Deleted the \(zoneID?.zoneName) zone")
-                        }
-                    }
-                }
-            }
-            
+            completionHandler(CKResult(result: goals), nil)
         }
-        
-    }
-    
-    
-    private class func saveRecordZone(_ recordZone: CKRecordZone) {
-        
-        CKEngine.privateDatabase.save(recordZone) { zone, error in
-            
-            if error != nil {
-                // Error saving the zone
-                fatalError("*** ERROR SAVING RECORD ZONE ***\n\n" + error!.localizedDescription)
-            } else {
-                print("Saved the \(zone?.zoneID.zoneName)) zone")
-            }
-            
-        }
-        
+        finishedOperation.addDependency(allGoalsOperation)
+        OperationQueue().addOperation(finishedOperation)
     }
     
 }
 
 
+public class CKResult<T> {
+    
+    var value : T?
+    
+    init(result: T?) {
+        self.value = result
+    }
+    
+}
 
 
+fileprivate class FetchAllGoalsOperation : CKQueryOperation {
+    
+    let result : CKResult<[String:Any]>
+    
+    init(result: CKResult<[String:Any]>) {
+        
+        self.result = result
+        self.result.value?["goals"] = Goals()
+        
+        super.init()
+        
+        // Setup the query
+        let goalPredicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.goal.rawValue, predicate: goalPredicate)
+        self.query = query
+        
+        // Set up the blocks
+        self.recordFetchedBlock = { savedRecord in
+            
+            guard var goals = self.result.value?["goals"] as? Goals else {
+                print("*** Error accessing value of CKResult ***\n\(result.value)")
+                return
+            }
+            
+            goals.append(Goal(fromRecord: savedRecord))
+            print("ADDED GOAL TO RESULT")
+            
+        }
+        
+        self.queryCompletionBlock = { cursor, error in
+            guard error == nil else {
+                print("*** Error fetching all goals ***\n\(error?.localizedDescription)")
+                return
+            }
+            
+            if let _ = cursor {
+                // TODO: Create function for recursive call to get next back of goals
+                print("\n\nThere are more goals to be fetched.\n\n")
+            } else {
+                print("\(result.value!.count) GOALS FETCHED!")
+            }
+        }
+    }
+    
+}
 
+fileprivate class ProcessGoalsOperation : Operation {
+    
+    let result : CKResult<[String:Any]>
+    
+    init(result: CKResult<[String:Any]>) {
+        self.result = result
+        self.result.value?["transactionQueries"] = [CKQueryOperation]()
+    }
+    
+    override func main() {
+        
+        if self.isCancelled {
+            return
+        }
+        
+        guard let goals = self.result.value?["goals"] as? Goals else {
+            self.cancel()
+            return
+        }
+        
+        // We should process each goal and make a transaction query for each
+        for goal in goals {
+            let recordID = CKRecordID(recordName: goal.id)
+            let reference = CKReference(recordID: recordID, action: .none)
+            let predicate = NSPredicate(format: "goal == %@", reference)
+            let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+            let query = CKQuery(recordType: RecordType.transaction.rawValue, predicate: predicate)
+            query.sortDescriptors = [sort]
+            
+            let transactionOperation = CKQueryOperation(query: query)
+            transactionOperation.recordFetchedBlock = { [unowned result = self.result] savedRecord in
+                // Create a transaction from the record and append it to the goal
+                let transaction = Transaction(fromRecord: savedRecord)
+                goal.addTransaction(transaction)
+                print("ADDED TRANSACTION TO GOAL")
+            }
+            transactionOperation.queryCompletionBlock = { [unowned result = self.result] cursor, error in
+                
+                guard error == nil else {
+                    print("*** Error fetching transactions for goal ***\n\(error?.localizedDescription)")
+                    return
+                }
+                
+                if let _ = cursor {
+                    // TODO: Create function for recursive call to get next back of goals
+                    print("\n\nThere are more transactions to be fetched.\n\n")
+                } else {
+                    print("ALL TRANSACTIONS FOR GOAL HAVE BEEN FETCHED!")
+                }
+            }
+        }
+        
+        
+    }
+    
+}
 
-
-
-
-
-
-
-
+fileprivate class FetchAllTransactionsOperation : CKQueryOperation {
+    
+    var result : CKResult<[String:Any]>
+    
+    init(result: CKResult<[String:Any]>) {
+        self.result = result
+    }
+    
+    
+    
+}
 
 
 

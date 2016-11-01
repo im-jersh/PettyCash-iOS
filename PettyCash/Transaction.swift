@@ -22,7 +22,7 @@ enum TransactionKey : String {
 typealias Transactions = [Transaction]
 
 
-struct Transaction {
+class Transaction {
     
 // MARK: Properties
     let id : String             // The unique id to the corresponding CKRecord

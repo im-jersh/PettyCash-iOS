@@ -19,8 +19,10 @@ class GoalsViewController: UIViewController {
     
     
 // MARK: Properties
+    let ck = CKEngine()
     fileprivate var goals : Goals = Goals() {
         didSet {
+            print("There are \(self.goals.count) goals to display")
             self.tableView.reloadData()
         }
     }
@@ -28,12 +30,21 @@ class GoalsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Fetch the goals
+        self.ck.fetchAllGoals { (result, error) in
+            guard let goals = result?.value else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.goals = goals
+            }
+        }
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
         self.tableView.tableFooterView = UIView()
         
-        // Make some test data
-        self.dummyData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -165,7 +176,7 @@ extension GoalsViewController {
     
     public func dummyData() {
         
-        var testGoal = Goal(with: "Test Goal #1", startDate: Date(), amount: 100.00, priority: Priority.low, andEndDate: Date.tomorrow())
+        let testGoal = Goal(with: "Test Goal #1", startDate: Date(), amount: 100.00, priority: Priority.low, andEndDate: Date.tomorrow())
         let testTransaction = Transaction(for: 37.0, withDescription: "Some random goal contribution")
         
         testGoal.addTransaction(testTransaction)
