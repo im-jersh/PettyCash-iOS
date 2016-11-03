@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MBCircularProgressBar/MBCircularProgressBar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PathMenu/PathMenu.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/plaid-ios-link/plaid_ios_link.framework"
   install_framework "$BUILT_PRODUCTS_DIR/plaid-ios-sdk/plaid_ios_sdk.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -99,5 +100,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MBCircularProgressBar/MBCircularProgressBar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PathMenu/PathMenu.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/plaid-ios-link/plaid_ios_link.framework"
   install_framework "$BUILT_PRODUCTS_DIR/plaid-ios-sdk/plaid_ios_sdk.framework"
 fi

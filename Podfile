@@ -11,6 +11,7 @@ target 'PettyCash' do
     pod 'SlideMenuControllerSwift'
     pod 'MBCircularProgressBar'
     pod 'plaid-ios-sdk'
+    pod 'plaid-ios-link'
 end
 
 target 'PettyCashTests' do

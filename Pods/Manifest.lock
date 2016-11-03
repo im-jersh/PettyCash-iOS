@@ -6,6 +6,8 @@ PODS:
   - Eureka (2.0.0-beta.1)
   - MBCircularProgressBar (0.3.4)
   - PathMenu (1.1.0)
+  - plaid-ios-link (0.2.1):
+    - plaid-ios-sdk
   - plaid-ios-sdk (0.3.6)
   - SlideMenuControllerSwift (3.0.0)
 
@@ -15,6 +17,7 @@ DEPENDENCIES:
   - Eureka (~> 2.0.0-beta.1)
   - MBCircularProgressBar
   - PathMenu
+  - plaid-ios-link
   - plaid-ios-sdk
   - SlideMenuControllerSwift
 
@@ -24,9 +27,10 @@ SPEC CHECKSUMS:
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   PathMenu: 3743f569d97645c3eb673a67388d176258d183d5
+  plaid-ios-link: 0ef45f18cdb2d1c3b9eaf6c2b457c950909df725
   plaid-ios-sdk: e9865b0fe6a79b3d30d886171d7a26f7e1408935
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
 
-PODFILE CHECKSUM: 2b39340c18ebfc91eca76234db79c075de54302d
+PODFILE CHECKSUM: 14ea1e66b5c934297d6e16cdf968f4a99d1f5b49
 
 COCOAPODS: 1.1.1
