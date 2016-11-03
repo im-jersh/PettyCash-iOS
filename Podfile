@@ -12,8 +12,8 @@ target 'PettyCash' do
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
     pod 'MBCircularProgressBar'
-    pod 'plaid-ios-sdk', :path => '/Users/Emeka/Desktop/plaid-ios-sdk-master'
-    pod 'plaid-ios-link', :path => '/Users/Emeka/Desktop/plaid-ios-link-master'
+    pod 'plaid-ios-sdk'
+    pod 'plaid-ios-link'
 end
 
 target 'PettyCashTests' do
@@ -21,6 +21,7 @@ target 'PettyCashTests' do
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
+    pod 'plaid-ios-sdk'
 end
 
 post_install do |installer|

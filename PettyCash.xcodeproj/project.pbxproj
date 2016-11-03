@@ -36,6 +36,7 @@
 		901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA81DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
+		905CE5A91DCBF6CB004E4A53 /* AddBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		57B3AE64E35C86902DFAFB9E /* Pods-PettyCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PettyCash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PettyCash/Pods-PettyCash.debug.xcconfig"; sourceTree = "<group>"; };
 		5875ADB5E6F194948E4C0A9A /* Pods_PettyCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PettyCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		901BAFA51DA6E5CC0083EA97 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		905CE5A31DCBEEB3004E4A53 /* PettyCash-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PettyCash-Bridging-Header.h"; sourceTree = "<group>"; };
+		905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBankViewController.swift; sourceTree = "<group>"; };
 		A13FA6AE2347E14ED1D4D60C /* Pods_PettyCashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PettyCashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0F05AF281BC05D8E7DA55C /* Pods-PettyCash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PettyCash.release.xcconfig"; path = "Pods/Target Support Files/Pods-PettyCash/Pods-PettyCash.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +147,7 @@
 				030460281DBFEEAA008B52F0 /* GoalsViewController.swift */,
 				0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */,
 				0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */,
+				905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */,
 			);
 			name = "View Controllers 🎨";
 			sourceTree = "<group>";
@@ -210,6 +214,7 @@
 		03BAFD891D81D81D00B592C8 /* PettyCash */ = {
 			isa = PBXGroup;
 			children = (
+				905CE5A31DCBEEB3004E4A53 /* PettyCash-Bridging-Header.h */,
 				03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */,
 				032172761D9DB5CC001D04E7 /* Models 🛠 */,
 				0321727A1D9DB5F7001D04E7 /* Views 🌅 */,
@@ -524,6 +529,7 @@
 				032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */,
 				030460291DBFEEAA008B52F0 /* GoalsViewController.swift in Sources */,
 				030460321DC333B9008B52F0 /* GoalCell.swift in Sources */,
+				905CE5A91DCBF6CB004E4A53 /* AddBankViewController.swift in Sources */,
 				0304602D1DBFEEBF008B52F0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +634,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PettyCash/PettyCash-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -669,6 +676,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PettyCash/PettyCash-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

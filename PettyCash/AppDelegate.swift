@@ -11,13 +11,14 @@ import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.createMenuView()
+        Plaid.sharedInstance().setPublicKey("228476691a1099d884060513432690")
+        //self.createMenuView()
         
         return true
     }
