@@ -10,6 +10,7 @@ target 'PettyCash' do
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
     pod 'MBCircularProgressBar'
+    pod 'plaid-ios-sdk'
 end
 
 target 'PettyCashTests' do
@@ -17,6 +18,7 @@ target 'PettyCashTests' do
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
+    pod 'plaid-ios-sdk'
 end
 
 post_install do |installer|
