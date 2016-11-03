@@ -10,27 +10,14 @@ import UIKit
 
 class AddBankViewController: UIViewController {
     
-    var plaidVC : PLDLinkNavigationViewController!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let plaidLink = PLDLinkNavigationViewController(environment: PlaidEnvironment.tartan, product: .connect) else {
-            fatalError("")
-        }
         
-        plaidLink.linkDelegate = self
-        plaidLink.providesPresentationContextTransitionStyle = true
-        plaidLink.definesPresentationContext = true
-        plaidLink.modalPresentationStyle = UIModalPresentationStyle.custom
-        self.plaidVC = plaidLink
         
         // Do any additional setup after loading the view.
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.present(self.plaidVC, animated: true, completion: nil)
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,6 +35,20 @@ class AddBankViewController: UIViewController {
     }
     */
 
+    @IBAction func addBankAccountButtonWasTapped(_ sender: AnyObject) {
+        
+        guard let plaidLink = PLDLinkNavigationViewController(environment: PlaidEnvironment.tartan, product: .connect) else {
+            fatalError("")
+        }
+        
+        plaidLink.linkDelegate = self
+        plaidLink.providesPresentationContextTransitionStyle = true
+        plaidLink.definesPresentationContext = true
+        plaidLink.modalPresentationStyle = UIModalPresentationStyle.custom
+        
+        self.present(plaidLink, animated: true, completion: nil)
+        
+    }
 
 }
 
@@ -70,7 +71,12 @@ extension AddBankViewController: PLDLinkNavigationControllerDelegate {
 }
 
 
-
+// MARK: Actions
+extension AddBankViewController {
+    
+    
+    
+}
 
 
 
