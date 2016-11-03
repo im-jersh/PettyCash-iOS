@@ -10,6 +10,10 @@ import Foundation
 import CloudKit
 import UIKit
 
+protocol Transportable {
+    var id : String { get }
+}
+
 // Indicates various levels of priority
 enum Priority : Int {
     case low, medium, high
@@ -30,10 +34,10 @@ enum GoalKey : String {
 typealias Goals = [Goal]
 
 
-class Goal {
+class Goal : Transportable {
     
 // MARK: Properties
-    let id : String                         // The unique id to the corresponding CKRecord
+    private(set) var id : String                         // The unique id to the corresponding CKRecord
     let description : String                // A description of the goal
     let startDate : Date                    // The date the goal will become active
     let endDate : Date?                     // The date the user would like to achieve the goal by

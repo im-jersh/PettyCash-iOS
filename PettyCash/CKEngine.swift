@@ -89,14 +89,29 @@ class CKEngine {
 
     func fetchAllGoals(completionHandler: @escaping (CKResult<Goals>?, Error?) -> Void) {
         
+        let opQueue = OperationQueue()
+        
         // A result wrapper that we will return upon successful completion of the method
         let result : CKResult<[String:Any]> = CKResult(result: Dictionary<String,Any>())
         
         // Fetch all the goals
-        let allGoalsOperation = FetchAllGoalsOperation(result: result)
+        let allGoalsOperation = FetchAllOperation(recordType: RecordType.goal, inReferenceTo: nil)
         CKEngine.privateDatabase.add(allGoalsOperation)
         
+        // Process the goals
+        let processGoalsOperation = ProcessRecordsOperation(recordType: RecordType.goal)
+        processGoalsOperation.addDependency(allGoalsOperation)
+        
+        // Create operation that will make transaction query operations for each goal
+        
+        
+        
+        
+        
+        
+        
         let finishedOperation = BlockOperation { [unowned result] in
+            
             print("FETCH COMPLETED")
             guard let goals = result.value?["goals"] as? Goals else {
                 let error = NSError(domain: "cloudkit", code: 1, userInfo: nil)
@@ -122,60 +137,73 @@ public class CKResult<T> {
     
 }
 
-
-fileprivate class FetchAllGoalsOperation : CKQueryOperation {
+fileprivate class FetchAllOperation : CKQueryOperation {
     
-    let result : CKResult<[String:Any]>
+    var records = [CKRecord]()
+    let recordType : RecordType
+    let reference : Transportable?
     
-    init(result: CKResult<[String:Any]>) {
+    init(recordType: RecordType, inReferenceTo reference: Transportable?) {
         
-        self.result = result
-        self.result.value?["goals"] = Goals()
+        self.recordType = recordType
+        self.reference = reference
         
         super.init()
         
         // Setup the query
-        let goalPredicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: RecordType.goal.rawValue, predicate: goalPredicate)
-        self.query = query
-        
-        // Set up the blocks
-        self.recordFetchedBlock = { savedRecord in
-            
-            guard var goals = self.result.value?["goals"] as? Goals else {
-                print("*** Error accessing value of CKResult ***\n\(result.value)")
+        switch self.recordType {
+        case .goal:
+            let predicate = NSPredicate(value: true)
+            let query = CKQuery(recordType: self.recordType.rawValue, predicate: predicate)
+            self.query = query
+            break
+        case .transaction where reference is Goal: // We should always require that we get transactions that reference a particular goal
+            guard let goal = reference as? Goal else {
+                self.cancel()
                 return
             }
             
-            goals.append(Goal(fromRecord: savedRecord))
-            print("ADDED GOAL TO RESULT")
-            
+            let recordID = CKRecordID(recordName: goal.id)
+            let reference = CKReference(recordID: recordID, action: .none)
+            let predicate = NSPredicate(format: "goal == %@", reference)
+            let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+            let query = CKQuery(recordType: RecordType.transaction.rawValue, predicate: predicate)
+            query.sortDescriptors = [sort]
+            self.query = query
+            break
+        default:
+            break
+        }
+        
+        // Set up the blocks
+        self.recordFetchedBlock = { savedRecord in
+            self.records.append(savedRecord)
         }
         
         self.queryCompletionBlock = { cursor, error in
             guard error == nil else {
-                print("*** Error fetching all goals ***\n\(error?.localizedDescription)")
+                print("*** Error fetching records ***\n\(error?.localizedDescription)")
                 return
             }
             
             if let _ = cursor {
                 // TODO: Create function for recursive call to get next back of goals
-                print("\n\nThere are more goals to be fetched.\n\n")
+                print("\n\nThere are more records to be fetched.\n\n")
             } else {
-                print("\(result.value!.count) GOALS FETCHED!")
+                print("\(self.records.count) RECORDS FETCHED!")
             }
         }
     }
     
 }
 
-fileprivate class ProcessGoalsOperation : Operation {
+fileprivate class ProcessRecordsOperation : Operation {
     
-    let result : CKResult<[String:Any]>
+    var objects = [AnyObject]()
+    let recordType : RecordType
     
-    init(result: CKResult<[String:Any]>) {
-        self.result = result
-        self.result.value?["transactionQueries"] = [CKQueryOperation]()
+    init(recordType: RecordType) {
+        self.recordType = recordType
     }
     
     override func main() {
@@ -184,75 +212,58 @@ fileprivate class ProcessGoalsOperation : Operation {
             return
         }
         
-        guard let goals = self.result.value?["goals"] as? Goals else {
+        // Grab the fetched records from the fetch operation that is stored in the dependencies
+        guard let fetchOp = self.dependencies.last as? FetchAllOperation else {
             self.cancel()
             return
         }
         
-        // We should process each goal and make a transaction query for each
-        for goal in goals {
-            let recordID = CKRecordID(recordName: goal.id)
-            let reference = CKReference(recordID: recordID, action: .none)
-            let predicate = NSPredicate(format: "goal == %@", reference)
-            let sort = NSSortDescriptor(key: "creationDate", ascending: false)
-            let query = CKQuery(recordType: RecordType.transaction.rawValue, predicate: predicate)
-            query.sortDescriptors = [sort]
+        // Make goals from the records
+        for record in fetchOp.records {
+            switch self.recordType {
+            case .goal:
+                self.objects.append(Goal(fromRecord: record))
+                continue
+            case .transaction:
+                self.objects.append(Transaction(fromRecord: record))
+                continue
+            }
             
-            let transactionOperation = CKQueryOperation(query: query)
-            transactionOperation.recordFetchedBlock = { [unowned result = self.result] savedRecord in
-                // Create a transaction from the record and append it to the goal
-                let transaction = Transaction(fromRecord: savedRecord)
-                goal.addTransaction(transaction)
-                print("ADDED TRANSACTION TO GOAL")
-            }
-            transactionOperation.queryCompletionBlock = { [unowned result = self.result] cursor, error in
-                
-                guard error == nil else {
-                    print("*** Error fetching transactions for goal ***\n\(error?.localizedDescription)")
-                    return
-                }
-                
-                if let _ = cursor {
-                    // TODO: Create function for recursive call to get next back of goals
-                    print("\n\nThere are more transactions to be fetched.\n\n")
-                } else {
-                    print("ALL TRANSACTIONS FOR GOAL HAVE BEEN FETCHED!")
-                }
-            }
         }
         
+    }
+
+}
+
+fileprivate class PrepareTransactionQueriesOperation : Operation {
+    
+    var queries = [CKQueryOperation]()
+    var goals = Goals()
+    
+    override func main() {
         
+        // Get the goal objects that we need to make transaction queries for
+        guard let processOp = self.dependencies.last as? ProcessRecordsOperation, let goals = processOp.objects as? Goals else {
+            self.cancel()
+            return
+        }
+        self.goals = goals
+        
+        for goal in self.goals {
+            
+            let recordZone = CKRecordZoneID(zoneName: RecordZone.savings.zoneName, ownerName: CKOwnerDefaultName)
+            let recordID = CKRecordID(recordName: goal.id, zoneID: recordZone)
+            let reference = CKReference(recordID: recordID, action: .none)
+            let predicate = NSPredicate(format: "goal == %@", reference)
+            let query = CKQuery(recordType: RecordType.transaction.rawValue, predicate: predicate)
+            query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            
+            self.queries.append(CKQueryOperation(query: query))
+        }
     }
-    
 }
 
-fileprivate class FetchAllTransactionsOperation : CKQueryOperation {
-    
-    var result : CKResult<[String:Any]>
-    
-    init(result: CKResult<[String:Any]>) {
-        self.result = result
-    }
-    
-    
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+fileprivate class 
 
 
 
