@@ -17,14 +17,20 @@ class GoalsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    
 // MARK: Properties
     fileprivate private(set) var pcHandler : PCHandler?
     fileprivate var goals : Goals = Goals() {
         didSet {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
+    fileprivate lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(GoalsViewController.handleRefresh), for: UIControlEvents.valueChanged)
+        
+        return refreshControl
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,7 @@ class GoalsViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
         self.tableView.tableFooterView = UIView()
+        self.tableView.addSubview(self.refreshControl)
         
     }
     
@@ -48,7 +55,9 @@ class GoalsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        self.pcHandler?.fetchAllGoals()
+    }
     
 // MARK: - Navigation
 
@@ -167,11 +176,10 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
         
     }
     
-    
 }
 
 
-// MARK: Public Methods
+// MARK: Public & Private Methods
 extension GoalsViewController {
     
     public func addGoalToList(_ goal: Goal) {
