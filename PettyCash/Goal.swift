@@ -125,6 +125,10 @@ class Goal : Transportable {
         
     }
     
+    func addTransactions(_ transactions: Transactions) {
+        self.transactions = transactions
+    }
+    
 }
 
 

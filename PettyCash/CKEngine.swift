@@ -32,6 +32,7 @@ class CKEngine {
     private static let defaultContainer = CKContainer.default()
     private static let privateDatabase = CKContainer.default().privateCloudDatabase
     
+    
     class func seedDummyData() {
         
         // Delete the appropriate zones first by creating an operation to delete the zones by ID.
@@ -60,23 +61,50 @@ class CKEngine {
         firstGoal.setObject(Date.days(away: -10) as NSDate, forKey: GoalKey.startDate.rawValue)
         firstGoal.setObject(Date.weeks(away: 40) as NSDate, forKey: GoalKey.endDate.rawValue)
         firstGoal.setObject(200.00 as NSNumber, forKey: GoalKey.amount.rawValue)
-        firstGoal.setObject(Priority.high.rawValue as NSNumber, forKey: GoalKey.priority.rawValue)
+        firstGoal.setObject(Priority.medium.rawValue as NSNumber, forKey: GoalKey.priority.rawValue)
         
-        let reference = CKReference(record: firstGoal, action: .none)
+        let secondGoal = CKRecord(recordType: RecordType.goal.rawValue, zoneID: savingsZone.zoneID)
+        secondGoal.setObject("Dumb Computer" as NSString, forKey: GoalKey.description.rawValue)
+        secondGoal.setObject(Date.days(away: -37) as NSDate, forKey: GoalKey.startDate.rawValue)
+        secondGoal.setObject(Date.weeks(away: 87) as NSDate, forKey: GoalKey.endDate.rawValue)
+        secondGoal.setObject(1300.00 as NSNumber, forKey: GoalKey.amount.rawValue)
+        secondGoal.setObject(Priority.high.rawValue as NSNumber, forKey: GoalKey.priority.rawValue)
+        
+        let firstReference = CKReference(record: firstGoal, action: .none)
         let firstTrans = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: savingsZone.zoneID)
         firstTrans.setObject("Dummy savings transaction #1" as NSString, forKey: TransactionKey.description.rawValue)
         firstTrans.setObject(Date.days(away: -9) as NSDate, forKey: TransactionKey.date.rawValue)
         firstTrans.setObject(10.00 as NSNumber, forKey: TransactionKey.amount.rawValue)
-        firstTrans.setObject(reference, forKey: TransactionKey.goal.rawValue)
+        firstTrans.setObject(firstReference, forKey: TransactionKey.goal.rawValue)
         
         let secondTrans = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: savingsZone.zoneID)
         secondTrans.setObject("Dummy savings transaction #2" as NSString, forKey: TransactionKey.description.rawValue)
         secondTrans.setObject(Date.days(away: -7) as NSDate, forKey: TransactionKey.date.rawValue)
         secondTrans.setObject(3.22 as NSNumber, forKey: TransactionKey.amount.rawValue)
-        secondTrans.setObject(reference, forKey: TransactionKey.goal.rawValue)
+        secondTrans.setObject(firstReference, forKey: TransactionKey.goal.rawValue)
+        
+        let secondReference = CKReference(record: secondGoal, action: .none)
+        let thirdTrans = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: savingsZone.zoneID)
+        thirdTrans.setObject("Dummy savings transaction #3" as NSString, forKey: TransactionKey.description.rawValue)
+        thirdTrans.setObject(Date.days(away: -30) as NSDate, forKey: TransactionKey.date.rawValue)
+        thirdTrans.setObject(18.27 as NSNumber, forKey: TransactionKey.amount.rawValue)
+        thirdTrans.setObject(secondReference, forKey: TransactionKey.goal.rawValue)
+        
+        let fourthTrans = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: savingsZone.zoneID)
+        fourthTrans.setObject("Dummy savings transaction #4" as NSString, forKey: TransactionKey.description.rawValue)
+        fourthTrans.setObject(Date.days(away: -29) as NSDate, forKey: TransactionKey.date.rawValue)
+        fourthTrans.setObject(32.20 as NSNumber, forKey: TransactionKey.amount.rawValue)
+        fourthTrans.setObject(secondReference, forKey: TransactionKey.goal.rawValue)
+        
+        let fifthTrans = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: savingsZone.zoneID)
+        fifthTrans.setObject("Dummy savings transaction #4" as NSString, forKey: TransactionKey.description.rawValue)
+        fifthTrans.setObject(Date.days(away: -27) as NSDate, forKey: TransactionKey.date.rawValue)
+        fifthTrans.setObject(167.30 as NSNumber, forKey: TransactionKey.amount.rawValue)
+        fifthTrans.setObject(secondReference, forKey: TransactionKey.goal.rawValue)
+        
         
         // Make a save records operation that is dependent on the create zone operation
-        let saveDummyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [firstGoal, firstTrans, secondTrans], recordIDsToDelete: nil)
+        let saveDummyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [firstGoal, firstTrans, secondTrans, secondGoal, thirdTrans, fourthTrans, fifthTrans], recordIDsToDelete: nil)
         saveDummyRecordsOperation.modifyRecordsCompletionBlock = { savedRecords, deletedRecordIDs, error in
             print("Saved dummy data to private database")
         }
@@ -91,9 +119,6 @@ class CKEngine {
         
         let opQueue = OperationQueue()
         
-        // A result wrapper that we will return upon successful completion of the method
-        let result : CKResult<[String:Any]> = CKResult(result: Dictionary<String,Any>())
-        
         // Fetch all the goals
         let allGoalsOperation = FetchAllOperation(recordType: RecordType.goal, inReferenceTo: nil)
         CKEngine.privateDatabase.add(allGoalsOperation)
@@ -101,28 +126,42 @@ class CKEngine {
         // Process the goals
         let processGoalsOperation = ProcessRecordsOperation(recordType: RecordType.goal)
         processGoalsOperation.addDependency(allGoalsOperation)
-        
-        // Create operation that will make transaction query operations for each goal
-        
-        
-        
-        
-        
-        
-        
-        let finishedOperation = BlockOperation { [unowned result] in
+        processGoalsOperation.completionBlock = {
             
-            print("FETCH COMPLETED")
-            guard let goals = result.value?["goals"] as? Goals else {
-                let error = NSError(domain: "cloudkit", code: 1, userInfo: nil)
-                completionHandler(nil, error)
+            guard let goals = processGoalsOperation.objects as? Goals else {
+                completionHandler(nil, NSError(domain: "cloudkit", code: 1, userInfo: nil))
                 return
             }
-            completionHandler(CKResult(result: goals), nil)
+            
+            // Make a completion block that is dependent on all fetch transaction blocks
+            let completionBlock = BlockOperation {
+                print("ALL TRANSACTION QUERIES HAVE FINISHED")
+                completionHandler(CKResult(result: goals), nil)
+            }
+            
+            for goal in goals {
+                let transactionOp = FetchAllOperation(recordType: .transaction, inReferenceTo: goal)
+                let processOp = ProcessRecordsOperation(recordType: .transaction)
+                processOp.addDependency(transactionOp)
+                processOp.completionBlock = {
+                    guard let transactions = processOp.objects as? Transactions else {
+                        completionHandler(nil, NSError(domain: "cloudkit", code: 1, userInfo: nil))
+                        return
+                    }
+                    goal.addTransactions(transactions)
+                }
+                CKEngine.privateDatabase.add(transactionOp)
+                completionBlock.addDependency(processOp)
+                opQueue.addOperation(processOp)
+            }
+            
+            opQueue.addOperation(completionBlock)
         }
-        finishedOperation.addDependency(allGoalsOperation)
-        OperationQueue().addOperation(finishedOperation)
+        
+        opQueue.addOperation(processGoalsOperation)
+        
     }
+    
     
 }
 
@@ -212,6 +251,8 @@ fileprivate class ProcessRecordsOperation : Operation {
             return
         }
         
+        print("PROCESSING RECORDS")
+        
         // Grab the fetched records from the fetch operation that is stored in the dependencies
         guard let fetchOp = self.dependencies.last as? FetchAllOperation else {
             self.cancel()
@@ -263,7 +304,6 @@ fileprivate class PrepareTransactionQueriesOperation : Operation {
     }
 }
 
-fileprivate class 
 
 
 

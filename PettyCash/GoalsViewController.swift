@@ -19,10 +19,9 @@ class GoalsViewController: UIViewController {
     
     
 // MARK: Properties
-    let ck = CKEngine()
+    fileprivate private(set) var pcHandler : PCHandler?
     fileprivate var goals : Goals = Goals() {
         didSet {
-            print("There are \(self.goals.count) goals to display")
             self.tableView.reloadData()
         }
     }
@@ -31,15 +30,8 @@ class GoalsViewController: UIViewController {
         super.viewDidLoad()
         
         // Fetch the goals
-        self.ck.fetchAllGoals { (result, error) in
-            guard let goals = result?.value else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.goals = goals
-            }
-        }
+        self.pcHandler = PCController(delegate: self)
+        self.pcHandler?.fetchAllGoals()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -81,6 +73,18 @@ class GoalsViewController: UIViewController {
     }
     
 
+}
+
+
+// MARK: PettyCashDataNotifier
+extension GoalsViewController : PettyCashDataNotifier {
+    
+    func pcController(_ controller: PCController, didFinishFetchingGoals goals: Goals) {
+        DispatchQueue.main.async {
+            self.goals = goals
+        }
+    }
+    
 }
 
 
