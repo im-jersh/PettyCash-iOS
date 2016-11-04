@@ -188,11 +188,7 @@ class CurrencyFormatter : NumberFormatter, FormatterProtocol {
 }
 
 
-extension Date {
-    static func tomorrow() -> Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-    }
-}
+
 
 
 

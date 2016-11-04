@@ -19,6 +19,7 @@ class GoalsViewController: UIViewController {
     
     
 // MARK: Properties
+    fileprivate private(set) var pcHandler : PCHandler?
     fileprivate var goals : Goals = Goals() {
         didSet {
             self.tableView.reloadData()
@@ -28,12 +29,14 @@ class GoalsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Fetch the goals
+        self.pcHandler = PCController(delegate: self)
+        self.pcHandler?.fetchAllGoals()
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
         self.tableView.tableFooterView = UIView()
         
-        // Make some test data
-        self.dummyData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +73,18 @@ class GoalsViewController: UIViewController {
     }
     
 
+}
+
+
+// MARK: PettyCashDataNotifier
+extension GoalsViewController : PettyCashDataNotifier {
+    
+    func pcController(_ controller: PCController, didFinishFetchingGoals goals: Goals) {
+        DispatchQueue.main.async {
+            self.goals = goals
+        }
+    }
+    
 }
 
 
@@ -165,7 +180,7 @@ extension GoalsViewController {
     
     public func dummyData() {
         
-        var testGoal = Goal(with: "Test Goal #1", startDate: Date(), amount: 100.00, priority: Priority.low, andEndDate: Date.tomorrow())
+        let testGoal = Goal(with: "Test Goal #1", startDate: Date(), amount: 100.00, priority: Priority.low, andEndDate: Date.tomorrow())
         let testTransaction = Transaction(for: 37.0, withDescription: "Some random goal contribution")
         
         testGoal.addTransaction(testTransaction)

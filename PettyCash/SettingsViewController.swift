@@ -8,8 +8,13 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UITableViewController {
 
+// MARK: Outlets
+    @IBOutlet weak var testDataButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +41,43 @@ class SettingsViewController: UIViewController {
 // MARK: Actions
     @IBAction func menuBarButtonWasTapped(_ sender: AnyObject) {
         self.slideMenuController()?.openLeft()
+    }
+    
+    @IBAction func useTestDataButtonWasTapped(_ sender: AnyObject) {
+        self.confirmDummyDateInsertion()
+    }
+    
+    @IBAction func resetButtonWasTapped(_ sender: AnyObject) {
+        
+    }
+    
+    
+}
+
+
+extension SettingsViewController {
+    
+    fileprivate func confirmDummyDateInsertion() {
+        
+        let alertController = UIAlertController(title: "WARNING", message: "Using dummy data will permanently delete all goals and savings transactions associated with those goals.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in }
+        let confirmAction = UIAlertAction(title: "I Understand", style: .destructive) { action in
+            
+            let confirmController = UIAlertController(title: "Last Chance", message: "This action can't be reversed. This is your last warning.", preferredStyle: .alert)
+            let dummyDataAction = UIAlertAction(title: "Use Dummy Data", style: .destructive, handler: { alert in
+                CKEngine.seedDummyData()
+            })
+            
+            confirmController.addAction(cancelAction)
+            confirmController.addAction(dummyDataAction)
+            
+            self.present(confirmController, animated: true, completion: nil)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
