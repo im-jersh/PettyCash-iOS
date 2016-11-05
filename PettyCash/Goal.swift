@@ -110,14 +110,6 @@ class Goal : Transportable {
         return formatter.string(from: amount)!
     }
     
-    func formattedEndDate() -> String? {
-        
-        guard let endDate = self.endDate else {
-            return nil
-        }
-        
-        return DateFormatter.localizedString(from: endDate, dateStyle: .short, timeStyle: .none)
-    }
     
     func addTransaction(_ transaction: Transaction) {
         
@@ -125,13 +117,19 @@ class Goal : Transportable {
         
     }
     
-    func addTransactions(_ transactions: Transactions) {
+    func replaceTransactions(_ transactions: Transactions) {
         self.transactions = transactions
     }
     
 }
 
-
+extension Date {
+    
+    func formattedDate(_ dateStyle: DateFormatter.Style, time timeStyle: DateFormatter.Style = .none) -> String {
+        return DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
+    }
+    
+}
 
 
 

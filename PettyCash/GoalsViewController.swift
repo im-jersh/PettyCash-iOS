@@ -65,6 +65,12 @@ class GoalsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showGoalDetail" {
+            guard let indexPath = sender as? IndexPath, let destVC = segue.destination as? GoalDetailViewController else {
+                return
+            }
+            destVC.goal = self.goals[indexPath.row]
+        }
     }
     
     @IBAction func unwindToGoalsList(segue: UIStoryboardSegue) {
@@ -119,11 +125,17 @@ extension GoalsViewController : UITableViewDataSource, UITableViewDelegate {
         // Configure the cell
         cell.goalDescriptionLabel.text = goal.description
         cell.goalProgressBar.value = CGFloat(goal.progress * 100)
-        if let endDate = goal.formattedEndDate() {
+        if let endDate = goal.endDate?.formattedDate(.short) {
             cell.goalEndDateLabel.text = "End Date: " + endDate
         } else { cell.goalEndDateLabel.text = "" }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: "showGoalDetail", sender: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

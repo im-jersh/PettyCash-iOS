@@ -97,7 +97,7 @@ class CKEngine {
         fourthTrans.setObject(secondReference, forKey: TransactionKey.goal.rawValue)
         
         let fifthTrans = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: savingsZone.zoneID)
-        fifthTrans.setObject("Dummy savings transaction #4" as NSString, forKey: TransactionKey.description.rawValue)
+        fifthTrans.setObject("Dummy savings transaction #5" as NSString, forKey: TransactionKey.description.rawValue)
         fifthTrans.setObject(Date.days(away: -27) as NSDate, forKey: TransactionKey.date.rawValue)
         fifthTrans.setObject(167.30 as NSNumber, forKey: TransactionKey.amount.rawValue)
         fifthTrans.setObject(secondReference, forKey: TransactionKey.goal.rawValue)
@@ -148,7 +148,7 @@ class CKEngine {
                         completionHandler(nil, NSError(domain: "cloudkit", code: 1, userInfo: nil))
                         return
                     }
-                    goal.addTransactions(transactions)
+                    goal.replaceTransactions(transactions)
                 }
                 CKEngine.privateDatabase.add(transactionOp)
                 completionBlock.addDependency(processOp)

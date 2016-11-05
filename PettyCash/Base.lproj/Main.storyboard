@@ -234,11 +234,172 @@
                     <connections>
                         <outlet property="tableView" destination="4qi-4x-ZNe" id="rga-Uw-ZBV"/>
                         <segue destination="qeq-jY-1Db" kind="presentation" identifier="addGoalSegue" id="eBm-T6-Mmg"/>
+                        <segue destination="8hP-hM-1gt" kind="show" identifier="showGoalDetail" id="brh-Xu-qYX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahq-bJ-ZX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3077.5999999999999" y="-150.67466266866569"/>
+        </scene>
+        <!--Empty Data Set Delegate-->
+        <scene sceneID="qdU-Nz-0jB">
+            <objects>
+                <viewController storyboardIdentifier="GoalDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8hP-hM-1gt" customClass="GoalDetailViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PdE-db-Ter"/>
+                        <viewControllerLayoutGuide type="bottom" id="iZA-ik-kIY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j3Z-Dd-701">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pHu-sB-fni">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gk-mc-oF3">
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="Ozc-Tk-whn" customClass="MBCircularProgressBarView">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ozc-Tk-whn" secondAttribute="height" multiplier="1:1" id="5jp-z2-wOs"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                <real key="value" value="37"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="decimalPlaces">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="valueDecimalFontSize">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="unitFontSize">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressCapType">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="emptyCapType">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                                <color key="value" red="0.59489071370000002" green="0.74986636640000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
+                                                <color key="value" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Goal Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uz-XD-VyU">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ozc-Tk-whn" firstAttribute="width" secondItem="pHu-sB-fni" secondAttribute="width" multiplier="0.2" constant="146.68000000000001" id="ROo-KE-jcn"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tp8-7p-A6y">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transactionCell" rowHeight="70" id="7Tu-uk-g9D" customClass="TransactionCell" customModule="PettyCash" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Tu-uk-g9D" id="cgE-5B-gDi">
+                                            <frame key="frameInset" width="375" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$37.37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9u-wQ-Clo">
+                                                    <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="uy9-n9-JLI">
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUg-jx-JvC">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqP-8b-TuF">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="G9u-wQ-Clo" firstAttribute="centerY" secondItem="cgE-5B-gDi" secondAttribute="centerY" id="8LN-08-0Tl"/>
+                                                <constraint firstItem="uy9-n9-JLI" firstAttribute="leading" secondItem="cgE-5B-gDi" secondAttribute="leadingMargin" constant="20" id="DOj-1a-a5s"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="G9u-wQ-Clo" secondAttribute="trailing" constant="20" id="PWf-lz-u6Z"/>
+                                                <constraint firstItem="uy9-n9-JLI" firstAttribute="top" secondItem="cgE-5B-gDi" secondAttribute="topMargin" id="Qro-aQ-aog"/>
+                                                <constraint firstItem="G9u-wQ-Clo" firstAttribute="leading" secondItem="uy9-n9-JLI" secondAttribute="trailing" constant="15" id="YC6-b1-EU2"/>
+                                                <constraint firstItem="G9u-wQ-Clo" firstAttribute="height" secondItem="cgE-5B-gDi" secondAttribute="height" multiplier="0.5" id="dC4-BA-w4k"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uy9-n9-JLI" secondAttribute="bottom" id="kBS-gI-f5z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="G9u-wQ-Clo" id="dmn-HB-yt4"/>
+                                            <outlet property="dateLabel" destination="QqP-8b-TuF" id="KOp-TK-3JM"/>
+                                            <outlet property="descriptionLabel" destination="RUg-jx-JvC" id="oWR-FG-jRY"/>
+                                            <outlet property="stackView" destination="uy9-n9-JLI" id="Wzl-14-bOq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8hP-hM-1gt" id="kY7-ZR-Dvh"/>
+                                    <outlet property="delegate" destination="8hP-hM-1gt" id="2ot-fb-ibi"/>
+                                    <outlet property="emptyDataSetDelegate" destination="8hP-hM-1gt" id="AEe-Uf-NR6"/>
+                                    <outlet property="emptyDataSetSource" destination="8hP-hM-1gt" id="PMZ-aF-t6Q"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tp8-7p-A6y" firstAttribute="top" secondItem="pHu-sB-fni" secondAttribute="bottom" id="63x-6R-9TA"/>
+                            <constraint firstItem="iZA-ik-kIY" firstAttribute="top" secondItem="tp8-7p-A6y" secondAttribute="bottom" id="9rQ-v3-q0J"/>
+                            <constraint firstAttribute="trailing" secondItem="tp8-7p-A6y" secondAttribute="trailing" id="J8O-aY-il3"/>
+                            <constraint firstItem="pHu-sB-fni" firstAttribute="leading" secondItem="j3Z-Dd-701" secondAttribute="leading" id="K6b-NA-wEt"/>
+                            <constraint firstItem="tp8-7p-A6y" firstAttribute="leading" secondItem="j3Z-Dd-701" secondAttribute="leading" id="MI0-fW-n6f"/>
+                            <constraint firstAttribute="trailing" secondItem="pHu-sB-fni" secondAttribute="trailing" id="PfW-Yr-0PZ"/>
+                            <constraint firstItem="pHu-sB-fni" firstAttribute="top" secondItem="PdE-db-Ter" secondAttribute="bottom" constant="14" id="lYd-fK-q0E"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountLabel" destination="7gk-mc-oF3" id="MnR-Ok-W0x"/>
+                        <outlet property="descriptionLabel" destination="5uz-XD-VyU" id="pHp-vA-5VL"/>
+                        <outlet property="progressView" destination="Ozc-Tk-whn" id="YOt-8G-aCS"/>
+                        <outlet property="stackView" destination="pHu-sB-fni" id="pW2-mO-Fnh"/>
+                        <outlet property="tableView" destination="tp8-7p-A6y" id="exg-7u-Sxx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uND-CX-7G8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3920.8000000000002" y="-151.57421289355324"/>
         </scene>
         <!--Create Goal-->
         <scene sceneID="vfb-Rp-EnH">
@@ -274,7 +435,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAA-KN-nbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yxr-i6-qaM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4721" y="-710"/>
+            <point key="canvasLocation" x="4727" y="-911"/>
         </scene>
         <!--Root Menu View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -507,7 +668,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJC-o6-btE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3916" y="-710"/>
+            <point key="canvasLocation" x="3922" y="-911"/>
         </scene>
     </scenes>
 </document>
