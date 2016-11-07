@@ -104,6 +104,10 @@ extension GoalsViewController : PettyCashDataNotifier {
         }
     }
     
+    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions) {
+        
+    }
+    
 }
 
 

@@ -11,6 +11,7 @@ import Foundation
 protocol PettyCashDataNotifier {
     func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals)
     func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal)
+    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions)
 }
 
 // This extension essentially makes the included methods optional for any comforming type
@@ -22,8 +23,9 @@ protocol PettyCashDataNotifier {
 protocol PCHandler {
     var delegate : PettyCashDataNotifier? { get }
     func fetchAllGoals()
-    func fetchAllTransactions(for goal: Goal, completionHandler: (Transactions?, Error?) -> Void)
+    func fetchAllTransactions(for goal: Goal, completionHandler: @escaping (Transactions?, Error?) -> Void)
     func saveNew(_ goal: Goal)
+    func fetchAllTransactions(_ completionHandler: @escaping (Transactions?, Error?) -> Void)
 }
 
 class PCController : PCHandler {
@@ -50,14 +52,6 @@ class PCController : PCHandler {
         
     }
     
-    func fetchAllTransactions(for goal: Goal, completionHandler: (Transactions?, Error?) -> Void) {
-        
-        
-        
-        
-        
-    }
-    
     func saveNew(_ goal: Goal) {
         
         self.ckEngine.saveNew(goal) { (result, error) in
@@ -71,7 +65,56 @@ class PCController : PCHandler {
         
     }
     
+    func fetchAllTransactions(for goal: Goal, completionHandler: @escaping (Transactions?, Error?) -> Void) {
+        
+    }
+    
+    func fetchAllTransactions(_ completionHandler: @escaping (Transactions?, Error?) -> Void) {
+        
+        self.ckEngine.fetchAllTransactions { result, error in
+            
+            guard let transactions = result?.value else {
+                completionHandler(nil, error)
+                return
+            }
+            
+            completionHandler(transactions, nil)
+        }
+        
+        
+    }
+    
     
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

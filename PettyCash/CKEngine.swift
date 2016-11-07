@@ -203,6 +203,31 @@ class CKEngine {
         
         
     }
+    
+    func fetchAllTransactions(_ completionHandler: @escaping (CKResult<Transactions>?, Error?) -> Void) {
+        
+        let opQueue = OperationQueue()
+        
+        // Create a fetch all transactions operations
+        let allTransactions = FetchAllOperation(recordType: RecordType.transaction, inReferenceTo: nil)
+        
+        // Process the transactions
+        let processTransactionsOperation = ProcessRecordsOperation(recordType: RecordType.transaction)
+        processTransactionsOperation.addDependency(allTransactions)
+        processTransactionsOperation.completionBlock = {
+            
+            guard let transactions = processTransactionsOperation.objects as? Transactions else {
+                completionHandler(nil, NSError(domain: "cloudkit", code: -1, userInfo: nil))
+                return
+            }
+            
+            completionHandler(CKResult(result: transactions), nil)
+        }
+        
+        CKEngine.privateDatabase.add(allTransactions)
+        opQueue.addOperation(processTransactionsOperation)
+    
+    }
 }
 
 
@@ -221,6 +246,17 @@ fileprivate class FetchAllOperation : CKQueryOperation {
     var records = [CKRecord]()
     let recordType : RecordType
     let reference : Transportable?
+    
+    init(recordType: RecordType, with cursor: CKQueryCursor) {
+        
+        self.recordType = recordType
+        self.reference = nil
+        
+        super.init()
+        
+        self.cursor = cursor
+        
+    }
     
     init(recordType: RecordType, inReferenceTo reference: Transportable?) {
         
@@ -248,6 +284,12 @@ fileprivate class FetchAllOperation : CKQueryOperation {
             let sort = NSSortDescriptor(key: "creationDate", ascending: false)
             let query = CKQuery(recordType: RecordType.transaction.rawValue, predicate: predicate)
             query.sortDescriptors = [sort]
+            self.query = query
+            break
+        case .transaction:
+            
+            let predicate = NSPredicate(value: true)
+            let query = CKQuery(recordType: self.recordType.rawValue, predicate: predicate)
             self.query = query
             break
         default:
@@ -343,6 +385,15 @@ fileprivate class PrepareTransactionQueriesOperation : Operation {
         }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
