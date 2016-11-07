@@ -59,7 +59,7 @@ extension AddBankViewController: PLDLinkNavigationControllerDelegate {
         print(accessToken)
         
         let request = plaidEngine(env: .Testing, secret: "test_secret", clientID: "test_id")
-        request.fetchBankAccountBalance(with: "test_us")
+        request.fetchBankAccountTransactions(with: "test_us")
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -77,7 +77,7 @@ extension AddBankViewController: PLDLinkNavigationControllerDelegate {
 // MARK: Actions
 extension AddBankViewController {
     
-    enum BaseURL {
+    enum BaseURL: String {
         case Production
         case Testing
     }
@@ -93,7 +93,7 @@ extension AddBankViewController {
             case .Production:
                 self.baseURL = "https://api.plaid.com/"
             case .Testing:
-                self.baseURL = "https://tartan.plaid.com/connect"
+                self.baseURL = "https://tartan.plaid.com/"
             }
             self.secret = secret
             self.clientID = clientID
@@ -118,9 +118,9 @@ extension AddBankViewController {
 
         }
         
-        func fetchBankAccountBalance(with accessToken: String){
+        func fetchBankAccountTransactions(with accessToken: String){
             //Create URL String
-            let urlString:String = "\(self.baseURL)?client_id=\(self.clientID)&secret=\(self.secret)&access_token=\(accessToken)"
+            let urlString:String = "\(self.baseURL)connect?client_id=\(self.clientID)&secret=\(self.secret)&access_token=\(accessToken)"
             guard let url = URL(string: urlString) else {
                 print("Could not create URL")
                 return
@@ -132,7 +132,12 @@ extension AddBankViewController {
                 do {
                     let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                     print("jsonResult: \(jsonResult!)")
-                    //print(response ?? "Default")
+                    guard let dataArray:[[String:AnyObject]] = jsonResult?.value(forKey: "transactions") as? [[String:AnyObject]] else { print("JSON ERROR"); return
+                    }
+                    let userTransactions = dataArray.map{Expense(expense: $0)}
+                    for trans in userTransactions {
+                        print(trans.amount)
+                    }
                 } catch {
                     print("Could not parse jSON")
                 }
@@ -143,6 +148,66 @@ extension AddBankViewController {
         
     }
     
+}
+
+public struct Expense {
+    
+    let account: String
+    let id: String
+    let amount: Double
+    let date: String
+    let name: String
+    let pending: Bool
+    
+    let address: String?
+    let city: String?
+    let state: String?
+    let zip: String?
+    let storeNumber: String?
+    let latitude: Double?
+    let longitude: Double?
+    
+    let transType: String?
+    let locationScoreAddress: Double?
+    let locationScoreCity: Double?
+    let locationScoreState: Double?
+    let locationScoreZip: Double?
+    let nameScore: Double?
+    
+    let category:NSArray?
+    
+    public init(expense: [String:AnyObject]) {
+        let meta = expense["meta"] as! [String:AnyObject]
+        let location = meta["location"] as? [String:AnyObject]
+        let coordinates = location?["coordinates"] as? [String:AnyObject]
+        let score = expense["score"] as? [String:AnyObject]
+        let locationScore = score?["location"] as? [String:AnyObject]
+        let type = expense["type"] as? [String:AnyObject]
+        
+        account = expense["_account"] as! String
+        id = expense["_id"] as! String
+        amount = expense["amount"] as! Double
+        date = expense["date"] as! String
+        name = expense["name"] as! String
+        pending = expense["pending"] as! Bool
+        
+        address = location?["address"] as? String
+        city = location?["city"] as? String
+        state = location?["state"] as? String
+        zip = location?["zip"] as? String
+        storeNumber = location?["store_number"] as? String
+        latitude = coordinates?["lat"] as? Double
+        longitude = coordinates?["lon"] as? Double
+        
+        transType = type?["primary"] as? String
+        locationScoreAddress = locationScore?["address"] as? Double
+        locationScoreCity = locationScore?["city"] as? Double
+        locationScoreState = locationScore?["state"] as? Double
+        locationScoreZip = locationScore?["zip"] as? Double
+        nameScore = score?["name"] as? Double
+        
+        category = expense["category"] as? NSArray
+    }
 }
 
 
