@@ -22,6 +22,11 @@
 		032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172841D9DD090001D04E7 /* TransactionModelTests.swift */; };
 		032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172861D9DD5CB001D04E7 /* Extensions.swift */; };
 		03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03708F961D90F6300088BA20 /* CloudKit.framework */; };
+		03831A0C1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
+		03831A0D1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
+		038F35E91DCC630C006DED07 /* PCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F35E81DCC630C006DED07 /* PCController.swift */; };
+		038F35EB1DCD5E29006DED07 /* GoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F35EA1DCD5E29006DED07 /* GoalDetailViewController.swift */; };
+		038F35ED1DCD6612006DED07 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F35EC1DCD6612006DED07 /* TransactionCell.swift */; };
 		03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */; };
 		03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */; };
 		03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD8C1D81D81D00B592C8 /* GameScene.sks */; };
@@ -69,6 +74,10 @@
 		032172861D9DD5CB001D04E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		03708F951D90F61A0088BA20 /* PettyCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PettyCash.entitlements; sourceTree = "<group>"; };
 		03708F961D90F6300088BA20 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		03831A0B1DC40B1300D37B42 /* CKEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKEngine.swift; sourceTree = "<group>"; };
+		038F35E81DCC630C006DED07 /* PCController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCController.swift; sourceTree = "<group>"; };
+		038F35EA1DCD5E29006DED07 /* GoalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDetailViewController.swift; sourceTree = "<group>"; };
+		038F35EC1DCD6612006DED07 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuViewController.swift; sourceTree = "<group>"; };
 		03BAFD871D81D81D00B592C8 /* PettyCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PettyCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +146,7 @@
 		032172771D9DB5D7001D04E7 /* View Controllers 🎨 */ = {
 			isa = PBXGroup;
 			children = (
+				038F35EA1DCD5E29006DED07 /* GoalDetailViewController.swift */,
 				0304602E1DC01C51008B52F0 /* CreateGoalViewController.swift */,
 				030460261DBFE750008B52F0 /* MenuViewController.swift */,
 				03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */,
@@ -151,6 +161,8 @@
 		032172781D9DB5DF001D04E7 /* Controllers 🚦 */ = {
 			isa = PBXGroup;
 			children = (
+				038F35E81DCC630C006DED07 /* PCController.swift */,
+				03831A0B1DC40B1300D37B42 /* CKEngine.swift */,
 			);
 			name = "Controllers 🚦";
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 			children = (
 				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
 				030460311DC333B8008B52F0 /* GoalCell.swift */,
+				038F35EC1DCD6612006DED07 /* TransactionCell.swift */,
 				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
 				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
 			);
@@ -514,6 +527,7 @@
 				901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */,
 				0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */,
+				03831A0C1DC40B1300D37B42 /* CKEngine.swift in Sources */,
 				0304602F1DC01C51008B52F0 /* CreateGoalViewController.swift in Sources */,
 				0304602B1DBFEEB5008B52F0 /* ExpensesViewController.swift in Sources */,
 				03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */,
@@ -522,7 +536,10 @@
 				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
 				032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */,
+				038F35EB1DCD5E29006DED07 /* GoalDetailViewController.swift in Sources */,
 				030460291DBFEEAA008B52F0 /* GoalsViewController.swift in Sources */,
+				038F35ED1DCD6612006DED07 /* TransactionCell.swift in Sources */,
+				038F35E91DCC630C006DED07 /* PCController.swift in Sources */,
 				030460321DC333B9008B52F0 /* GoalCell.swift in Sources */,
 				0304602D1DBFEEBF008B52F0 /* SettingsViewController.swift in Sources */,
 			);
@@ -533,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */,
+				03831A0D1DC40B1300D37B42 /* CKEngine.swift in Sources */,
 				0321727E1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				03BAFDA41D81D81D00B592C8 /* PettyCashTests.swift in Sources */,
 				901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */,
