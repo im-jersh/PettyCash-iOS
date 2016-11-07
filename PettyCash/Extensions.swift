@@ -27,3 +27,18 @@ extension String {
     }
     
 }
+
+
+extension Date {
+    public static func tomorrow() -> Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    }
+    
+    public static func days(away days: Int) -> Date {
+        return Calendar.current.date(byAdding: .day, value: days, to: Date())!
+    }
+    
+    public static func weeks(away weeks: Int) -> Date {
+        return Calendar.current.date(byAdding: .day, value: weeks * 7, to: Date())!
+    }
+}

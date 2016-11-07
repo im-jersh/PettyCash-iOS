@@ -12,6 +12,8 @@ let expenseRowIdentifier = "ExpenseRowIdentifier"
 
 class ExpensesViewController: UIViewController {
     
+    var pcHandler : PCHandler!
+    
     @IBOutlet weak var tableView: UITableView!
     
     /*fileprivate var expenses : Expenses = Expenses() {
@@ -21,7 +23,9 @@ class ExpensesViewController: UIViewController {
     }*/
     var expenses : Expenses = Expenses() {
         didSet {
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -33,7 +37,10 @@ class ExpensesViewController: UIViewController {
         self.tableView.estimatedRowHeight = 120
         self.tableView.tableFooterView = UIView()
         
-        self.initExpenses()
+        self.pcHandler = PCController()
+        self.fetchAll()
+        
+        //self.initExpenses()
         // Do any additional setup after loading the view.
     }
 
@@ -84,8 +91,9 @@ extension ExpensesViewController : UITableViewDataSource, UITableViewDelegate {
         }
         let expense = self.expenses[indexPath.row]
         // Configure the cell
-        cell.expenseDateLabel.text = "Date: " + expense.date
-        cell.expenseAmountLabel.text = "\(expense.amount)"
+//        cell.expenseDateLabel.text = "Date: " + expense.date
+//        cell.expenseAmountLabel.text = "\(expense.amount)"
+        cell.textLabel?.text = String(expense.amount)
         
         return cell
     }
@@ -93,23 +101,34 @@ extension ExpensesViewController : UITableViewDataSource, UITableViewDelegate {
 
 extension ExpensesViewController {
     
-    public func initExpenses(){
-        
-        let expenseDict : [String: Any] = [
-            "account":"acc",
-            "id":"",
-            "amount":0.0,
-            "date":"date",
-            "name":"Bob",
-            "pending":true
-        ]
-        let testExpense = Expense(expense: expenseDict)
-        addExpenseToList(testExpense)
+    func fetchAll(){
+        self.pcHandler.fetchAllExpenses() { expenses, error in
+            guard let expenses = expenses else {
+                //TODO: Handle error
+                return
+            }
+            self.expenses = expenses
+        }
     }
     
-    public func addExpenseToList(_ expense: Expense) {
-        self.expenses.append(expense)
-    }
+//    
+//    public func initExpenses(){
+//        
+//        let expenseDict : [String: Any] = [
+//            "account":"acc",
+//            "id":"",
+//            "amount":0.0,
+//            "date":"date",
+//            "name":"Bob",
+//            "pending":true
+//        ]
+//        let testExpense = Expense(expense: expenseDict)
+//        addExpenseToList(testExpense)
+//    }
+//    
+//    public func addExpenseToList(_ expense: Expense) {
+//        self.expenses.append(expense)
+//    }
     
 }
 

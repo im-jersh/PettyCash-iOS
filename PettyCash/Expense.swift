@@ -1,5 +1,5 @@
 //
-//  Expense.swift
+//  json.swift
 //  PettyCash
 //
 //  Created by Emeka Okoye on 11/6/16.
@@ -25,47 +25,49 @@ public struct Expense {
     let zip: String
     let storeNumber: String
     let latitude: Double
-    let longitude: Double?
+    let longitude: Double
     
-    let transType: String?
-    let locationScoreAddress: Double?
-    let locationScoreCity: Double?
-    let locationScoreState: Double?
-    let locationScoreZip: Double?
-    let nameScore: Double?
+    let transType: String
+    let locationScoreAddress: Double
+    let locationScoreCity: Double
+    let locationScoreState: Double
+    let locationScoreZip: Double
+    let nameScore: Double
     
-    let category:NSArray?
+    let categories : Array<String>
+    let catID : String
     
-    public init(expense: [String:Any]) {
-        let meta = expense["meta"] as! [String:AnyObject]
-        let location = meta["location"] as? [String:AnyObject]
-        let coordinates = location?["coordinates"] as? [String:AnyObject]
-        let score = expense["score"] as? [String:AnyObject]
-        let locationScore = score?["location"] as? [String:AnyObject]
-        let type = expense["type"] as? [String:AnyObject]
+    init(with json: [String:Any]) {
+    
+        account = json["_account"] as! String
+        id = json["_id"] as! String
+        amount = json["amount"] as! Double
+        date = json["date"] as! String
+        name = json["name"] as! String
         
-        account = expense["_account"] as! String
-        id = expense["_id"] as! String
-        amount = expense["amount"] as! Double
-        date = expense["date"] as! String
-        name = expense["name"] as! String
-        pending = expense["pending"] as! Bool
+        let meta = json["meta"] as! [String:Any]
+        let location = meta["location"] as! [String:Any]
+        let coordinates = location["coordinates"] as! [String:Any]
+        address = location["address"] as! String
+        city = location["city"] as! String
+        state = location["state"] as! String
+        zip = location["zip"] as! String
+        storeNumber = location["store_number"] as! String
+        latitude = coordinates["lat"] as! Double
+        longitude = coordinates["lon"] as! Double
+        pending = json["pending"] as! Bool
+        let type = json["type"] as! [String:Any]
+        transType = type["primary"] as! String
+        categories = json["category"] as! Array<String>
+        catID = json["category_id"] as! String
+    
+        let score = json["score"] as! [String:Any]
+        let locationScore = score["location"] as! [String:Any]
+        locationScoreAddress = locationScore["address"] as! Double
+        locationScoreCity = locationScore["city"] as! Double
+        locationScoreState = locationScore["state"] as! Double
+        locationScoreZip = locationScore["zip"] as! Double
+        nameScore = score["name"] as! Double
         
-        address = location?["address"] as? String
-        city = location?["city"] as? String
-        state = location?["state"] as? String
-        zip = location?["zip"] as? String
-        storeNumber = location?["store_number"] as? String
-        latitude = coordinates?["lat"] as? Double
-        longitude = coordinates?["lon"] as? Double
-        
-        transType = type?["primary"] as? String
-        locationScoreAddress = locationScore?["address"] as? Double
-        locationScoreCity = locationScore?["city"] as? Double
-        locationScoreState = locationScore?["state"] as? Double
-        locationScoreZip = locationScore?["zip"] as? Double
-        nameScore = score?["name"] as? Double
-        
-        category = expense["category"] as? NSArray
     }
 }

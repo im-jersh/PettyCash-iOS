@@ -59,6 +59,10 @@ class AddBankViewController: UIViewController {
         self.present(plaidLink, animated: true, completion: nil)
         
     }
+    
+    @IBAction func loadExpensesWasTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "showExpenses", sender: nil)
+    }
 
 }
 
@@ -66,9 +70,9 @@ class AddBankViewController: UIViewController {
 extension AddBankViewController: PLDLinkNavigationControllerDelegate {
     
     func linkNavigationContoller(_ navigationController: PLDLinkNavigationViewController!, didFinishWithAccessToken accessToken: String!) {
-        let request = plaidEngine(env: .Testing, secret: "test_secret", clientID: "test_id")
-        request.fetchBankAccountTransactions(with: "test_us")
-        self.performSegue(withIdentifier: "bankToExpensesSegue", sender: nil)
+//        let request = PlaidEngine(env: .testing, secret: "test_secret", clientID: "test_id")
+//        request.fetchBankAccountTransactions(with: "test_us")
+//        self.performSegue(withIdentifier: "bankToExpensesSegue", sender: nil)
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -87,75 +91,6 @@ extension AddBankViewController: PLDLinkNavigationControllerDelegate {
 // MARK: Actions
 extension AddBankViewController {
     
-    enum BaseURL: String {
-        case Production
-        case Testing
-    }
-    
-    class plaidEngine {
-        
-        let baseURL: String
-        let secret: String
-        let clientID: String
-        
-        init(env: BaseURL, secret: String, clientID: String){
-            switch env {
-            case .Production:
-                self.baseURL = "https://api.plaid.com/"
-            case .Testing:
-                self.baseURL = "https://tartan.plaid.com/"
-            }
-            self.secret = secret
-            self.clientID = clientID
-        }
-        
-        func fetchExpensesFromBankAccount(){
-            
-            guard let url = URL(string: baseURL) else {
-                print("Could not create URL")
-                return
-            }
-            
-            let urlRequest = URLRequest(url: url)
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config)
-            
-            let task = session.dataTask(with: urlRequest, completionHandler: { (data, response,error) in
-                print(response ?? "Default response")
-            })
-            task.resume()
-
-        }
-        
-        func fetchBankAccountTransactions(with accessToken: String){
-            //Create URL String
-            let urlString:String = "\(self.baseURL)connect?client_id=\(self.clientID)&secret=\(self.secret)&access_token=\(accessToken)"
-            guard let url = URL(string: urlString) else {
-                print("Could not create URL")
-                return
-            }
-            
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config)
-            //var userTransactions : Expenses = []
-            let task = session.dataTask(with: url) { data, response, error in
-                do {
-                    let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-                    //print("jsonResult: \(jsonResult!)")
-                    guard let dataArray:[[String:AnyObject]] = jsonResult?.value(forKey: "transactions") as? [[String:AnyObject]] else { print("JSON ERROR"); return
-                    }
-                    let userTransactions = dataArray.map{Expense(expense: $0)}
-                    for trans in userTransactions {
-                        print(trans.amount)
-                    }
-                } catch {
-                    print("Could not parse jSON")
-                }
-            }
-            task.resume()
-        }
-        
-    }
     
 }
 

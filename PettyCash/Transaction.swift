@@ -16,18 +16,20 @@ enum TransactionKey : String {
     case description = "description"
     case date = "date"
     case amount = "amount"
+    case goal = "goal"
 }
 
 typealias Transactions = [Transaction]
 
 
-struct Transaction {
+class Transaction : Transportable {
     
 // MARK: Properties
-    let id : String             // The unique id to the corresponding CKRecord
+    private(set) var id : String             // The unique id to the corresponding CKRecord
     let amount : Double         // The amount of this transaction (negative represents a deduction)
     let description : String    // A description of this transaction
     let date : Date             // The date of this transaction
+    weak var goal : Goal?
     
     
 // MARK: Initializers
@@ -43,7 +45,7 @@ struct Transaction {
         self.date = date
     }
     
-    init(fromRecord record: CKRecord) {
+    required init(fromRecord record: CKRecord) {
         self.id = record.recordID.recordName
         self.amount = record.object(forKey: "amount") as! Double
         self.description = record.object(forKey: "description") as! String
