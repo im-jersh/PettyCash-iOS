@@ -18,7 +18,7 @@ class GoalsViewController: UIViewController {
     
     
 // MARK: Properties
-    fileprivate private(set) var pcHandler : PCHandler?
+    fileprivate private(set) var pcHandler : PCHandler!
     fileprivate var goals : Goals = Goals() {
         didSet {
             self.tableView.reloadData()
@@ -37,7 +37,7 @@ class GoalsViewController: UIViewController {
         
         // Fetch the goals
         self.pcHandler = PCController(delegate: self)
-        self.pcHandler?.fetchAllGoals()
+        self.pcHandler.fetchAllGoals()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -56,7 +56,7 @@ class GoalsViewController: UIViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        self.pcHandler?.fetchAllGoals()
+        self.pcHandler.fetchAllGoals()
     }
     
 // MARK: - Navigation
@@ -94,7 +94,11 @@ class GoalsViewController: UIViewController {
 // MARK: PettyCashDataNotifier
 extension GoalsViewController : PettyCashDataNotifier {
     
-    func pcController(_ controller: PCController, didFinishFetchingGoals goals: Goals) {
+    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) {
+        
+    }
+    
+    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) {
         DispatchQueue.main.async {
             self.goals = goals
         }

@@ -29,6 +29,7 @@ class Transaction : Transportable {
     let amount : Double         // The amount of this transaction (negative represents a deduction)
     let description : String    // A description of this transaction
     let date : Date             // The date of this transaction
+    weak var goal : Goal?
     
     
 // MARK: Initializers
@@ -44,7 +45,7 @@ class Transaction : Transportable {
         self.date = date
     }
     
-    init(fromRecord record: CKRecord) {
+    required init(fromRecord record: CKRecord) {
         self.id = record.recordID.recordName
         self.amount = record.object(forKey: "amount") as! Double
         self.description = record.object(forKey: "description") as! String

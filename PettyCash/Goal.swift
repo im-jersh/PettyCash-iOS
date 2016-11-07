@@ -12,6 +12,7 @@ import UIKit
 
 protocol Transportable {
     var id : String { get }
+    init(fromRecord record: CKRecord)
 }
 
 // Indicates various levels of priority
@@ -73,7 +74,7 @@ class Goal : Transportable {
     
 // MARK: Initializers
     // Initialization from a CKRecord
-    init(fromRecord record: CKRecord) {
+    required init(fromRecord record: CKRecord) {
         
         self.id = record.recordID.recordName
         self.description = record.object(forKey: GoalKey.description.rawValue) as! String

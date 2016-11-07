@@ -9,19 +9,27 @@
 import Foundation
 
 protocol PettyCashDataNotifier {
-    func pcController(_ controller: PCController, didFinishFetchingGoals goals: Goals)
+    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals)
+    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal)
 }
+
+// This extension essentially makes the included methods optional for any comforming type
+//extension PettyCashDataNotifier {
+//    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) { }
+//    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) { }
+//}
 
 protocol PCHandler {
     var delegate : PettyCashDataNotifier? { get }
     func fetchAllGoals()
     func fetchAllTransactions(for goal: Goal, completionHandler: (Transactions?, Error?) -> Void)
+    func saveNew(_ goal: Goal)
 }
 
 class PCController : PCHandler {
     
     private(set) var delegate : PettyCashDataNotifier?
-    
+    private(set) var ckEngine = CKEngine()
     
     init(delegate: PettyCashDataNotifier? = nil) {
         self.delegate = delegate
@@ -29,9 +37,8 @@ class PCController : PCHandler {
     
     func fetchAllGoals() {
         
-        let ckengine = CKEngine()
         var goals = Goals()
-        ckengine.fetchAllGoals { (result, error) in
+        self.ckEngine.fetchAllGoals { (result, error) in
             
             guard let fetchedGoals = result?.value else {
                 fatalError(error!.localizedDescription)
@@ -47,6 +54,19 @@ class PCController : PCHandler {
         
         
         
+        
+        
+    }
+    
+    func saveNew(_ goal: Goal) {
+        
+        self.ckEngine.saveNew(goal) { (result, error) in
+            guard let savedGoal = result?.value as? Goal else {
+                fatalError(error!.localizedDescription)
+            }
+            
+            self.delegate?.pcController(self, didSaveNewGoal: savedGoal)
+        }
         
         
     }

@@ -14,12 +14,17 @@ class CreateGoalViewController : FormViewController {
     
 // MARK: Outlets
     
-
+    
+// MARK: Properties
+    fileprivate(set) var pcHandler : PCHandler!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Create the form
         self.buildForm()
+        
+        self.pcHandler = PCController(delegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +56,7 @@ class CreateGoalViewController : FormViewController {
         
         // Validate inputs
         guard self.validateForm() else {
+            // Form will display errors internally
             return
         }
         
@@ -59,8 +65,8 @@ class CreateGoalViewController : FormViewController {
             return
         }
         
-        // Return to the list
-        self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
+        self.pcHandler.saveNew(goal)
+    
     }
     
     @IBAction func cancelBarButtonWasTapped(_ sender: AnyObject) {
@@ -170,6 +176,22 @@ extension CreateGoalViewController {
         }
         
         return Goal(with: description, startDate: Date(), amount: amount, priority: priority, andEndDate: nil)
+    }
+    
+}
+
+// MARK: PettyCashDataNotifier 
+extension CreateGoalViewController : PettyCashDataNotifier {
+    
+    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) {
+        // Return to the list
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
+        }
+    }
+    
+    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) {
+        
     }
     
 }

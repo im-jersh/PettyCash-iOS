@@ -162,7 +162,47 @@ class CKEngine {
         
     }
     
-    
+    func saveNew(_ transportable: Transportable, completionHandler: @escaping (CKResult<Transportable>?, Error?) -> Void) {
+        
+        var record : CKRecord!
+        
+        // TODO: Remove guard after implementing transaction check
+        guard transportable is Goal else {
+            completionHandler(nil, NSError(domain: "cloudkit", code: -1, userInfo: nil))
+            return
+        }
+        
+        if transportable is Goal {
+            let goal = transportable as! Goal
+            let zoneID = CKRecordZoneID(zoneName: RecordZone.savings.zoneName, ownerName: CKOwnerDefaultName)
+            let recordID = CKRecordID(recordName: goal.id, zoneID: zoneID)
+            record = CKRecord(recordType: RecordType.goal.rawValue, recordID: recordID)
+            record.setObject(goal.description as CKRecordValue, forKey: GoalKey.description.rawValue)
+            record.setObject(goal.startDate as CKRecordValue, forKey: GoalKey.startDate.rawValue)
+            record.setObject(goal.amount as CKRecordValue, forKey: GoalKey.amount.rawValue)
+            record.setObject(goal.priority.rawValue as CKRecordValue, forKey: GoalKey.priority.rawValue)
+            if let endDate = goal.endDate {
+                record.setObject(endDate as CKRecordValue, forKey: GoalKey.endDate.rawValue)
+            }
+        }
+        
+        CKEngine.privateDatabase.save(record) { (savedRecord, error) in
+            
+            guard error == nil else {
+                completionHandler(nil, error!)
+                return
+            }
+            
+            if let savedRecord = savedRecord {
+                print("SAVED RECORD")
+                completionHandler(CKResult(result: Goal(fromRecord: savedRecord)), nil)
+            }
+            
+        }
+        
+        
+        
+    }
 }
 
 
