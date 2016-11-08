@@ -29,6 +29,16 @@ class Transaction : Transportable {
     let amount : Double         // The amount of this transaction (negative represents a deduction)
     let description : String    // A description of this transaction
     let date : Date             // The date of this transaction
+    var formattedAmount : String {
+        let amount = self.amount as NSNumber
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = NSLocale.current
+        
+        return formatter.string(from: amount)!
+    }
+    
     weak var goal : Goal?
     
     

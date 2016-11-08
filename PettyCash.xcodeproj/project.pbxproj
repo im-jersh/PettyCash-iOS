@@ -37,6 +37,7 @@
 		03BAFD991D81D81D00B592C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */; };
 		03BAFDA41D81D81D00B592C8 /* PettyCashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFDA31D81D81D00B592C8 /* PettyCashTests.swift */; };
 		03BAFDAF1D81D81E00B592C8 /* PettyCashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFDAE1D81D81E00B592C8 /* PettyCashUITests.swift */; };
+		03DDAF6E1DD0FB9C005612ED /* AllContributionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDAF6D1DD0FB9C005612ED /* AllContributionsTableViewController.swift */; };
 		60D8EF1E32BD15F022F9447D /* Pods_PettyCashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13FA6AE2347E14ED1D4D60C /* Pods_PettyCashTests.framework */; };
 		901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
@@ -98,6 +99,7 @@
 		03BAFDAA1D81D81D00B592C8 /* PettyCashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PettyCashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BAFDAE1D81D81E00B592C8 /* PettyCashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PettyCashUITests.swift; sourceTree = "<group>"; };
 		03BAFDB01D81D81E00B592C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03DDAF6D1DD0FB9C005612ED /* AllContributionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllContributionsTableViewController.swift; sourceTree = "<group>"; };
 		03F9AA3B1D8F6E78003A802D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		03F9AA3D1D8F6E80003A802D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3D01624CEBF6273E193E392F /* Pods-PettyCashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PettyCashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PettyCashTests/Pods-PettyCashTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */,
 				0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */,
 				905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */,
+				03DDAF6D1DD0FB9C005612ED /* AllContributionsTableViewController.swift */,
 			);
 			name = "View Controllers 🎨";
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */,
 				030460271DBFE750008B52F0 /* MenuViewController.swift in Sources */,
 				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
+				03DDAF6E1DD0FB9C005612ED /* AllContributionsTableViewController.swift in Sources */,
 				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
 				032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */,

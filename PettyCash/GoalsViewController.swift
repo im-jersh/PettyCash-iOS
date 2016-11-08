@@ -28,7 +28,7 @@ class GoalsViewController: UIViewController {
     fileprivate lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(GoalsViewController.handleRefresh), for: UIControlEvents.valueChanged)
-        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         return refreshControl
     }()
 
@@ -104,6 +104,10 @@ extension GoalsViewController : PettyCashDataNotifier {
         }
     }
     
+    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions) {
+        
+    }
+    
 }
 
 
@@ -166,7 +170,7 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
-        let text = "Let's start by creating a goal. Before you know it, you'll be saving money and having fun doing it!"
+        let text = "Let's start by creating a goal. Tap the '+' in the top right. Before you know it, you'll be saving money and having fun doing it!\n\nIf your existing goals do not appear here, hit the refresh button below."
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -182,13 +186,13 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
         
         let attributes = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17.0), NSForegroundColorAttributeName : UIColor.flatLime() ] as [String : Any]
         
-        return NSAttributedString(string: "Let's Do It", attributes: attributes)
+        return NSAttributedString(string: "Refresh", attributes: attributes)
         
     }
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         
-        self.performSegue(withIdentifier: "addGoalSegue", sender: nil)
+        self.pcHandler.fetchAllGoals()
         
     }
     

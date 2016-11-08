@@ -31,14 +31,14 @@ class GoalDetailViewController: UIViewController {
         self.configureView()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 70
+        self.tableView.estimatedRowHeight = 100
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         // Animate the progress bar
-        self.progressView.setValue(CGFloat(self.goal.progress * 100), animateWithDuration: 2)
+        self.progressView.setValue(CGFloat(self.goal.progress * 100), animateWithDuration: 1)
         
     }
 
@@ -57,6 +57,25 @@ class GoalDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Change the progress view to show the contribution dollar amount
+        self.progressView.showUnitString = false
+        self.progressView.maxValue = CGFloat(self.goal.amount)
+        self.progressView.decimalPlaces = 2
+        self.progressView.value = CGFloat(self.goal.contributionAmount)
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        // Revert the progress view to percent complete
+        self.progressView.showUnitString = true
+        self.progressView.maxValue = CGFloat(100)
+        self.progressView.decimalPlaces = 1
+        self.progressView.value = CGFloat(self.goal.progress * 100)
+    }
 
 }
 
@@ -81,9 +100,8 @@ extension GoalDetailViewController : UITableViewDataSource, UITableViewDelegate 
         
         cell.descriptionLabel.text = transaction.description
         cell.dateLabel.text = transaction.date.formattedDate(.short)
-        cell.amountLabel.text = "$\(transaction.amount)"
-        //cell.amountLabel.layer.cornerRadius = 10
-        //cell.amountLabel.clipsToBounds = true
+        cell.amountLabel.text = transaction.formattedAmount
+
         
         return cell
     }
