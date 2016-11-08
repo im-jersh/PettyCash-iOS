@@ -37,6 +37,8 @@ class AllContributionsTableViewController: UITableViewController {
         self.fetchAllContributions()
         
         self.tableView.tableFooterView = UIView()
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 70
         
         self.refreshControl?.addTarget(self, action: #selector(AllContributionsTableViewController.fetchAllContributions), for: UIControlEvents.valueChanged)
     }
@@ -58,10 +60,14 @@ class AllContributionsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: rowIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: rowIdentifier, for: indexPath) as? TransactionCell else {
+            return UITableViewCell()
+        }
         let contribution = self.contributions[indexPath.row]
         
-        cell.textLabel?.text = contribution.description
+        cell.descriptionLabel.text = contribution.description
+        cell.dateLabel.text = contribution.date.formattedDate(.short)
+        cell.amountLabel.text = "\(contribution.amount)"
 
         return cell
     }
