@@ -19,6 +19,7 @@ class AllContributionsTableViewController: UITableViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             }
         }
     }
@@ -36,6 +37,8 @@ class AllContributionsTableViewController: UITableViewController {
         self.fetchAllContributions()
         
         self.tableView.tableFooterView = UIView()
+        
+        self.refreshControl?.addTarget(self, action: #selector(AllContributionsTableViewController.fetchAllContributions), for: UIControlEvents.valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,7 +125,8 @@ extension AllContributionsTableViewController {
                 return
             }
             
-            self.contributions = transactions
+            // Sort the contributions by descending date
+            self.contributions = transactions.sorted(by: { $0.date > $1.date })
         }
     }
     
@@ -187,6 +191,7 @@ extension AllContributionsTableViewController : DZNEmptyDataSetSource, DZNEmptyD
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         
+        self.fetchAllContributions()
         
     }
 
