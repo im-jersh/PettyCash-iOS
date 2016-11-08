@@ -31,14 +31,14 @@ class GoalDetailViewController: UIViewController {
         self.configureView()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 70
+        self.tableView.estimatedRowHeight = 100
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         // Animate the progress bar
-        self.progressView.setValue(CGFloat(self.goal.progress * 100), animateWithDuration: 2)
+        self.progressView.setValue(CGFloat(self.goal.progress * 100), animateWithDuration: 1)
         
     }
 

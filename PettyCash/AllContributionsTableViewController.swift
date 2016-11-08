@@ -38,7 +38,7 @@ class AllContributionsTableViewController: UITableViewController {
         
         self.tableView.tableFooterView = UIView()
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 70
+        self.tableView.estimatedRowHeight = 100
         
         self.refreshControl?.addTarget(self, action: #selector(AllContributionsTableViewController.fetchAllContributions), for: UIControlEvents.valueChanged)
     }
@@ -67,7 +67,7 @@ class AllContributionsTableViewController: UITableViewController {
         
         cell.descriptionLabel.text = contribution.description
         cell.dateLabel.text = contribution.date.formattedDate(.short)
-        cell.amountLabel.text = "\(contribution.amount)"
+        cell.amountLabel.text = contribution.formattedAmount
 
         return cell
     }
