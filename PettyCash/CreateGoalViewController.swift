@@ -14,12 +14,17 @@ class CreateGoalViewController : FormViewController {
     
 // MARK: Outlets
     
-
+    
+// MARK: Properties
+    fileprivate(set) var pcHandler : PCHandler!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Create the form
         self.buildForm()
+        
+        self.pcHandler = PCController(delegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +56,7 @@ class CreateGoalViewController : FormViewController {
         
         // Validate inputs
         guard self.validateForm() else {
+            // Form will display errors internally
             return
         }
         
@@ -59,8 +65,8 @@ class CreateGoalViewController : FormViewController {
             return
         }
         
-        // Return to the list
-        self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
+        self.pcHandler.saveNew(goal)
+    
     }
     
     @IBAction func cancelBarButtonWasTapped(_ sender: AnyObject) {
@@ -174,6 +180,26 @@ extension CreateGoalViewController {
     
 }
 
+// MARK: PettyCashDataNotifier 
+extension CreateGoalViewController : PettyCashDataNotifier {
+    
+    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) {
+        // Return to the list
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
+        }
+    }
+    
+    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) {
+        
+    }
+    
+    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions) {
+        
+    }
+    
+}
+
 
 class CurrencyFormatter : NumberFormatter, FormatterProtocol {
     override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, range rangep: UnsafeMutablePointer<NSRange>?) throws {
@@ -188,11 +214,7 @@ class CurrencyFormatter : NumberFormatter, FormatterProtocol {
 }
 
 
-extension Date {
-    static func tomorrow() -> Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-    }
-}
+
 
 
 
