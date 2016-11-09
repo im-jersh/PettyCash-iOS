@@ -5,11 +5,15 @@ use_frameworks!
 target 'PettyCash' do
 
     pod 'PathMenu'
+    #explicitly add prelease
     pod 'Eureka', '~> 2.0.0-beta.1'
+    #pod 'Eureka', '= 2.0.0-beta.1'
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
     pod 'MBCircularProgressBar'
+    pod 'plaid-ios-sdk'
+    pod 'plaid-ios-link'
 end
 
 target 'PettyCashTests' do
@@ -17,6 +21,7 @@ target 'PettyCashTests' do
     pod 'ChameleonFramework/Swift'
     pod 'DZNEmptyDataSet'
     pod 'SlideMenuControllerSwift'
+    pod 'plaid-ios-sdk'
 end
 
 post_install do |installer|

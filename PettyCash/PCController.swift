@@ -25,6 +25,7 @@ protocol PCHandler {
     func fetchAllGoals()
     func fetchAllTransactions(for goal: Goal, completionHandler: @escaping (Transactions?, Error?) -> Void)
     func saveNew(_ goal: Goal)
+    func fetchAllExpenses(completionHandler: @escaping (Expenses?, Error?)-> Void)
     func fetchAllTransactions(_ completionHandler: @escaping (Transactions?, Error?) -> Void)
 }
 
@@ -32,6 +33,7 @@ class PCController : PCHandler {
     
     private(set) var delegate : PettyCashDataNotifier?
     private(set) var ckEngine = CKEngine()
+    private(set) var plaidEngine = PlaidEngine()
     
     init(delegate: PettyCashDataNotifier? = nil) {
         self.delegate = delegate
@@ -83,6 +85,25 @@ class PCController : PCHandler {
         
         
     }
+    
+    
+    func fetchAllExpenses(completionHandler: @escaping (Expenses?, Error?)-> Void){
+        
+        self.plaidEngine.fetchBankAccountTransactions(with: "test_us") { result in
+            
+            guard result.value is Expenses else {
+                completionHandler(nil, result.value as? Error)
+                return
+            }
+            
+            completionHandler(result.value as! Expenses, nil)
+        }
+        
+    }
+    
+    
+    
+    
     
     
     
