@@ -8,8 +8,10 @@
 
 import UIKit
 import DZNEmptyDataSet
+import FTIndicator
 
-let goalRowIdentifier = "GoalRowIdentifier"
+fileprivate let goalRowIdentifier = "GoalRowIdentifier"
+fileprivate let loadingIndicatorMessage = "Loading Goals"
 
 class GoalsViewController: UIViewController {
     
@@ -23,12 +25,13 @@ class GoalsViewController: UIViewController {
         didSet {
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
+            FTIndicator.dismissProgress()
         }
     }
     fileprivate lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(GoalsViewController.handleRefresh), for: UIControlEvents.valueChanged)
-        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         return refreshControl
     }()
 
@@ -37,7 +40,7 @@ class GoalsViewController: UIViewController {
         
         // Fetch the goals
         self.pcHandler = PCController(delegate: self)
-        self.pcHandler.fetchAllGoals()
+        self.fetchAllGoals()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -56,7 +59,7 @@ class GoalsViewController: UIViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        self.pcHandler.fetchAllGoals()
+        self.fetchAllGoals()
     }
     
 // MARK: - Navigation
@@ -102,6 +105,10 @@ extension GoalsViewController : PettyCashDataNotifier {
         DispatchQueue.main.async {
             self.goals = goals
         }
+    }
+    
+    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions) {
+        
     }
     
 }
@@ -166,7 +173,7 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
-        let text = "Let's start by creating a goal. Before you know it, you'll be saving money and having fun doing it!"
+        let text = "Let's start by creating a goal. Tap the '+' in the top right. Before you know it, you'll be saving money and having fun doing it!\n\nIf your existing goals do not appear here, hit the refresh button below."
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -182,13 +189,13 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
         
         let attributes = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17.0), NSForegroundColorAttributeName : UIColor.flatLime() ] as [String : Any]
         
-        return NSAttributedString(string: "Let's Do It", attributes: attributes)
+        return NSAttributedString(string: "Refresh", attributes: attributes)
         
     }
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         
-        self.performSegue(withIdentifier: "addGoalSegue", sender: nil)
+        self.fetchAllGoals()
         
     }
     
@@ -197,6 +204,13 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
 // MARK: Public & Private Methods
 extension GoalsViewController {
+    
+    fileprivate func fetchAllGoals() {
+        
+        self.pcHandler.fetchAllGoals()
+        FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
+        
+    }
     
     public func addGoalToList(_ goal: Goal) {
         self.goals.append(goal)

@@ -71,6 +71,16 @@ class Goal : Transportable {
         }
     }
     
+    var formattedAmount : String {
+        let amount = self.amount as NSNumber
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = NSLocale.current
+        
+        return formatter.string(from: amount)!
+    }
+    
     
 // MARK: Initializers
     // Initialization from a CKRecord
@@ -101,25 +111,15 @@ class Goal : Transportable {
     
 
 // MARK: Instance Methods
-    func formattedAmount() -> String {
-        let amount = self.amount as NSNumber
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = NSLocale.current
-        
-        return formatter.string(from: amount)!
-    }
-    
-    
     func addTransaction(_ transaction: Transaction) {
         
+        transaction.goal = self
         self.transactions?.append(transaction)
         
     }
     
     func replaceTransactions(_ transactions: Transactions) {
-        self.transactions = transactions
+        transactions.forEach { self.addTransaction($0) }
     }
     
 }

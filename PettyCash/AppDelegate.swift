@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Plaid.sharedInstance().setPublicKey("228476691a1099d884060513432690")
         //Plaid.sharedInstance().setPublicKey("test_key")
-        //self.createMenuView()
+        self.createMenuView()
         return true
     }
 
