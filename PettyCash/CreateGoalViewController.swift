@@ -8,7 +8,9 @@
 
 import UIKit
 import Eureka
+import FTIndicator
 
+fileprivate let loadingIndicatorMessage = "Saving New Goal"
 
 class CreateGoalViewController : FormViewController {
     
@@ -65,6 +67,7 @@ class CreateGoalViewController : FormViewController {
             return
         }
         
+        FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
         self.pcHandler.saveNew(goal)
     
     }
@@ -186,6 +189,7 @@ extension CreateGoalViewController : PettyCashDataNotifier {
     func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) {
         // Return to the list
         DispatchQueue.main.async {
+            FTIndicator.dismissProgress()
             self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
         }
     }
