@@ -51,7 +51,6 @@ class AddBankViewController: UIViewController {
             fatalError("")
         }
         
-        
         plaidLink.linkDelegate = self
         plaidLink.providesPresentationContextTransitionStyle = true
         plaidLink.definesPresentationContext = true

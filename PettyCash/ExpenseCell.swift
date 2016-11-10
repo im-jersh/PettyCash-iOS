@@ -1,7 +1,7 @@
 //
 //  ExpenseCell.swift
 //  PettyCash
-//
+//  
 //  Created by Emeka Okoye on 11/6/16.
 //  Copyright © 2016 Joshua O'Steen. All rights reserved.
 //
@@ -14,7 +14,7 @@ class ExpenseCell: UITableViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var expenseAmountLabel: UILabel!
     @IBOutlet weak var expenseDateLabel: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
