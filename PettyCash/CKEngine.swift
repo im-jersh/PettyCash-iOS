@@ -309,7 +309,7 @@ fileprivate class PrepareTransactionQueriesOperation : Operation {
 
 extension CKEngine {
     
-    class func seedDummyData() {
+    class func seedDummyData(completionHandler: @escaping () -> Void) {
         
         // Delete the appropriate zones first by creating an operation to delete the zones by ID.
         // This effectively deletes all the records within the zone
@@ -383,6 +383,7 @@ extension CKEngine {
         let saveDummyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [firstGoal, firstTrans, secondTrans, secondGoal, thirdTrans, fourthTrans, fifthTrans], recordIDsToDelete: nil)
         saveDummyRecordsOperation.modifyRecordsCompletionBlock = { savedRecords, deletedRecordIDs, error in
             print("Saved dummy data to private database")
+            completionHandler()
         }
         saveDummyRecordsOperation.addDependency(saveNewZoneOperation)
         

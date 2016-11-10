@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FTIndicator
+
+fileprivate let loadingIndicatorMessage = "Reverting to Dummy Data"
+fileprivate let successMessage = "All goals and contributions have been replaced with dummy data."
 
 class SettingsViewController: UITableViewController {
 
@@ -65,7 +69,13 @@ extension SettingsViewController {
             
             let confirmController = UIAlertController(title: "Last Chance", message: "This action can't be reversed. This is your last warning.", preferredStyle: .alert)
             let dummyDataAction = UIAlertAction(title: "Use Dummy Data", style: .destructive, handler: { alert in
-                CKEngine.seedDummyData()
+                FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
+                CKEngine.seedDummyData {
+                    DispatchQueue.main.async {
+                        FTIndicator.dismissProgress()
+                        FTIndicator.showSuccess(withMessage: successMessage)
+                    }
+                }
             })
             
             confirmController.addAction(cancelAction)

@@ -8,8 +8,10 @@
 
 import UIKit
 import DZNEmptyDataSet
+import FTIndicator
 
-let goalRowIdentifier = "GoalRowIdentifier"
+fileprivate let goalRowIdentifier = "GoalRowIdentifier"
+fileprivate let loadingIndicatorMessage = "Loading Goals"
 
 class GoalsViewController: UIViewController {
     
@@ -23,6 +25,7 @@ class GoalsViewController: UIViewController {
         didSet {
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
+            FTIndicator.dismissProgress()
         }
     }
     fileprivate lazy var refreshControl: UIRefreshControl = {
@@ -37,7 +40,7 @@ class GoalsViewController: UIViewController {
         
         // Fetch the goals
         self.pcHandler = PCController(delegate: self)
-        self.pcHandler.fetchAllGoals()
+        self.fetchAllGoals()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -56,7 +59,7 @@ class GoalsViewController: UIViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        self.pcHandler.fetchAllGoals()
+        self.fetchAllGoals()
     }
     
 // MARK: - Navigation
@@ -192,7 +195,7 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
         
-        self.pcHandler.fetchAllGoals()
+        self.fetchAllGoals()
         
     }
     
@@ -201,6 +204,13 @@ extension GoalsViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
 // MARK: Public & Private Methods
 extension GoalsViewController {
+    
+    fileprivate func fetchAllGoals() {
+        
+        self.pcHandler.fetchAllGoals()
+        FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
+        
+    }
     
     public func addGoalToList(_ goal: Goal) {
         self.goals.append(goal)

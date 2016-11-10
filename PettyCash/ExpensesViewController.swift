@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import FTIndicator
 
-let expenseRowIdentifier = "ExpenseRowIdentifier"
+fileprivate let expenseRowIdentifier = "ExpenseRowIdentifier"
+fileprivate let loadingIndicatorMessage = "Loading Expenses"
 
 class ExpensesViewController: UIViewController {
     
@@ -102,7 +104,13 @@ extension ExpensesViewController : UITableViewDataSource, UITableViewDelegate {
 extension ExpensesViewController {
     
     func fetchAll(){
+        FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
         self.pcHandler.fetchAllExpenses() { expenses, error in
+            
+            DispatchQueue.main.async {
+                FTIndicator.dismissProgress()
+            }
+            
             guard let expenses = expenses else {
                 //TODO: Handle error
                 return

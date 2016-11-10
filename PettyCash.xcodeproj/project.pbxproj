@@ -158,16 +158,11 @@
 		032172771D9DB5D7001D04E7 /* View Controllers 🎨 */ = {
 			isa = PBXGroup;
 			children = (
-				038F35EA1DCD5E29006DED07 /* GoalDetailViewController.swift */,
-				0304602E1DC01C51008B52F0 /* CreateGoalViewController.swift */,
-				030460261DBFE750008B52F0 /* MenuViewController.swift */,
-				03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */,
-				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
-				030460281DBFEEAA008B52F0 /* GoalsViewController.swift */,
-				0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */,
-				0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */,
-				905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */,
-				03DDAF6D1DD0FB9C005612ED /* AllContributionsTableViewController.swift */,
+				033E801A1DD3F66D003CB49C /* Pet */,
+				033E80191DD3F65C003CB49C /* Goals */,
+				033E801C1DD3F68F003CB49C /* Expenses */,
+				033E801B1DD3F685003CB49C /* Settings */,
+				033E801D1DD41049003CB49C /* Menu */,
 			);
 			name = "View Controllers 🎨";
 			sourceTree = "<group>";
@@ -176,8 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				038F35E81DCC630C006DED07 /* PCController.swift */,
-				03831A0B1DC40B1300D37B42 /* CKEngine.swift */,
-				90E519E21DD1125700EC4274 /* PlaidEngine.swift */,
 			);
 			name = "Controllers 🚦";
 			sourceTree = "<group>";
@@ -185,6 +178,8 @@
 		032172791D9DB5F1001D04E7 /* Engines 🚀 */ = {
 			isa = PBXGroup;
 			children = (
+				03831A0B1DC40B1300D37B42 /* CKEngine.swift */,
+				90E519E21DD1125700EC4274 /* PlaidEngine.swift */,
 			);
 			name = "Engines 🚀";
 			sourceTree = "<group>";
@@ -212,6 +207,51 @@
 				03BAFD9A1D81D81D00B592C8 /* Info.plist */,
 			);
 			name = "Misc. 🔰";
+			sourceTree = "<group>";
+		};
+		033E80191DD3F65C003CB49C /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				030460281DBFEEAA008B52F0 /* GoalsViewController.swift */,
+				0304602E1DC01C51008B52F0 /* CreateGoalViewController.swift */,
+				038F35EA1DCD5E29006DED07 /* GoalDetailViewController.swift */,
+			);
+			name = Goals;
+			sourceTree = "<group>";
+		};
+		033E801A1DD3F66D003CB49C /* Pet */ = {
+			isa = PBXGroup;
+			children = (
+				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
+			);
+			name = Pet;
+			sourceTree = "<group>";
+		};
+		033E801B1DD3F685003CB49C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0304602C1DBFEEBF008B52F0 /* SettingsViewController.swift */,
+				905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */,
+				03DDAF6D1DD0FB9C005612ED /* AllContributionsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		033E801C1DD3F68F003CB49C /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				0304602A1DBFEEB5008B52F0 /* ExpensesViewController.swift */,
+			);
+			name = Expenses;
+			sourceTree = "<group>";
+		};
+		033E801D1DD41049003CB49C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				030460261DBFE750008B52F0 /* MenuViewController.swift */,
+				03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		03BAFD7E1D81D81D00B592C8 = {
