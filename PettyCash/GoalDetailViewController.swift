@@ -119,7 +119,7 @@ extension GoalDetailViewController {
     
     func configureView() {
         
-        self.amountLabel.text = "$\(self.goal.amount)"
+        self.amountLabel.text = self.goal.formattedAmount
         self.progressView.value = CGFloat(0)
         self.descriptionLabel.text = self.goal.description
         

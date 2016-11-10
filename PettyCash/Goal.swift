@@ -113,12 +113,13 @@ class Goal : Transportable {
 // MARK: Instance Methods
     func addTransaction(_ transaction: Transaction) {
         
+        transaction.goal = self
         self.transactions?.append(transaction)
         
     }
     
     func replaceTransactions(_ transactions: Transactions) {
-        self.transactions = transactions
+        transactions.forEach { self.addTransaction($0) }
     }
     
 }
