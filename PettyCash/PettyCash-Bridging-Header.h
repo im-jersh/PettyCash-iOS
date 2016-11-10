@@ -11,6 +11,7 @@
 
 #include <plaid_ios_sdk/Plaid-Swift.h>
 #include <plaid_ios_link/plaid-ios-link-umbrella.h>
+#include <FTIndicator/FTIndicator.h>
 
 @import plaid_ios_sdk;
 @import plaid_ios_link;

@@ -8,8 +8,10 @@
 
 import UIKit
 import DZNEmptyDataSet
+import FTIndicator
 
-let rowIdentifier = "contributionCellIdentifier"
+fileprivate let rowIdentifier = "contributionCellIdentifier"
+fileprivate let loadingIndicatorMessage = "Loading All Goal Contributions"
 
 class AllContributionsTableViewController: UITableViewController {
     
@@ -123,8 +125,12 @@ class AllContributionsTableViewController: UITableViewController {
 extension AllContributionsTableViewController {
     
     func fetchAllContributions() {
-        
+        FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
         self.pcHandler.fetchAllTransactions { transactions, error in
+            
+            DispatchQueue.main.async {
+                FTIndicator.dismissProgress()
+            }
             
             guard let transactions = transactions else {
                 // Handle error 
