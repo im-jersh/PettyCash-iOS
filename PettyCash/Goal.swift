@@ -38,7 +38,7 @@ typealias Goals = [Goal]
 class Goal : Transportable {
     
 // MARK: Properties
-    private(set) var id : String                         // The unique id to the corresponding CKRecord
+    private(set) var id : String            // The unique id to the corresponding CKRecord
     let description : String                // A description of the goal
     let startDate : Date                    // The date the goal will become active
     let endDate : Date?                     // The date the user would like to achieve the goal by
