@@ -8,60 +8,51 @@
 
 import Foundation
 
-protocol PettyCashDataNotifier {
-    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals)
-    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal)
-    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions)
+enum PetAction : Double {
+    case poop = 0.5
+    case feed = 1.0
+    case bathe = 2.0
+    case treat = 1.2
+    case groom = 1.5
 }
 
-// This extension essentially makes the included methods optional for any comforming type
-//extension PettyCashDataNotifier {
-//    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) { }
-//    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) { }
-//}
-
 protocol PCHandler {
-    var delegate : PettyCashDataNotifier? { get }
-    func fetchAllGoals()
+    func fetchAllGoals(completionHandler: @escaping (Goals?, Error?) -> Void)
     func fetchAllTransactions(for goal: Goal, completionHandler: @escaping (Transactions?, Error?) -> Void)
-    func saveNew(_ goal: Goal)
+    func saveNew(_ goal: Goal, completionHandler: @escaping (Goal?, Error?) -> Void)
     func fetchAllExpenses(completionHandler: @escaping (Expenses?, Error?)-> Void)
     func fetchAllTransactions(_ completionHandler: @escaping (Transactions?, Error?) -> Void)
 }
 
 class PCController : PCHandler {
     
-    private(set) var delegate : PettyCashDataNotifier?
     private(set) var ckEngine = CKEngine()
     private(set) var plaidEngine = PlaidEngine()
     
-    init(delegate: PettyCashDataNotifier? = nil) {
-        self.delegate = delegate
-    }
     
-    func fetchAllGoals() {
+    func fetchAllGoals(completionHandler: @escaping (Goals?, Error?) -> Void) {
         
-        var goals = Goals()
         self.ckEngine.fetchAllGoals { (result, error) in
             
             guard let fetchedGoals = result?.value else {
+                completionHandler(nil, error)
                 fatalError(error!.localizedDescription)
             }
             
-            goals = fetchedGoals
-            self.delegate?.pcController(self, didFinishFetchingGoals: goals)
+            completionHandler(fetchedGoals, nil)
         }
         
     }
     
-    func saveNew(_ goal: Goal) {
+    func saveNew(_ goal: Goal, completionHandler: @escaping (Goal?, Error?) -> Void) {
         
         self.ckEngine.saveNew(goal) { (result, error) in
             guard let savedGoal = result?.value as? Goal else {
+                completionHandler(nil, error)
                 fatalError(error!.localizedDescription)
             }
             
-            self.delegate?.pcController(self, didSaveNewGoal: savedGoal)
+            completionHandler(savedGoal, nil)
         }
         
         
@@ -86,7 +77,6 @@ class PCController : PCHandler {
         
     }
     
-    
     func fetchAllExpenses(completionHandler: @escaping (Expenses?, Error?)-> Void){
         
         self.plaidEngine.fetchBankAccountTransactions(with: "test_us") { result in
@@ -96,12 +86,16 @@ class PCController : PCHandler {
                 return
             }
             
-            completionHandler(result.value as! Expenses, nil)
+            completionHandler((result.value as! Expenses), nil)
         }
         
     }
     
-    
+    func generateSavings(for action: PetAction, completionHandler: @escaping () -> Void) {
+        
+        
+        
+    }
     
     
     

@@ -20,12 +20,13 @@ class GoalsViewController: UIViewController {
     
     
 // MARK: Properties
-    fileprivate private(set) var pcHandler : PCHandler!
+    fileprivate private(set) var pcHandler : PCHandler! = PCController()
     fileprivate var goals : Goals = Goals() {
         didSet {
-            self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
-            FTIndicator.dismissProgress()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     fileprivate lazy var refreshControl: UIRefreshControl = {
@@ -39,7 +40,6 @@ class GoalsViewController: UIViewController {
         super.viewDidLoad()
         
         // Fetch the goals
-        self.pcHandler = PCController(delegate: self)
         self.fetchAllGoals()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -91,26 +91,6 @@ class GoalsViewController: UIViewController {
     }
     
 
-}
-
-
-// MARK: PettyCashDataNotifier
-extension GoalsViewController : PettyCashDataNotifier {
-    
-    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) {
-        
-    }
-    
-    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) {
-        DispatchQueue.main.async {
-            self.goals = goals
-        }
-    }
-    
-    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions) {
-        
-    }
-    
 }
 
 
@@ -207,8 +187,20 @@ extension GoalsViewController {
     
     fileprivate func fetchAllGoals() {
         
-        self.pcHandler.fetchAllGoals()
         FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
+        self.pcHandler.fetchAllGoals { (goals, error) in
+            
+            DispatchQueue.main.async {
+                FTIndicator.dismissProgress()
+            }
+            
+            guard let goals = goals else {
+                // TODO: Handle Error
+                return
+            }
+            
+            self.goals = goals
+        }
         
     }
     

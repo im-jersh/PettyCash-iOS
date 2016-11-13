@@ -16,7 +16,7 @@ fileprivate let loadingIndicatorMessage = "Loading All Goal Contributions"
 class AllContributionsTableViewController: UITableViewController {
     
 
-    var pcHandler : PCHandler!
+    var pcHandler : PCHandler! = PCController()
     var contributions = Transactions() {
         didSet {
             DispatchQueue.main.async {
@@ -35,7 +35,6 @@ class AllContributionsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.pcHandler = PCController()
         self.fetchAllContributions()
         
         self.tableView.tableFooterView = UIView()
@@ -144,21 +143,6 @@ extension AllContributionsTableViewController {
     
 }
 
-extension AllContributionsTableViewController : PettyCashDataNotifier {
-    
-    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) {
-        
-    }
-    
-    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) {
-        
-    }
-    
-    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions) {
-        
-    }
-    
-}
 
 
 extension AllContributionsTableViewController : DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
