@@ -42,3 +42,19 @@ extension Date {
         return Calendar.current.date(byAdding: .day, value: weeks * 7, to: Date())!
     }
 }
+
+extension Double {
+    
+    var formattedCurrency : String {
+        
+        let number = NSNumber(value: self)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = NSLocale.current
+        
+        return formatter.string(from: number)!
+        
+    }
+    
+}

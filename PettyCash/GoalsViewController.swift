@@ -26,6 +26,7 @@ class GoalsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.navigationItem.title = self.goals.reduce(0.0, { result, goal in result + goal.contributionAmount }).formattedCurrency + " Saved"
             }
         }
     }

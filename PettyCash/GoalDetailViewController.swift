@@ -16,7 +16,6 @@ class GoalDetailViewController: UIViewController {
     
 // MARK: Outlets
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var progressView: MBCircularProgressBarView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -32,7 +31,7 @@ class GoalDetailViewController: UIViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
-        
+        self.tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,10 +118,9 @@ extension GoalDetailViewController {
     
     func configureView() {
         
-        self.amountLabel.text = self.goal.formattedAmount
         self.progressView.value = CGFloat(0)
-        self.descriptionLabel.text = self.goal.description
-        
+        self.descriptionLabel.text = self.goal.description        
+        self.navigationItem.title = self.goal.formattedAmount
     }
     
     

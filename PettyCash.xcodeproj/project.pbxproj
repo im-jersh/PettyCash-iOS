@@ -198,13 +198,13 @@
 			isa = PBXGroup;
 			children = (
 				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
-				033B788A1DDA2E3000DAF012 /* Settings.storyboard */,
-				033B78871DDA2DF100DAF012 /* Expenses.storyboard */,
 				033B78851DDA2D6F00DAF012 /* Goals.storyboard */,
+				033B78871DDA2DF100DAF012 /* Expenses.storyboard */,
+				033B788A1DDA2E3000DAF012 /* Settings.storyboard */,
+				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
 				033759271DD9306800A747B8 /* PetMenu.swift */,
 				030460311DC333B8008B52F0 /* GoalCell.swift */,
 				038F35EC1DCD6612006DED07 /* TransactionCell.swift */,
-				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
 				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
 				9050722A1DD04ABC00AE4628 /* ExpenseCell.swift */,
 			);
