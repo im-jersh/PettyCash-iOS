@@ -81,6 +81,16 @@ class Goal : Transportable {
         return formatter.string(from: amount)!
     }
     
+    var daysRemaining : Double {
+        let endDate = self.endDate ?? Date.weeks(away: 52)
+        return round(endDate.timeIntervalSinceNow / 86400)
+        
+    }
+    
+    var amountRemaining : Double {
+        return self.amount - self.contributionAmount
+    }
+    
     
 // MARK: Initializers
     // Initialization from a CKRecord

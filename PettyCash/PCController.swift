@@ -91,9 +91,28 @@ class PCController : PCHandler {
         
     }
     
-    func generateSavings(for action: PetAction, completionHandler: @escaping () -> Void) {
+    func generateSavings(for action: PetAction, completionHandler: @escaping (Double?, Error?) -> Void) {
         
-        
+        // Get all the goals
+        self.fetchAllGoals { (goals, error) in
+            
+            guard let goals = goals else {
+                // TODO: Handle Error
+                return
+            }
+            
+            // Run the savings function on each of the goals to get the Total Contribution Amount
+            let tra = goals.reduce(0.0, { result, goal in goal.amountRemaining })
+            let tca = goals.reduce(0.0, { result, goal in
+                
+                (tra / (goal.daysRemaining * goal.amountRemaining)) * Double(goal.priority.rawValue)
+                
+            })
+            
+            let adjustedAmount = tca * action.rawValue
+            
+            print("TOTAL CONTRIBUTION AMOUNT IS \(adjustedAmount)")
+        }
         
     }
     

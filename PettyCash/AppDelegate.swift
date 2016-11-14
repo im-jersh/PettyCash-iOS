@@ -53,19 +53,17 @@ extension AppDelegate {
     
     fileprivate func createMenuView() {
         
-        // create viewController code...
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "RootViewController") as! RootMenuViewController
+        let petViewController = storyboard.instantiateViewController(withIdentifier: "PetViewController") as! PetViewController
         let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
         
-        //UINavigationBar.appearance().tintColor = UIColor(hex: "689F38")
+        menuViewController.mainViewController = petViewController
         
-        menuViewController.mainViewController = mainViewController
-        
-        let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: menuViewController)
+        let slideMenuController = SlideMenuController(mainViewController: petViewController, leftMenuViewController: menuViewController)
         slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        slideMenuController.delegate = mainViewController
+        slideMenuController.delegate = petViewController
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
