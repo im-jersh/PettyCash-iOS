@@ -67,7 +67,7 @@ class AllContributionsTableViewController: UITableViewController {
         let contribution = self.contributions[indexPath.row]
         
         cell.descriptionLabel.text = contribution.description
-        cell.dateLabel.text = contribution.date.formattedDate(.short)
+        cell.dateLabel.text = contribution.date.formattedDate(.short, time: .short)
         cell.amountLabel.text = contribution.formattedAmount
 
         return cell

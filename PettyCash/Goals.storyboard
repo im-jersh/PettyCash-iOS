@@ -226,22 +226,33 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Tu-uk-g9D" id="cgE-5B-gDi">
-                                            <frame key="frameInset" width="375" height="99"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$37.37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9u-wQ-Clo">
-                                                    <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="K2R-mB-zGy"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$37.37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9u-wQ-Clo" customClass="PaddedLabel" customModule="PettyCash" customModuleProvider="target">
+                                                    <color key="backgroundColor" red="0.59489071369171143" green="0.74986636638641357" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingTop">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingRight">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingBottom">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="uy9-n9-JLI">
@@ -264,8 +275,10 @@
                                                 <constraint firstItem="uy9-n9-JLI" firstAttribute="leading" secondItem="cgE-5B-gDi" secondAttribute="leadingMargin" constant="20" id="DOj-1a-a5s"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="G9u-wQ-Clo" secondAttribute="trailing" constant="20" id="PWf-lz-u6Z"/>
                                                 <constraint firstItem="uy9-n9-JLI" firstAttribute="top" secondItem="cgE-5B-gDi" secondAttribute="topMargin" id="Qro-aQ-aog"/>
-                                                <constraint firstItem="G9u-wQ-Clo" firstAttribute="leading" secondItem="uy9-n9-JLI" secondAttribute="trailing" constant="25" id="YC6-b1-EU2"/>
+                                                <constraint firstItem="G9u-wQ-Clo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uy9-n9-JLI" secondAttribute="trailing" constant="15" id="YC6-b1-EU2"/>
+                                                <constraint firstItem="G9u-wQ-Clo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cgE-5B-gDi" secondAttribute="topMargin" constant="10" id="jdk-Dw-ne8"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="uy9-n9-JLI" secondAttribute="bottom" id="kBS-gI-f5z"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="G9u-wQ-Clo" secondAttribute="bottom" constant="10" id="srU-sF-K0m"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -276,6 +289,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="8hP-hM-1gt" id="kY7-ZR-Dvh"/>
                                     <outlet property="delegate" destination="8hP-hM-1gt" id="2ot-fb-ibi"/>

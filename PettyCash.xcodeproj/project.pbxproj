@@ -26,6 +26,7 @@
 		033B78861DDA2D6F00DAF012 /* Goals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B78851DDA2D6F00DAF012 /* Goals.storyboard */; };
 		033B78891DDA2DF100DAF012 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B78871DDA2DF100DAF012 /* Expenses.storyboard */; };
 		033B788B1DDA2E3000DAF012 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B788A1DDA2E3000DAF012 /* Settings.storyboard */; };
+		033B788D1DDA3A5800DAF012 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033B788C1DDA3A5800DAF012 /* PaddedLabel.swift */; };
 		03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03708F961D90F6300088BA20 /* CloudKit.framework */; };
 		03831A0C1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
 		03831A0D1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
@@ -87,6 +88,7 @@
 		033B78851DDA2D6F00DAF012 /* Goals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goals.storyboard; sourceTree = "<group>"; };
 		033B78881DDA2DF100DAF012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Expenses.storyboard; sourceTree = "<group>"; };
 		033B788A1DDA2E3000DAF012 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		033B788C1DDA3A5800DAF012 /* PaddedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		03708F951D90F61A0088BA20 /* PettyCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PettyCash.entitlements; sourceTree = "<group>"; };
 		03708F961D90F6300088BA20 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		03831A0B1DC40B1300D37B42 /* CKEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKEngine.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				033B78871DDA2DF100DAF012 /* Expenses.storyboard */,
 				033B788A1DDA2E3000DAF012 /* Settings.storyboard */,
 				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
+				033B788C1DDA3A5800DAF012 /* PaddedLabel.swift */,
 				033759271DD9306800A747B8 /* PetMenu.swift */,
 				030460311DC333B8008B52F0 /* GoalCell.swift */,
 				038F35EC1DCD6612006DED07 /* TransactionCell.swift */,
@@ -599,6 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033B788D1DDA3A5800DAF012 /* PaddedLabel.swift in Sources */,
 				901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */,
 				0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */,
