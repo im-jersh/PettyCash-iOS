@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Expenses-->
+        <scene sceneID="KvD-dJ-7cI">
+            <objects>
+                <viewController storyboardIdentifier="ExpensesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0hb-FL-Q8B" customClass="ExpensesViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="39m-rN-A5z"/>
+                        <viewControllerLayoutGuide type="bottom" id="gIy-QX-YFa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L59-2u-ddB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mlt-8P-gR2">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExpenseRowIdentifier" textLabel="2Lb-qV-WtI" rowHeight="101" style="IBUITableViewCellStyleDefault" id="uar-Vt-jBp" customClass="ExpenseCell" customModule="PettyCash" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="101"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uar-Vt-jBp" id="sds-Ro-GO8">
+                                            <frame key="frameInset" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Lb-qV-WtI">
+                                                    <frame key="frameInset" minX="15" width="345" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0hb-FL-Q8B" id="vdj-pF-W95"/>
+                                    <outlet property="delegate" destination="0hb-FL-Q8B" id="r7Y-Dh-Yx7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gIy-QX-YFa" firstAttribute="top" secondItem="mlt-8P-gR2" secondAttribute="bottom" id="5kJ-lo-sxZ"/>
+                            <constraint firstItem="mlt-8P-gR2" firstAttribute="leading" secondItem="L59-2u-ddB" secondAttribute="leading" id="MK3-Cw-iQe"/>
+                            <constraint firstAttribute="trailing" secondItem="mlt-8P-gR2" secondAttribute="trailing" id="nch-Uz-oMs"/>
+                            <constraint firstItem="mlt-8P-gR2" firstAttribute="top" secondItem="L59-2u-ddB" secondAttribute="top" id="zlI-CC-TVm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Expenses" id="MyQ-a6-Ekr">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger-menu" id="bwB-ja-81d">
+                            <connections>
+                                <action selector="menuBarButtonWasTapped:" destination="0hb-FL-Q8B" id="u9C-xD-yis"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="mlt-8P-gR2" id="1p7-Pf-nYB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zkQ-I0-Tc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1006" y="-81"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SX7-Rm-1cC">
+            <objects>
+                <navigationController storyboardIdentifier="ExpensesNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JOh-S7-k0J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUr-DZ-hJw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0hb-FL-Q8B" kind="relationship" relationship="rootViewController" id="qds-hr-sM9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6z5-DC-ic4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="183" y="-81"/>
+        </scene>
+        <!--Add Bank View Controller-->
+        <scene sceneID="t7S-Kb-FJW">
+            <objects>
+                <viewController storyboardIdentifier="AddBankViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l5Q-uR-s6y" customClass="AddBankViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8vx-aw-bUm"/>
+                        <viewControllerLayoutGuide type="bottom" id="zhH-Ji-YxZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sxw-ek-XeL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Mke-EQ-zKG">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before we get started, let's first add a bank account " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-jg-7WJ">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ku-uf-FcD">
+                                        <state key="normal" title="Add Bank Account"/>
+                                        <connections>
+                                            <action selector="addBankAccountButtonWasTapped:" destination="l5Q-uR-s6y" eventType="touchUpInside" id="DnD-Md-1QV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGU-Ga-enA">
+                                        <state key="normal" title="Expenses"/>
+                                        <connections>
+                                            <action selector="loadExpensesWasTapped:" destination="l5Q-uR-s6y" eventType="touchUpInside" id="Nww-b8-9fg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mke-EQ-zKG" firstAttribute="centerY" secondItem="Sxw-ek-XeL" secondAttribute="centerY" id="Ruw-HL-cfP"/>
+                            <constraint firstAttribute="trailing" secondItem="Mke-EQ-zKG" secondAttribute="trailing" constant="10" id="dA3-tH-6N4"/>
+                            <constraint firstItem="Mke-EQ-zKG" firstAttribute="centerX" secondItem="Sxw-ek-XeL" secondAttribute="centerX" id="rU9-gc-fzo"/>
+                            <constraint firstItem="Mke-EQ-zKG" firstAttribute="leading" secondItem="Sxw-ek-XeL" secondAttribute="leading" constant="10" id="tTP-5X-gvp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="JOh-S7-k0J" kind="show" identifier="showExpenses" id="iiN-ck-XUc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Goc-id-bq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-654" y="-81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hamburger-menu" width="22" height="21"/>
+    </resources>
+</document>

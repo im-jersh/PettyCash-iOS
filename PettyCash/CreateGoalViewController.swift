@@ -18,15 +18,13 @@ class CreateGoalViewController : FormViewController {
     
     
 // MARK: Properties
-    fileprivate(set) var pcHandler : PCHandler!
+    fileprivate(set) var pcHandler : PCHandler! = PCController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Create the form
         self.buildForm()
-        
-        self.pcHandler = PCController(delegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +66,18 @@ class CreateGoalViewController : FormViewController {
         }
         
         FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
-        self.pcHandler.saveNew(goal)
+        self.pcHandler.saveNew(goal) { (goal, error) in
+            FTIndicator.dismissProgress()
+            guard let goal = goal else {
+                // TODO: Handle Error
+                return
+            }
+            
+            DispatchQueue.main.async {
+                FTIndicator.dismissProgress()
+                self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
+            }
+        }
     
     }
     
@@ -183,26 +192,6 @@ extension CreateGoalViewController {
     
 }
 
-// MARK: PettyCashDataNotifier 
-extension CreateGoalViewController : PettyCashDataNotifier {
-    
-    func pcController(_ controller: PCHandler, didSaveNewGoal goal: Goal) {
-        // Return to the list
-        DispatchQueue.main.async {
-            FTIndicator.dismissProgress()
-            self.performSegue(withIdentifier: "unwindToGoalsListSegue", sender: goal)
-        }
-    }
-    
-    func pcController(_ controller: PCHandler, didFinishFetchingGoals goals: Goals) {
-        
-    }
-    
-    func pcController(_ controller: PCHandler, didFinishFetchingTransactions transactions: Transactions) {
-        
-    }
-    
-}
 
 
 class CurrencyFormatter : NumberFormatter, FormatterProtocol {

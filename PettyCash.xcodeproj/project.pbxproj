@@ -21,6 +21,12 @@
 		032172831D9DBC94001D04E7 /* GoalModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172821D9DBC94001D04E7 /* GoalModelTests.swift */; };
 		032172851D9DD090001D04E7 /* TransactionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172841D9DD090001D04E7 /* TransactionModelTests.swift */; };
 		032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172861D9DD5CB001D04E7 /* Extensions.swift */; };
+		033759261DD92DBD00A747B8 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033759251DD92DBD00A747B8 /* PetViewController.swift */; };
+		033759281DD9306800A747B8 /* PetMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033759271DD9306800A747B8 /* PetMenu.swift */; };
+		033B78861DDA2D6F00DAF012 /* Goals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B78851DDA2D6F00DAF012 /* Goals.storyboard */; };
+		033B78891DDA2DF100DAF012 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B78871DDA2DF100DAF012 /* Expenses.storyboard */; };
+		033B788B1DDA2E3000DAF012 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B788A1DDA2E3000DAF012 /* Settings.storyboard */; };
+		033B788D1DDA3A5800DAF012 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033B788C1DDA3A5800DAF012 /* PaddedLabel.swift */; };
 		03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03708F961D90F6300088BA20 /* CloudKit.framework */; };
 		03831A0C1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
 		03831A0D1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
@@ -78,6 +84,12 @@
 		032172821D9DBC94001D04E7 /* GoalModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalModelTests.swift; sourceTree = "<group>"; };
 		032172841D9DD090001D04E7 /* TransactionModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionModelTests.swift; sourceTree = "<group>"; };
 		032172861D9DD5CB001D04E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		033759251DD92DBD00A747B8 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
+		033759271DD9306800A747B8 /* PetMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetMenu.swift; sourceTree = "<group>"; };
+		033B78851DDA2D6F00DAF012 /* Goals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goals.storyboard; sourceTree = "<group>"; };
+		033B78881DDA2DF100DAF012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Expenses.storyboard; sourceTree = "<group>"; };
+		033B788A1DDA2E3000DAF012 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		033B788C1DDA3A5800DAF012 /* PaddedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		03708F951D90F61A0088BA20 /* PettyCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PettyCash.entitlements; sourceTree = "<group>"; };
 		03708F961D90F6300088BA20 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		03831A0B1DC40B1300D37B42 /* CKEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKEngine.swift; sourceTree = "<group>"; };
@@ -191,9 +203,14 @@
 			isa = PBXGroup;
 			children = (
 				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
+				033B78851DDA2D6F00DAF012 /* Goals.storyboard */,
+				033B78871DDA2DF100DAF012 /* Expenses.storyboard */,
+				033B788A1DDA2E3000DAF012 /* Settings.storyboard */,
+				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
+				033B788C1DDA3A5800DAF012 /* PaddedLabel.swift */,
+				033759271DD9306800A747B8 /* PetMenu.swift */,
 				030460311DC333B8008B52F0 /* GoalCell.swift */,
 				038F35EC1DCD6612006DED07 /* TransactionCell.swift */,
-				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
 				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
 				9050722A1DD04ABC00AE4628 /* ExpenseCell.swift */,
 			);
@@ -226,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
+				033759251DD92DBD00A747B8 /* PetViewController.swift */,
 			);
 			name = Pet;
 			sourceTree = "<group>";
@@ -463,10 +481,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033B78861DDA2D6F00DAF012 /* Goals.storyboard in Resources */,
 				03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */,
 				03BAFD991D81D81D00B592C8 /* LaunchScreen.storyboard in Resources */,
 				03BAFD961D81D81D00B592C8 /* Assets.xcassets in Resources */,
 				03BAFD941D81D81D00B592C8 /* Main.storyboard in Resources */,
+				033B78891DDA2DF100DAF012 /* Expenses.storyboard in Resources */,
+				033B788B1DDA2E3000DAF012 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033B788D1DDA3A5800DAF012 /* PaddedLabel.swift in Sources */,
 				901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */,
 				0321727D1D9DB79B001D04E7 /* Goal.swift in Sources */,
 				032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */,
@@ -595,7 +617,9 @@
 				903BAD3A1DD52D0A00F76883 /* Account.swift in Sources */,
 				03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */,
 				030460271DBFE750008B52F0 /* MenuViewController.swift in Sources */,
+				033759261DD92DBD00A747B8 /* PetViewController.swift in Sources */,
 				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
+				033759281DD9306800A747B8 /* PetMenu.swift in Sources */,
 				03DDAF6E1DD0FB9C005612ED /* AllContributionsTableViewController.swift in Sources */,
 				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
@@ -650,6 +674,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		033B78871DDA2DF100DAF012 /* Expenses.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				033B78881DDA2DF100DAF012 /* Base */,
+			);
+			name = Expenses.storyboard;
+			sourceTree = "<group>";
+		};
 		03BAFD921D81D81D00B592C8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
