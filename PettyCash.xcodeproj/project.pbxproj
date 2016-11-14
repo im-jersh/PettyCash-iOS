@@ -23,6 +23,9 @@
 		032172871D9DD5CB001D04E7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032172861D9DD5CB001D04E7 /* Extensions.swift */; };
 		033759261DD92DBD00A747B8 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033759251DD92DBD00A747B8 /* PetViewController.swift */; };
 		033759281DD9306800A747B8 /* PetMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033759271DD9306800A747B8 /* PetMenu.swift */; };
+		033B78861DDA2D6F00DAF012 /* Goals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B78851DDA2D6F00DAF012 /* Goals.storyboard */; };
+		033B78891DDA2DF100DAF012 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B78871DDA2DF100DAF012 /* Expenses.storyboard */; };
+		033B788B1DDA2E3000DAF012 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033B788A1DDA2E3000DAF012 /* Settings.storyboard */; };
 		03708F971D90F6300088BA20 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03708F961D90F6300088BA20 /* CloudKit.framework */; };
 		03831A0C1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
 		03831A0D1DC40B1300D37B42 /* CKEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03831A0B1DC40B1300D37B42 /* CKEngine.swift */; };
@@ -81,6 +84,9 @@
 		032172861D9DD5CB001D04E7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		033759251DD92DBD00A747B8 /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		033759271DD9306800A747B8 /* PetMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetMenu.swift; sourceTree = "<group>"; };
+		033B78851DDA2D6F00DAF012 /* Goals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goals.storyboard; sourceTree = "<group>"; };
+		033B78881DDA2DF100DAF012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Expenses.storyboard; sourceTree = "<group>"; };
+		033B788A1DDA2E3000DAF012 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		03708F951D90F61A0088BA20 /* PettyCash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PettyCash.entitlements; sourceTree = "<group>"; };
 		03708F961D90F6300088BA20 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		03831A0B1DC40B1300D37B42 /* CKEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKEngine.swift; sourceTree = "<group>"; };
@@ -192,6 +198,9 @@
 			isa = PBXGroup;
 			children = (
 				03BAFD921D81D81D00B592C8 /* Main.storyboard */,
+				033B788A1DDA2E3000DAF012 /* Settings.storyboard */,
+				033B78871DDA2DF100DAF012 /* Expenses.storyboard */,
+				033B78851DDA2D6F00DAF012 /* Goals.storyboard */,
 				033759271DD9306800A747B8 /* PetMenu.swift */,
 				030460311DC333B8008B52F0 /* GoalCell.swift */,
 				038F35EC1DCD6612006DED07 /* TransactionCell.swift */,
@@ -466,10 +475,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033B78861DDA2D6F00DAF012 /* Goals.storyboard in Resources */,
 				03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */,
 				03BAFD991D81D81D00B592C8 /* LaunchScreen.storyboard in Resources */,
 				03BAFD961D81D81D00B592C8 /* Assets.xcassets in Resources */,
 				03BAFD941D81D81D00B592C8 /* Main.storyboard in Resources */,
+				033B78891DDA2DF100DAF012 /* Expenses.storyboard in Resources */,
+				033B788B1DDA2E3000DAF012 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +666,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		033B78871DDA2DF100DAF012 /* Expenses.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				033B78881DDA2DF100DAF012 /* Base */,
+			);
+			name = Expenses.storyboard;
+			sourceTree = "<group>";
+		};
 		03BAFD921D81D81D00B592C8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
