@@ -70,6 +70,11 @@ IB_DESIGNABLE
  */
 @property (nonatomic,copy)   IBInspectable NSString  *unitString;
 
+/**
+ * Bool indicating which side of the value to place the unit string (right = true, left = false)
+ */
+@property (nonatomic, assign) IBInspectable BOOL unitTrailing;
+
 /** 
  * The color of the value and unit text 
  */

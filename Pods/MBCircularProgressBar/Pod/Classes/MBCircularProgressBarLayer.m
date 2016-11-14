@@ -16,6 +16,7 @@
 @dynamic maxValue;
 @dynamic valueFontSize;
 @dynamic unitString;
+@dynamic unitTrailing;
 @dynamic unitFontSize;
 @dynamic progressLineWidth;
 @dynamic progressColor;
@@ -151,7 +152,14 @@
     
     NSAttributedString* unit =
     [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", self.unitString] attributes:unitFontAttributes];
-    [text appendAttributedString:unit];
+      
+      // append it to the beginning or end
+      if (self.unitTrailing) {
+          [text appendAttributedString:unit];
+      } else {
+          [text insertAttributedString:unit atIndex:0];
+      }
+    
   }
   
   CGSize percentSize = [text size];

@@ -60,7 +60,9 @@ class GoalDetailViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Change the progress view to show the contribution dollar amount
-        self.progressView.showUnitString = false
+        //self.progressView.showUnitString = false
+        self.progressView.unitString = "$";
+        self.progressView.unitTrailing = false;
         self.progressView.maxValue = CGFloat(self.goal.amount)
         self.progressView.decimalPlaces = 2
         self.progressView.value = CGFloat(self.goal.contributionAmount)
@@ -70,7 +72,9 @@ class GoalDetailViewController: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Revert the progress view to percent complete
-        self.progressView.showUnitString = true
+        //self.progressView.showUnitString = true
+        self.progressView.unitString = "%"
+        self.progressView.unitTrailing = true;
         self.progressView.maxValue = CGFloat(100)
         self.progressView.decimalPlaces = 1
         self.progressView.value = CGFloat(self.goal.progress * 100)

@@ -60,6 +60,11 @@
 @property (nonatomic,copy)   NSString *unitString;
 
 /**
+ * Bool indicating which side of the value to place the unit string (right = true, left = false)
+ */
+@property (nonatomic, assign) BOOL unitTrailing;
+
+/**
  * The color of the value and unit text
  */
 @property (nonatomic,strong) UIColor  *fontColor;

@@ -42,6 +42,7 @@
     [self setContentScaleFactor:[[UIScreen mainScreen] scale]];
   
     [self setUnitString:@"%"];
+    [self setUnitTrailing: YES];
     [self setValue:0.f];
     [self setMaxValue:100.f];
     [self setProgressRotationAngle:0.f];
@@ -147,8 +148,17 @@
     self.progressLayer.unitString = unitString;
 }
 
+
 -(NSString*)unitString{
     return self.progressLayer.unitString;
+}
+
+-(void)setUnitTrailing:(BOOL)unitTrailing {
+    self.progressLayer.unitTrailing = unitTrailing;
+}
+
+-(BOOL)unitTrailing {
+    return self.progressLayer.unitTrailing;
 }
 
 -(void)setFontColor:(UIColor*)color{
