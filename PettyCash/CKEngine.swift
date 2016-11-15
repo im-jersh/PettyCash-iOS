@@ -212,8 +212,6 @@ fileprivate class FetchAllOperation : CKQueryOperation {
             self.query = query
             query.sortDescriptors = [sortDescriptor]
             break
-        default:
-            break
         }
         
         // Set up the blocks

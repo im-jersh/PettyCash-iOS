@@ -9,6 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 import FTIndicator
+import ChameleonFramework
 
 fileprivate let goalRowIdentifier = "GoalRowIdentifier"
 fileprivate let loadingIndicatorMessage = "Loading Goals"

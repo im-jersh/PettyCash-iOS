@@ -64,7 +64,7 @@ class PlaidEngine {
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                 
-                if let error = error {
+                if error != nil {
                     let error = NSError(domain: "plaidEngine", code: -1, userInfo: nil)
                     completionHandler(PlaidResult(result: error))
                     return

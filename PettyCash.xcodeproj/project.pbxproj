@@ -33,11 +33,9 @@
 		038F35E91DCC630C006DED07 /* PCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F35E81DCC630C006DED07 /* PCController.swift */; };
 		038F35EB1DCD5E29006DED07 /* GoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F35EA1DCD5E29006DED07 /* GoalDetailViewController.swift */; };
 		038F35ED1DCD6612006DED07 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F35EC1DCD6612006DED07 /* TransactionCell.swift */; };
-		03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */; };
 		03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */; };
 		03BAFD8D1D81D81D00B592C8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD8C1D81D81D00B592C8 /* GameScene.sks */; };
 		03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD8E1D81D81D00B592C8 /* GameScene.swift */; };
-		03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BAFD901D81D81D00B592C8 /* GameViewController.swift */; };
 		03BAFD941D81D81D00B592C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD921D81D81D00B592C8 /* Main.storyboard */; };
 		03BAFD961D81D81D00B592C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD951D81D81D00B592C8 /* Assets.xcassets */; };
 		03BAFD991D81D81D00B592C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BAFD971D81D81D00B592C8 /* LaunchScreen.storyboard */; };
@@ -95,12 +93,10 @@
 		038F35E81DCC630C006DED07 /* PCController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCController.swift; sourceTree = "<group>"; };
 		038F35EA1DCD5E29006DED07 /* GoalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDetailViewController.swift; sourceTree = "<group>"; };
 		038F35EC1DCD6612006DED07 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
-		03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootMenuViewController.swift; sourceTree = "<group>"; };
 		03BAFD871D81D81D00B592C8 /* PettyCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PettyCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BAFD8A1D81D81D00B592C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BAFD8C1D81D81D00B592C8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		03BAFD8E1D81D81D00B592C8 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		03BAFD901D81D81D00B592C8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		03BAFD931D81D81D00B592C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03BAFD951D81D81D00B592C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03BAFD981D81D81D00B592C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -239,7 +235,6 @@
 		033E801A1DD3F66D003CB49C /* Pet */ = {
 			isa = PBXGroup;
 			children = (
-				03BAFD901D81D81D00B592C8 /* GameViewController.swift */,
 				033759251DD92DBD00A747B8 /* PetViewController.swift */,
 			);
 			name = Pet;
@@ -267,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				030460261DBFE750008B52F0 /* MenuViewController.swift */,
-				03B25D4E1DB13ED900F0661C /* RootMenuViewController.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -611,13 +605,11 @@
 				9050722B1DD04ABC00AE4628 /* ExpenseCell.swift in Sources */,
 				90E519E31DD1125700EC4274 /* PlaidEngine.swift in Sources */,
 				0304602B1DBFEEB5008B52F0 /* ExpensesViewController.swift in Sources */,
-				03B25D4F1DB13ED900F0661C /* RootMenuViewController.swift in Sources */,
 				030460271DBFE750008B52F0 /* MenuViewController.swift in Sources */,
 				033759261DD92DBD00A747B8 /* PetViewController.swift in Sources */,
 				03BAFD8F1D81D81D00B592C8 /* GameScene.swift in Sources */,
 				033759281DD9306800A747B8 /* PetMenu.swift in Sources */,
 				03DDAF6E1DD0FB9C005612ED /* AllContributionsTableViewController.swift in Sources */,
-				03BAFD911D81D81D00B592C8 /* GameViewController.swift in Sources */,
 				03BAFD8B1D81D81D00B592C8 /* AppDelegate.swift in Sources */,
 				032172801D9DB7F2001D04E7 /* Transaction.swift in Sources */,
 				9050722D1DD04C2100AE4628 /* Expense.swift in Sources */,
