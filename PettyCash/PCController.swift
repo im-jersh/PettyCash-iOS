@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum PetAction : Double {
+public enum PetAction : Double {
     case poop = 0.5
     case feed = 1.0
     case bathe = 2.0
@@ -105,7 +105,7 @@ class PCController : PCHandler {
             let tra = goals.reduce(0.0, { result, goal in goal.amountRemaining })
             let tca = goals.reduce(0.0, { result, goal in
                 
-                (tra / (goal.daysRemaining * goal.amountRemaining)) * Double(goal.priority.rawValue)
+                result + (tra / (goal.daysRemaining * goal.amountRemaining)) * Double(goal.priority.rawValue)
                 
             })
             
