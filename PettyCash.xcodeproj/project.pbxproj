@@ -46,6 +46,7 @@
 		901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA81DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
+		903BAD3A1DD52D0A00F76883 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903BAD391DD52D0A00F76883 /* Account.swift */; };
 		9050722B1DD04ABC00AE4628 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9050722A1DD04ABC00AE4628 /* ExpenseCell.swift */; };
 		9050722D1DD04C2100AE4628 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9050722C1DD04C2100AE4628 /* Expense.swift */; };
 		905CE5A91DCBF6CB004E4A53 /* AddBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */; };
@@ -115,6 +116,7 @@
 		57B3AE64E35C86902DFAFB9E /* Pods-PettyCash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PettyCash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PettyCash/Pods-PettyCash.debug.xcconfig"; sourceTree = "<group>"; };
 		5875ADB5E6F194948E4C0A9A /* Pods_PettyCash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PettyCash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		901BAFA51DA6E5CC0083EA97 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		903BAD391DD52D0A00F76883 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9050722A1DD04ABC00AE4628 /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		9050722C1DD04C2100AE4628 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		905CE5A31DCBEEB3004E4A53 /* PettyCash-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PettyCash-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				0321727F1D9DB7F2001D04E7 /* Transaction.swift */,
 				901BAFA51DA6E5CC0083EA97 /* Pet.swift */,
 				9050722C1DD04C2100AE4628 /* Expense.swift */,
+				903BAD391DD52D0A00F76883 /* Account.swift */,
 			);
 			name = "Models 🛠";
 			sourceTree = "<group>";
