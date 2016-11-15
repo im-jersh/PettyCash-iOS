@@ -41,6 +41,10 @@ extension Date {
     public static func weeks(away weeks: Int) -> Date {
         return Calendar.current.date(byAdding: .day, value: weeks * 7, to: Date())!
     }
+    
+    public func formattedDate(_ dateStyle: DateFormatter.Style, time timeStyle: DateFormatter.Style = .none) -> String {
+        return DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
+    }
 }
 
 extension Double {
@@ -58,3 +62,5 @@ extension Double {
     }
     
 }
+
+

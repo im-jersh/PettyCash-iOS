@@ -80,7 +80,7 @@ class PlaidEngine {
             
                 let transactions = transactionsArray.map{ Expense(with: $0) }
                 for trans in transactions {
-                    print(trans.amount)
+                    print(trans)
                 }
                 
                 completionHandler(PlaidResult(result: transactions))

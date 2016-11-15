@@ -134,13 +134,6 @@ class Goal : Transportable {
     
 }
 
-extension Date {
-    
-    func formattedDate(_ dateStyle: DateFormatter.Style, time timeStyle: DateFormatter.Style = .none) -> String {
-        return DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
-    }
-    
-}
 
 
 
