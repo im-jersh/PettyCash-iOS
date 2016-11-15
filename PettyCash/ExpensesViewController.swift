@@ -8,6 +8,7 @@
 
 import UIKit
 import FTIndicator
+import ChameleonFramework
 
 fileprivate let expenseRowIdentifier = "ExpenseRowIdentifier"
 fileprivate let loadingIndicatorMessage = "Loading Expenses"
@@ -30,7 +31,8 @@ class ExpensesViewController: UIViewController {
             }
         }
     }
-
+    
+    var isExpanded = Set<IndexPath>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,11 +95,43 @@ extension ExpensesViewController : UITableViewDataSource, UITableViewDelegate {
         }
         let expense = self.expenses[indexPath.row]
         // Configure the cell
-//        cell.expenseDateLabel.text = "Date: " + expense.date
-//        cell.expenseAmountLabel.text = "\(expense.amount)"
-        cell.textLabel?.text = String(expense.amount)
+        cell.expenseAmountLabel.backgroundColor = expense.amount < 0 ? UIColor.flatLime() : UIColor.flatRed()
+        cell.expenseDateLabel.text = expense.date
+        cell.expenseNameLabel.text = expense.name
+        cell.expenseAmountLabel.text = expense.amount.formattedCurrency
+        if self.isExpanded.contains(indexPath) {
+            cell.expenseCategoryLabel.isHidden = false
+        } else {
+            cell.expenseCategoryLabel.isHidden = true
+        }
+        cell.expenseCategoryLabel.text = "Categories: " + expense.categories.joined(separator: ", ")
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? ExpenseCell else {
+            return
+        }
+        
+        tableView.beginUpdates()
+        
+        if self.isExpanded.contains(indexPath) {
+            self.isExpanded.remove(indexPath)
+            UIView.animate(withDuration: 0.4) {
+                cell.expenseCategoryLabel.isHidden = true
+            }
+        } else {
+            self.isExpanded.insert(indexPath)
+            UIView.animate(withDuration: 0.4) {
+                cell.expenseCategoryLabel.isHidden = false
+            }
+        }
+        
+        //tableView.deselectRow(at: indexPath, animated: true)
+        tableView.endUpdates()
+        
     }
 }
 
