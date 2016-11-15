@@ -9,11 +9,11 @@
 import Foundation
 
 public enum PetAction : Double {
-    case poop = 0.5
-    case feed = 1.0
-    case bathe = 2.0
-    case treat = 1.2
-    case groom = 1.5
+    case poop = 1.0
+    case feed = 1.5
+    case bathe = 5.0
+    case treat = 2.5
+    case groom = 3.7
 }
 
 protocol PCHandler {
@@ -22,6 +22,7 @@ protocol PCHandler {
     func saveNew(_ goal: Goal, completionHandler: @escaping (Goal?, Error?) -> Void)
     func fetchAllExpenses(completionHandler: @escaping (Expenses?, Error?)-> Void)
     func fetchAllTransactions(_ completionHandler: @escaping (Transactions?, Error?) -> Void)
+    func generateSavings(for action: PetAction, completionHandler: @escaping (Double?, Error?) -> Void)
 }
 
 class PCController : PCHandler {
@@ -102,16 +103,18 @@ class PCController : PCHandler {
             }
             
             // Run the savings function on each of the goals to get the Total Contribution Amount
-            let tra = goals.reduce(0.0, { result, goal in goal.amountRemaining })
+            let tra = goals.reduce(0.0, { result, goal in
+                result + goal.amountRemaining
+            })
             let tca = goals.reduce(0.0, { result, goal in
-                
                 result + (tra / (goal.daysRemaining * goal.amountRemaining)) * Double(goal.priority.rawValue)
-                
             })
             
             let adjustedAmount = tca * action.rawValue
             
             print("TOTAL CONTRIBUTION AMOUNT IS \(adjustedAmount)")
+            
+            completionHandler(adjustedAmount, nil)
         }
         
     }

@@ -9,8 +9,12 @@
 import UIKit
 import PathMenu
 import SlideMenuControllerSwift
+import FTIndicator
 
 class PetViewController: UIViewController {
+    
+    fileprivate let petActions : [PetAction] = [PetAction.feed, PetAction.poop, PetAction.bathe, PetAction.groom, PetAction.treat]
+    fileprivate let pcHandler : PCHandler = PCController()
     
     override var prefersStatusBarHidden : Bool {
         return true
@@ -49,7 +53,20 @@ class PetViewController: UIViewController {
 extension PetViewController : PathMenuDelegate {
     
     func pathMenu(_ menu: PathMenu, didSelectIndex idx: Int) {
-        print("Item \(idx) selected")
+        
+        FTIndicator.showProgressWithmessage("Generating a contribution amount", userInteractionEnable: false)
+        self.pcHandler.generateSavings(for: self.petActions[idx]) { (tca, error) in
+            
+            guard let tca = tca else {
+                fatalError("Error generating TCA: \(error?.localizedDescription)")
+            }
+            
+            DispatchQueue.main.async {
+                FTIndicator.dismissProgress()
+                FTIndicator.showSuccess(withMessage: "\(tca.formattedCurrency) has been deposited into your savings account!", userInteractionEnable: false)
+            }
+        }
+        
     }
     
     func pathMenuWillAnimateOpen(_ menu: PathMenu) {
