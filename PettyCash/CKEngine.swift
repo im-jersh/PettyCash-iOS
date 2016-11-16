@@ -333,14 +333,14 @@ extension CKEngine {
         let firstGoal = CKRecord(recordType: RecordType.goal.rawValue, zoneID: savingsZone.zoneID)
         firstGoal.setObject("Dumb Phone" as NSString, forKey: GoalKey.description.rawValue)
         firstGoal.setObject(Date.days(away: -10) as NSDate, forKey: GoalKey.startDate.rawValue)
-        firstGoal.setObject(Date.weeks(away: 40) as NSDate, forKey: GoalKey.endDate.rawValue)
+        firstGoal.setObject(Date.weeks(away: 10) as NSDate, forKey: GoalKey.endDate.rawValue)
         firstGoal.setObject(200.00 as NSNumber, forKey: GoalKey.amount.rawValue)
         firstGoal.setObject(Priority.medium.rawValue as NSNumber, forKey: GoalKey.priority.rawValue)
         
         let secondGoal = CKRecord(recordType: RecordType.goal.rawValue, zoneID: savingsZone.zoneID)
         secondGoal.setObject("Dumb Computer" as NSString, forKey: GoalKey.description.rawValue)
         secondGoal.setObject(Date.days(away: -37) as NSDate, forKey: GoalKey.startDate.rawValue)
-        secondGoal.setObject(Date.weeks(away: 87) as NSDate, forKey: GoalKey.endDate.rawValue)
+        secondGoal.setObject(Date.weeks(away: 15) as NSDate, forKey: GoalKey.endDate.rawValue)
         secondGoal.setObject(1300.00 as NSNumber, forKey: GoalKey.amount.rawValue)
         secondGoal.setObject(Priority.high.rawValue as NSNumber, forKey: GoalKey.priority.rawValue)
         

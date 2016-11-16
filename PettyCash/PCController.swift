@@ -9,11 +9,11 @@
 import Foundation
 
 public enum PetAction : Double {
-    case poop = 1.0
-    case feed = 1.5
-    case bathe = 5.0
-    case treat = 2.5
-    case groom = 3.7
+    case poop = 2.0
+    case feed = 3.5
+    case bathe = 10.0
+    case treat = 5.5
+    case groom = 7.7
 }
 
 protocol PCHandler {
@@ -107,10 +107,12 @@ class PCController : PCHandler {
                 result + goal.amountRemaining
             })
             let tca = goals.reduce(0.0, { result, goal in
-                result + (tra / (goal.daysRemaining * goal.amountRemaining)) * Double(goal.priority.rawValue)
+                let ica = (tra / (goal.daysRemaining * goal.amountRemaining)) * Double(goal.priority.rawValue) * action.rawValue
+                print("\(goal.description): \(ica)")
+                return ica + result
             })
             
-            let adjustedAmount = tca * action.rawValue
+            let adjustedAmount = tca
             
             print("TOTAL CONTRIBUTION AMOUNT IS \(adjustedAmount)")
             
