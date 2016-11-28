@@ -19,13 +19,27 @@ func random(min: CGFloat, max: CGFloat) -> CGFloat {
 
 class GameScene: SKScene {
     
-    let pet = SKSpriteNode(imageNamed: "dog")
+    lazy var pet : SKSpriteNode = {
+        let pet = SKSpriteNode(imageNamed: "dog")
+        pet.zPosition = 100.0
+        
+        return pet
+    }()
+    
     lazy var backgroundGradientNode : SKSpriteNode = {
-        let texture = SKTexture(size: self.size, color1: CIColor(color: UIColor.flatGreen()), color2: CIColor(color: UIColor.flatSkyBlue()), direction: GradientDirection.Up)
-        texture.filteringMode = .linear
+        let texture = SKTexture(imageNamed: "pet-background")
+        texture.filteringMode = .nearest
         let backgroundGradientNode = SKSpriteNode(texture: texture, size: self.frame.size)
         backgroundGradientNode.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         return backgroundGradientNode
+    }()
+    
+    lazy var shelter : SKSpriteNode = {
+        let shelter = SKSpriteNode(imageNamed: "dog-house")
+        shelter.position = CGPoint(x: shelter.size.width * 0.58, y: self.frame.size.height * 0.45)
+        shelter.zPosition = 99.0
+        
+        return shelter
     }()
     
     override func didMove(to view: SKView) {
@@ -38,8 +52,10 @@ class GameScene: SKScene {
         
         // Add the pet to the scene
         self.pet.position = CGPoint(x: random(min: 0 + (self.pet.size.width / 2.0), max: self.size.width - (self.pet.size.width / 2.0)), y: random(min: 0 + (self.pet.size.height / 2.0), max: (self.size.height / 2) - (self.pet.size.height / 2)))
-        self.pet.zPosition = 100.0
         self.addChild(self.pet)
+        
+        // Add the pet house
+        self.addChild(self.shelter)
         
         // Make the little guy move around from time to time
         self.run(
