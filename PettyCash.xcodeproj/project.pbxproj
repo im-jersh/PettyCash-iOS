@@ -46,7 +46,6 @@
 		901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA81DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
-		903BAD3A1DD52D0A00F76883 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903BAD391DD52D0A00F76883 /* Account.swift */; };
 		9050722B1DD04ABC00AE4628 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9050722A1DD04ABC00AE4628 /* ExpenseCell.swift */; };
 		9050722D1DD04C2100AE4628 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9050722C1DD04C2100AE4628 /* Expense.swift */; };
 		905CE5A91DCBF6CB004E4A53 /* AddBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */; };
@@ -203,11 +202,11 @@
 				033B78871DDA2DF100DAF012 /* Expenses.storyboard */,
 				033B788A1DDA2E3000DAF012 /* Settings.storyboard */,
 				03BAFD8C1D81D81D00B592C8 /* GameScene.sks */,
+				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
 				033B788C1DDA3A5800DAF012 /* PaddedLabel.swift */,
 				033759271DD9306800A747B8 /* PetMenu.swift */,
 				030460311DC333B8008B52F0 /* GoalCell.swift */,
 				038F35EC1DCD6612006DED07 /* TransactionCell.swift */,
-				03BAFD8E1D81D81D00B592C8 /* GameScene.swift */,
 				9050722A1DD04ABC00AE4628 /* ExpenseCell.swift */,
 			);
 			name = "Views 🌅";
