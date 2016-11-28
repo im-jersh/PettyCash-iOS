@@ -36,10 +36,23 @@ class GameScene: SKScene {
     
     lazy var shelter : SKSpriteNode = {
         let shelter = SKSpriteNode(imageNamed: "dog-house")
-        shelter.position = CGPoint(x: shelter.size.width * 0.58, y: self.frame.size.height * 0.45)
-        shelter.zPosition = 99.0
-        
+        shelter.position = CGPoint(x: shelter.size.width * 0.58, y: self.frame.size.height * 0.46)
+        shelter.zPosition = 90.0
         return shelter
+    }()
+    
+    lazy var foodBowl : SKSpriteNode = {
+        let bowl = SKSpriteNode(imageNamed: "food")
+        bowl.position = CGPoint(x: self.frame.size.width * 0.78, y: self.frame.size.height * 0.41)
+        bowl.zPosition = 93.0
+        return bowl
+    }()
+    
+    lazy var waterBowl : SKSpriteNode = {
+        let bowl = SKSpriteNode(imageNamed: "water")
+        bowl.position = CGPoint(x: self.frame.size.width * 0.86, y: self.frame.size.height * 0.43)
+        bowl.zPosition = 92.0
+        return bowl
     }()
     
     override func didMove(to view: SKView) {
@@ -56,6 +69,8 @@ class GameScene: SKScene {
         
         // Add the pet house
         self.addChild(self.shelter)
+        self.addChild(self.foodBowl)
+        self.addChild(self.waterBowl)
         
         // Make the little guy move around from time to time
         self.run(
