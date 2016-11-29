@@ -9,6 +9,7 @@
 import UIKit
 import FTIndicator
 import ChameleonFramework
+import Charts
 
 fileprivate let expenseRowIdentifier = "ExpenseRowIdentifier"
 fileprivate let loadingIndicatorMessage = "Loading Expenses"
@@ -19,7 +20,9 @@ class ExpensesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet var chartView: UIView!
+    //@IBOutlet var chartView: UIView!
+
+    @IBOutlet var pieChartView: PieChartView!
     
     /*fileprivate var expenses : Expenses = Expenses() {
         didSet {
@@ -35,12 +38,14 @@ class ExpensesViewController: UIViewController {
     }
     
     var isExpanded = Set<IndexPath>()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // size the supplementary view
-        self.chartView.frame = self.view.frame
+        // size the supplementary view and add to view
+        self.pieChartView.frame = self.view.frame
+        self.customizePieChart()
+        self.view.insertSubview(self.pieChartView, aboveSubview: self.tableView)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -87,9 +92,9 @@ class ExpensesViewController: UIViewController {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            self.view.insertSubview(self.chartView, aboveSubview: self.tableView)
+            self.view.insertSubview(self.pieChartView, aboveSubview: self.tableView)
         case 1:
-            self.chartView.removeFromSuperview()
+            self.pieChartView.removeFromSuperview()
         default:
             return
         }
@@ -194,6 +199,34 @@ extension ExpensesViewController {
 //    public func addExpenseToList(_ expense: Expense) {
 //        self.expenses.append(expense)
 //    }
+    
+}
+
+extension ExpensesViewController {
+    func customizePieChart(){
+        let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) * 100.0 }
+        
+        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: y, label: String(x)) }
+        
+        let data = PieChartData()
+        let ds1 = PieChartDataSet(values: yse1, label: "Hello")
+        
+        ds1.colors = ChartColorTemplates.vordiplom()
+        
+        data.addDataSet(ds1)
+        
+        //self.pieChartView.centerAttributedText = centerText
+        
+        self.pieChartView.data = data
+        self.pieChartView.usePercentValuesEnabled = true
+        let myShadow = NSShadow()
+        myShadow.shadowBlurRadius = 3
+        myShadow.shadowOffset = CGSize(width: 3, height: 3)
+        myShadow.shadowColor = UIColor.gray
+        let centerText: NSAttributedString = NSAttributedString(string: "Expense Categories", attributes: [NSFontAttributeName: UIFont(name: "Verdana-Italic", size: 17.0)!, NSShadowAttributeName: myShadow])
+        self.pieChartView.centerAttributedText = centerText
+    }
+    
     
 }
 
