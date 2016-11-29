@@ -63,6 +63,10 @@ class ExpensesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.pieChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
+    }
 
     /*
     // MARK: - Navigation
@@ -204,6 +208,9 @@ extension ExpensesViewController {
 
 extension ExpensesViewController {
     func customizePieChart(){
+        //Call method to get all expense categories
+        self.getExpenseCategories()
+        
         let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) * 100.0 }
         
         let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: y, label: String(x)) }
@@ -220,11 +227,23 @@ extension ExpensesViewController {
         self.pieChartView.data = data
         self.pieChartView.usePercentValuesEnabled = true
         let myShadow = NSShadow()
-        myShadow.shadowBlurRadius = 3
-        myShadow.shadowOffset = CGSize(width: 3, height: 3)
+        myShadow.shadowBlurRadius = 1
+        myShadow.shadowOffset = CGSize(width: 1, height: 1)
         myShadow.shadowColor = UIColor.gray
         let centerText: NSAttributedString = NSAttributedString(string: "Expense Categories", attributes: [NSFontAttributeName: UIFont(name: "Verdana-Italic", size: 17.0)!, NSShadowAttributeName: myShadow])
         self.pieChartView.centerAttributedText = centerText
+    }
+    
+    func getExpenseCategories(){
+//        var expenseCategories: [String]
+//        for expense in self.expenses {
+//            if expense.categories.isEmpty {
+//                continue
+//            } else {
+//                conti
+//            }
+//        }
+        
     }
     
     
