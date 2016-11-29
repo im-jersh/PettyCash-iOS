@@ -26,6 +26,17 @@ enum RecordZone : String {
     }
 }
 
+public struct CKContributionData {
+    
+    let goals : [(goal: Goal, ica: Double)]
+    let amount : Double
+    let toAccount : String
+    let fromAccount : String
+    let tca : Double
+    let action : PetAction
+    
+}
+
 class CKEngine {
     
 // MARK: Properties
@@ -146,6 +157,69 @@ class CKEngine {
         opQueue.addOperation(processTransactionsOperation)
     
     }
+    
+    func processTotalContributionAmount(in prepData: CKContributionData, _ completionHandler: @escaping (CKResult<Any>?, Error?) -> Void) {
+        
+        // Prepare
+        let zoneID = CKRecordZoneID(zoneName: RecordZone.savings.zoneName, ownerName: CKOwnerDefaultName)
+        var actionDescription = ""
+        switch prepData.action {
+        case .poop:
+            actionDescription += "Poop scoop'n 💩"
+        case .feed:
+            actionDescription += "Chow time 🍖"
+        case .bathe:
+            actionDescription += "Squeeky clean! 🚿"
+        case .treat:
+            actionDescription += "Treat yo self 🍬"
+        case .groom:
+            actionDescription += "Look'n sharp 🕶"
+        }
+        let bundleName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
+        
+        // Iterate over the goals, create contributions, then save the contributions
+        let contributionRecords : [CKRecord] = prepData.goals.map { (data : (goal: Goal, ica: Double)) in
+            
+            // Set the record values
+            let record = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: zoneID)
+            record.setObject(data.ica as CKRecordValue, forKey: TransactionKey.amount.rawValue)
+            record.setObject(Date() as CKRecordValue, forKey: TransactionKey.date.rawValue)
+            record.setObject("\(actionDescription) \(bundleName) transfer to \(prepData.toAccount)" as CKRecordValue, forKey: TransactionKey.description.rawValue)
+            
+            // Set a reference to the associated goal
+            let goalID = CKRecordID(recordName: data.goal.id, zoneID: zoneID)
+            let ref = CKReference(recordID: goalID, action: CKReferenceAction.none)
+            record.setObject(ref, forKey: TransactionKey.goal.rawValue)
+            
+            return record
+        }
+        
+        let saveOp = CKModifyRecordsOperation(recordsToSave: contributionRecords, recordIDsToDelete: nil)
+        saveOp.perRecordCompletionBlock = { record, error in
+            guard let record = record else {
+                print("Error saving contribution record")
+                return
+            }
+            print("Contribution Record Saved Successfully")
+        }
+        saveOp.modifyRecordsCompletionBlock = { savedRecords, deletedRecordIDs, error in
+            guard let savedRecords = savedRecords else {
+                print("Error saving contribution records")
+                return
+            }
+            
+            guard savedRecords.count == prepData.goals.count else {
+                print("Error saving contribution records")
+                return
+            }
+            
+            completionHandler(CKResult(result: true), nil)
+        }
+        
+        CKEngine.privateDatabase.add(saveOp)
+        
+    }
+    
 }
 
 
