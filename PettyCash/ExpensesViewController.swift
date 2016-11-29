@@ -18,6 +18,8 @@ class ExpensesViewController: UIViewController {
     var pcHandler : PCHandler!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet var chartView: UIView!
     
     /*fileprivate var expenses : Expenses = Expenses() {
         didSet {
@@ -36,6 +38,9 @@ class ExpensesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // size the supplementary view
+        self.chartView.frame = self.view.frame
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -74,6 +79,24 @@ class ExpensesViewController: UIViewController {
         self.slideMenuController()?.openLeft()
     }
 
+    @IBAction func segmentControlIndexDidChange(_ sender: Any) {
+        
+        guard let sender = sender as? UISegmentedControl else {
+            return
+        }
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.view.insertSubview(self.chartView, aboveSubview: self.tableView)
+        case 1:
+            self.chartView.removeFromSuperview()
+        default:
+            return
+        }
+        
+        
+    }
+    
 
 }
 

@@ -46,7 +46,6 @@
 		901BAFA61DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA71DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
 		901BAFA81DA6E5CC0083EA97 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAFA51DA6E5CC0083EA97 /* Pet.swift */; };
-		903BAD3A1DD52D0A00F76883 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903BAD391DD52D0A00F76883 /* Account.swift */; };
 		9050722B1DD04ABC00AE4628 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9050722A1DD04ABC00AE4628 /* ExpenseCell.swift */; };
 		9050722D1DD04C2100AE4628 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9050722C1DD04C2100AE4628 /* Expense.swift */; };
 		905CE5A91DCBF6CB004E4A53 /* AddBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905CE5A81DCBF6CB004E4A53 /* AddBankViewController.swift */; };

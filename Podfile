@@ -14,6 +14,7 @@ target 'PettyCash' do
     pod 'MBCircularProgressBar'
     pod 'plaid-ios-sdk'
     pod 'plaid-ios-link'
+    pod 'Charts'
     pod 'FTIndicator'
 end
 

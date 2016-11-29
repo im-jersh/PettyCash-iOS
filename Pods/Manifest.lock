@@ -2,6 +2,9 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - DZNEmptyDataSet (1.8.1)
   - Eureka (2.0.0-beta.1)
   - FTIndicator (1.1.5):
@@ -20,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
+  - Charts
   - DZNEmptyDataSet
   - Eureka (~> 2.0.0-beta.1)
   - FTIndicator
@@ -31,6 +35,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   FTIndicator: 8b9885b84340a19029ad13672add3bb8183feba8
@@ -40,6 +45,6 @@ SPEC CHECKSUMS:
   plaid-ios-sdk: e9865b0fe6a79b3d30d886171d7a26f7e1408935
   SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
 
-PODFILE CHECKSUM: 7caba22c3184bd776dae9793b858fb8648a87811
+PODFILE CHECKSUM: 6bf86f4eaf304d180e5b3a9df33321b13c7ff973
 
 COCOAPODS: 1.1.1
