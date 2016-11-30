@@ -227,7 +227,7 @@ extension ExpensesViewController {
         
         self.pieChartView.data = data
         self.pieChartView.usePercentValuesEnabled = true
-        
+        //self.pieChartView.drawEntryLabelsEnabled = true
         //Add shadow to center text
         let myShadow = NSShadow()
         myShadow.shadowBlurRadius = 1
@@ -235,8 +235,10 @@ extension ExpensesViewController {
         myShadow.shadowColor = UIColor.gray
         
         //Add Center Text with all attributes
-        let centerText: NSAttributedString = NSAttributedString(string: "Expense Categories", attributes: [NSFontAttributeName: UIFont(name: "Verdana-Italic", size: 17.0)!, NSShadowAttributeName: myShadow])
+        let centerText: NSAttributedString = NSAttributedString(string: "Expense Categories", attributes: [NSFontAttributeName: UIFont(name: "Copperplate-Light", size: 17.0)!, NSShadowAttributeName: myShadow])
         self.pieChartView.centerAttributedText = centerText
+        self.pieChartView.chartDescription?.enabled = false
+        self.pieChartView.legend.enabled = false
     }
     
     func getExpenseCategories() -> [String: Int]{
