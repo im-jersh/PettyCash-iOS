@@ -217,24 +217,13 @@ extension GoalsViewController {
                 return
             }
             
-            self.goals = goals
+            self.goals = goals.sorted{ $0.daysRemaining < $1.daysRemaining }
         }
         
     }
     
     public func addGoalToList(_ goal: Goal) {
         self.goals.append(goal)
-    }
-    
-    public func dummyData() {
-        
-        let testGoal = Goal(with: "Test Goal #1", startDate: Date(), amount: 100.00, priority: Priority.low, andEndDate: Date.tomorrow())
-        let testTransaction = Transaction(for: 37.0, withDescription: "Some random goal contribution")
-        
-        testGoal.addTransaction(testTransaction)
-        
-        self.goals.append(testGoal)
-        
     }
     
 }
