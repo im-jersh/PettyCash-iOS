@@ -8,6 +8,8 @@
 
 import Foundation
 
+public let dataUpdateKey = "dataUpdateKey"
+
 public enum PetAction : Double {
     case poop = 2.0
     case feed = 3.5
@@ -30,6 +32,10 @@ class PCController : PCHandler {
     private(set) var ckEngine = CKEngine()
     private(set) var plaidEngine = PlaidEngine()
     
+    class func notifyDataObservers() {
+        print("CLOUDKIT UPDATES ARE AVAILABLE")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: dataUpdateKey), object: self)
+    }
     
     func fetchAllGoals(completionHandler: @escaping (Goals?, Error?) -> Void) {
         
@@ -106,25 +112,64 @@ class PCController : PCHandler {
             let tra = goals.reduce(0.0, { result, goal in
                 result + goal.amountRemaining
             })
-            let tca = goals.reduce(0.0, { result, goal in
+            
+            // calculate each goal's individual contribution amount and package it up with the goal
+            let goalsWithICA : [(goal: Goal, ica: Double)] = goals.map { goal in
                 let ica = (tra / (goal.daysRemaining * goal.amountRemaining)) * Double(goal.priority.rawValue) * action.rawValue
-                print("\(goal.description): \(ica)")
-                return ica + result
+                return (goal, ica)
+            }
+            
+            // Calculate the total contribution amount
+            let tca = goalsWithICA.reduce(0.0, { result, gICA in
+                return result + gICA.ica
             })
+            print("TOTAL CONTRIBUTION AMOUNT IS \(tca)")
             
-            let adjustedAmount = tca
+            // We now have our goals, their ICAs, and the TCA
+            // We need to send our TCA to our contribution API for account transfer
+            MockContributionAPI.transfer(funds: tca) { result in
+                
+                // Let's check our results
+                guard let dict = result.value as? [String : Any], let transferredAmount = dict["transfer-amount"] as? Double, let toAccount = dict["to-account"] as? String, let fromAccount = dict["from-account"] as? String else {
+                    completionHandler(nil, NSError(domain: "mockAPI", code: -1, userInfo: nil))
+                    return
+                }
+                
+                // Double check the amount requested to transfer was the amount that actually was transferred
+                guard tca == transferredAmount else {
+                    completionHandler(nil, NSError(domain: "mockAPI", code: -2, userInfo: nil))
+                    return
+                }
+                
+                // Package up the result data and send it over to the CKEngine for saving to CloudKit
+                let prepData = CKContributionData(goals: goalsWithICA, amount: transferredAmount, toAccount: toAccount, fromAccount: fromAccount, tca: tca, action: action)
+                
+                self.ckEngine.processTotalContributionAmount(in: prepData) { result, error in
+                    
+                    // Check the result
+                    guard let result = result?.value as? Bool else {
+                        completionHandler(nil, NSError(domain: "cloudkit", code: -1, userInfo: nil))
+                        return
+                    }
+                    
+                    guard result else {
+                        completionHandler(nil, NSError(domain: "cloudkit", code: -1, userInfo: nil))
+                        return
+                    }
+                    
+                    // Notify the caller
+                    completionHandler(tca, nil)
+                    
+                    // Notify any data observers of the updates
+                    PCController.notifyDataObservers()
+                    
+                }
+                
+            }
             
-            print("TOTAL CONTRIBUTION AMOUNT IS \(adjustedAmount)")
-            
-            completionHandler(adjustedAmount, nil)
         }
         
     }
-    
-    
-    
-    
-    
     
 }
 

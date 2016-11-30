@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SpriteKit
 import PathMenu
 import SlideMenuControllerSwift
 import FTIndicator
+import ChameleonFramework
 
 class PetViewController: UIViewController {
     
@@ -23,7 +25,17 @@ class PetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Add the pet menu
         self.view.addSubview(PetMenu(frame: self.view.bounds, delegate: self))
+        
+        // Setup the scene
+        let scene = GameScene(size: view.bounds.size)
+        let skView = view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
+        scene.scaleMode = .resizeFill
+        skView.presentScene(scene)
     }
 
     override func didReceiveMemoryWarning() {

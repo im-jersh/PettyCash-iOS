@@ -25,6 +25,7 @@ class GoalsViewController: UIViewController {
     fileprivate var goals : Goals = Goals() {
         didSet {
             DispatchQueue.main.async {
+                self.dataUpdateRequired = false
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.navigationItem.title = self.goals.reduce(0.0, { result, goal in result + goal.contributionAmount }).formattedCurrency + " Saved"
@@ -37,6 +38,8 @@ class GoalsViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         return refreshControl
     }()
+    
+    var dataUpdateRequired = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +52,19 @@ class GoalsViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
         self.tableView.addSubview(self.refreshControl)
         
+        // Register for notifications for data updates
+        NotificationCenter.default.addObserver(self, selector: #selector(GoalsViewController.dataUpdateNotification), name: NSNotification.Name(rawValue: dataUpdateKey), object: nil)
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //self.tableView.reloadData()
+        if self.dataUpdateRequired {
+            self.fetchAllGoals()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +74,10 @@ class GoalsViewController: UIViewController {
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         self.fetchAllGoals()
+    }
+    
+    func dataUpdateNotification() {
+        self.dataUpdateRequired = true
     }
     
 // MARK: - Navigation
