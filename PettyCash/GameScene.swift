@@ -100,7 +100,7 @@ class GameScene: SKScene {
         let randX = random(min: 0 + (self.pet.size.width / 2.0), max: self.size.width - (self.pet.size.width / 2.0))
         let randY = random(min: 0 + (self.pet.size.height / 2.0), max: (self.size.height / 2) - (self.pet.size.height / 2))
         let randPoint = CGPoint(x: randX, y: randY)
-        print(randPoint)
+        //print(randPoint)
         
         self.movePet(to: randPoint)
     }

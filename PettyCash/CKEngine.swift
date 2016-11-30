@@ -184,7 +184,7 @@ class CKEngine {
             let record = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: zoneID)
             record.setObject(data.ica as CKRecordValue, forKey: TransactionKey.amount.rawValue)
             record.setObject(Date() as CKRecordValue, forKey: TransactionKey.date.rawValue)
-            record.setObject("\(actionDescription) \(bundleName) transfer to \(prepData.toAccount)" as CKRecordValue, forKey: TransactionKey.description.rawValue)
+            record.setObject("\(actionDescription) \(bundleName) transfer to \(prepData.toAccount) for \(data.goal.description)" as CKRecordValue, forKey: TransactionKey.description.rawValue)
             
             // Set a reference to the associated goal
             let goalID = CKRecordID(recordName: data.goal.id, zoneID: zoneID)
@@ -380,6 +380,33 @@ fileprivate class PrepareTransactionQueriesOperation : Operation {
 
 
 extension CKEngine {
+    
+    class func resetPrivateDatabase(completionHandler: @escaping () -> Void) {
+    
+        // Delete the record zones
+        let savingsZoneID = CKRecordZoneID(zoneName: RecordZone.savings.zoneName, ownerName: CKOwnerDefaultName)
+        let petZoneID = CKRecordZoneID(zoneName: RecordZone.pets.zoneName, ownerName: CKOwnerDefaultName)
+        let deleteZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: nil, recordZoneIDsToDelete: [savingsZoneID, petZoneID])
+        deleteZoneOperation.modifyRecordZonesCompletionBlock = { savedRecordZones, deletedRecordZoneIDs, error in
+            print("Deleted record zone")
+        }
+
+        // Make new zones to replace the ones we're deleting
+        let savingsZone = CKRecordZone(zoneID: savingsZoneID)
+        let petZone = CKRecordZone(zoneID: petZoneID)
+        let saveNewZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: [savingsZone, petZone], recordZoneIDsToDelete: nil)
+        saveNewZoneOperation.modifyRecordZonesCompletionBlock = { savedRecordZones, deletedRecordZoneIDs, error in
+            print("Created record zone")
+            completionHandler()
+        }
+        
+        // Make the zone creation dependent on the deletion and add both the database for execution
+        saveNewZoneOperation.addDependency(deleteZoneOperation)
+        CKEngine.privateDatabase.add(deleteZoneOperation)
+        CKEngine.privateDatabase.add(saveNewZoneOperation)
+        
+    }
+    
     
     class func seedDummyData(completionHandler: @escaping () -> Void) {
         

@@ -171,6 +171,20 @@ class PCController : PCHandler {
         
     }
     
+    
+    class func fullReset(completionHandler: @escaping () -> Void) {
+        
+        // Reset settings and app data stored in UserDefaults
+        
+        // Reset CloudKit
+        CKEngine.resetPrivateDatabase {
+            PCController.notifyDataObservers()
+            completionHandler()
+        }
+        
+    }
+    
+    
 }
 
 

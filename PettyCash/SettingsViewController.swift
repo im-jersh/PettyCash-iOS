@@ -9,8 +9,10 @@
 import UIKit
 import FTIndicator
 
-fileprivate let loadingIndicatorMessage = "Reverting to Dummy Data"
-fileprivate let successMessage = "All goals and contributions have been replaced with dummy data."
+fileprivate let loadingDummyDataIndicatorMessage = "Reverting to Dummy Data"
+fileprivate let dummyDataSuccessMessage = "All goals and contributions have been replaced with dummy data."
+fileprivate let resetAppDataIndicatorMessage = "Resetting PettyCash"
+fileprivate let resetSuccessMessage = "PettyCash has been reset to a fresh install state"
 
 class SettingsViewController: UITableViewController {
 
@@ -52,7 +54,7 @@ class SettingsViewController: UITableViewController {
     }
     
     @IBAction func resetButtonWasTapped(_ sender: AnyObject) {
-        
+        self.confirmReset()
     }
     
     
@@ -69,11 +71,11 @@ extension SettingsViewController {
             
             let confirmController = UIAlertController(title: "Last Chance", message: "This action can't be reversed. This is your last warning.", preferredStyle: .alert)
             let dummyDataAction = UIAlertAction(title: "Use Dummy Data", style: .destructive, handler: { alert in
-                FTIndicator.showProgressWithmessage(loadingIndicatorMessage, userInteractionEnable: false)
+                FTIndicator.showProgressWithmessage(loadingDummyDataIndicatorMessage, userInteractionEnable: false)
                 CKEngine.seedDummyData {
                     DispatchQueue.main.async {
                         FTIndicator.dismissProgress()
-                        FTIndicator.showSuccess(withMessage: successMessage)
+                        FTIndicator.showSuccess(withMessage: dummyDataSuccessMessage)
                     }
                 }
             })
@@ -90,5 +92,35 @@ extension SettingsViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    fileprivate func confirmReset() {
+        
+        let alertController = UIAlertController(title: "WARNING", message: "Continuing will erase all data from the app and revert it to a fresh install state.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in }
+        let confirmAction = UIAlertAction(title: "I Understand", style: .destructive) { action in
+            
+            let confirmController = UIAlertController(title: "Last Chance", message: "This action can't be reversed. This is your last warning.", preferredStyle: .alert)
+            let dummyDataAction = UIAlertAction(title: "Use Dummy Data", style: .destructive, handler: { alert in
+                FTIndicator.showProgressWithmessage(resetAppDataIndicatorMessage, userInteractionEnable: false)
+                PCController.fullReset {
+                    DispatchQueue.main.async {
+                        FTIndicator.dismissProgress()
+                        FTIndicator.showSuccess(withMessage: resetSuccessMessage)
+                        
+                        // TODO: We should really kill the app here
+                    }
+                }
+            })
+            
+            confirmController.addAction(cancelAction)
+            confirmController.addAction(dummyDataAction)
+            
+            self.present(confirmController, animated: true, completion: nil)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(confirmAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
 }

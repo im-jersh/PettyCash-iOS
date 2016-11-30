@@ -17,7 +17,9 @@ protocol Transportable {
 
 // Indicates various levels of priority
 enum Priority : Int {
-    case low, medium, high
+    case low = 1
+    case medium = 2
+    case high = 3
 }
 
 // Represents various CKRecord keys corresponding to this class's properties
