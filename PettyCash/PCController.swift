@@ -8,6 +8,8 @@
 
 import Foundation
 
+public let dataUpdateKey = "dataUpdateKey"
+
 public enum PetAction : Double {
     case poop = 2.0
     case feed = 3.5
@@ -151,7 +153,11 @@ class PCController : PCHandler {
                         return
                     }
                     
+                    // Notify the caller
                     completionHandler(tca, nil)
+                    
+                    // Notify any data observers of the updates
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: dataUpdateKey), object: self)
                     
                 }
                 
