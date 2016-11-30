@@ -79,9 +79,9 @@ class PlaidEngine {
                 }
             
                 let transactions = transactionsArray.map{ Expense(with: $0) }
-                for trans in transactions {
-                    print(trans.categories)
-                }
+//                for trans in transactions {
+//                    print(trans.categories)
+//                }
                 
                 completionHandler(PlaidResult(result: transactions))
                 

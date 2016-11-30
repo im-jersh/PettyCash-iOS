@@ -33,6 +33,7 @@ class ExpensesViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.customizePieChart()
             }
         }
     }
@@ -43,9 +44,9 @@ class ExpensesViewController: UIViewController {
         super.viewDidLoad()
         
         // size the supplementary view and add to view
-        self.pieChartView.frame = self.view.frame
-        self.customizePieChart()
-        self.view.insertSubview(self.pieChartView, aboveSubview: self.tableView)
+//        self.pieChartView.frame = self.view.frame
+//        self.customizePieChart()
+//        self.view.insertSubview(self.pieChartView, aboveSubview: self.tableView)
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -53,7 +54,10 @@ class ExpensesViewController: UIViewController {
         
         self.pcHandler = PCController()
         self.fetchAll()
-        
+    
+        // size the supplementary view and add to view
+        self.pieChartView.frame = self.view.frame
+        self.view.insertSubview(self.pieChartView, aboveSubview: self.tableView)
         //self.initExpenses()
         // Do any additional setup after loading the view.
     }
@@ -209,42 +213,71 @@ extension ExpensesViewController {
 extension ExpensesViewController {
     func customizePieChart(){
         //Call method to get all expense categories
-        self.getExpenseCategories()
-        
-        let ys1 = Array(1..<10).map { x in return sin(Double(x) / 2.0 / 3.141 * 1.5) * 100.0 }
-        
-        let yse1 = ys1.enumerated().map { x, y in return PieChartDataEntry(value: y, label: String(x)) }
+        let categories = self.getExpenseCategories()
+        let dictResults = categories.map {
+            x, y in return PieChartDataEntry(value: Double(y), label: String(x.replacingOccurrences(of: " ", with: "\n")))
+        }
         
         let data = PieChartData()
-        let ds1 = PieChartDataSet(values: yse1, label: "Hello")
+        let ds1 = PieChartDataSet(values: dictResults, label: "Expenses")
         
-        ds1.colors = ChartColorTemplates.vordiplom()
+        ds1.colors = ChartColorTemplates.liberty()
         
         data.addDataSet(ds1)
         
-        //self.pieChartView.centerAttributedText = centerText
-        
         self.pieChartView.data = data
         self.pieChartView.usePercentValuesEnabled = true
+        
+        //Add shadow to center text
         let myShadow = NSShadow()
         myShadow.shadowBlurRadius = 1
         myShadow.shadowOffset = CGSize(width: 1, height: 1)
         myShadow.shadowColor = UIColor.gray
+        
+        //Add Center Text with all attributes
         let centerText: NSAttributedString = NSAttributedString(string: "Expense Categories", attributes: [NSFontAttributeName: UIFont(name: "Verdana-Italic", size: 17.0)!, NSShadowAttributeName: myShadow])
         self.pieChartView.centerAttributedText = centerText
     }
     
-    func getExpenseCategories(){
-//        var expenseCategories: [String]
-//        for expense in self.expenses {
-//            if expense.categories.isEmpty {
-//                continue
-//            } else {
-//                conti
-//            }
-//        }
+    func getExpenseCategories() -> [String: Int]{
+        var expenseCategories = [String: Int]()
+        
+        //Get all expenses that have atleast 1 cat. and aren't deposits
+        let expenses = self.expenses.filter{$0.amount>0}.filter{$0.categories.isEmpty == false}
+        
+        for expense in expenses {
+            if expense.categories.count > 1 {
+                if let _ = expenseCategories[expense.categories[1]] {
+                    continue
+                } else {
+                    expenseCategories[expense.categories[1]] = 0
+                }
+            } else {
+                if let _ = expenseCategories[expense.categories[0] + " Default"] {
+                    continue
+                } else {
+                    expenseCategories[expense.categories[0] + " Default"] = 0
+                }
+                
+            }
+        }
+        print(expenseCategories)
+
+        for expense in expenses {
+            for (key, value) in expenseCategories {
+                if expense.categories.contains(key){
+                   expenseCategories[key] = value + 1
+                }
+            }
+            
+        }
+        
+        print(expenseCategories)
+        return (expenseCategories)
+        
         
     }
+    
     
     
 }
