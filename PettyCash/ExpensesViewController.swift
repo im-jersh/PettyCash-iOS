@@ -215,19 +215,21 @@ extension ExpensesViewController {
         //Call method to get all expense categories
         let categories = self.getExpenseCategories()
         let dictResults = categories.map {
-            x, y in return PieChartDataEntry(value: Double(y), label: String(x.replacingOccurrences(of: " ", with: "\n")))
-        }
+            x, y in return PieChartDataEntry(value: Double(y), label: x)
+        }.sorted{ $0.label! < $1.label! }
         
         let data = PieChartData()
         let ds1 = PieChartDataSet(values: dictResults, label: "Expenses")
         
-        ds1.colors = ChartColorTemplates.liberty()
+        ds1.colors = [UIColor.flatSkyBlue(), UIColor.flatGreen(), UIColor.flatOrange(), UIColor.flatRed(), UIColor.flatYellow(), UIColor.flatPink(), UIColor.flatPurple()]
         
         data.addDataSet(ds1)
         
         self.pieChartView.data = data
         self.pieChartView.usePercentValuesEnabled = true
-        //self.pieChartView.drawEntryLabelsEnabled = true
+        self.pieChartView.extraTopOffset = 10.0
+        //self.pieChartView.extraBottomOffset = self.pieChartView.extraTopOffset
+        
         //Add shadow to center text
         let myShadow = NSShadow()
         myShadow.shadowBlurRadius = 1
@@ -237,15 +239,21 @@ extension ExpensesViewController {
         //Add Center Text with all attributes
         let centerText: NSAttributedString = NSAttributedString(string: "Expense Categories", attributes: [NSFontAttributeName: UIFont(name: "Copperplate-Light", size: 17.0)!, NSShadowAttributeName: myShadow])
         self.pieChartView.centerAttributedText = centerText
+        
         self.pieChartView.chartDescription?.enabled = false
-        self.pieChartView.legend.enabled = false
+        self.pieChartView.legend.enabled = true
+        self.pieChartView.legend.orientation = .vertical
+        self.pieChartView.legend.verticalAlignment = .top
+        self.pieChartView.legend.wordWrapEnabled = true
+        self.pieChartView.drawEntryLabelsEnabled = false
+        
     }
     
     func getExpenseCategories() -> [String: Int]{
         var expenseCategories = [String: Int]()
         
         //Get all expenses that have atleast 1 cat. and aren't deposits
-        let expenses = self.expenses.filter{$0.amount>0}.filter{$0.categories.isEmpty == false}
+        let expenses = self.expenses.filter{ $0.amount > 0 }.filter{ $0.categories.isEmpty == false }
         
         for expense in expenses {
             if expense.categories.count > 1 {
@@ -275,7 +283,7 @@ extension ExpensesViewController {
         }
         
         print(expenseCategories)
-        return (expenseCategories)
+        return expenseCategories
         
         
     }
