@@ -32,6 +32,10 @@ class PCController : PCHandler {
     private(set) var ckEngine = CKEngine()
     private(set) var plaidEngine = PlaidEngine()
     
+    class func notifyDataObservers() {
+        print("CLOUDKIT UPDATES ARE AVAILABLE")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: dataUpdateKey), object: self)
+    }
     
     func fetchAllGoals(completionHandler: @escaping (Goals?, Error?) -> Void) {
         
@@ -157,7 +161,7 @@ class PCController : PCHandler {
                     completionHandler(tca, nil)
                     
                     // Notify any data observers of the updates
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: dataUpdateKey), object: self)
+                    PCController.notifyDataObservers()
                     
                 }
                 

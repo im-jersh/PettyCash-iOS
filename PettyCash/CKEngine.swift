@@ -459,6 +459,13 @@ extension CKEngine {
         }
         saveDummyRecordsOperation.addDependency(saveNewZoneOperation)
         
+        // Broadcast that cloudkit data has been updated
+        let newDataNotificationOp = BlockOperation(block: {
+            PCController.notifyDataObservers()
+        })
+        newDataNotificationOp.addDependency(saveDummyRecordsOperation)
+        OperationQueue().addOperation(newDataNotificationOp)
+        
         CKEngine.privateDatabase.add(saveDummyRecordsOperation)
         
     }
