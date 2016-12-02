@@ -48,6 +48,7 @@ class CKEngine {
         
         let opQueue = OperationQueue()
         
+        
         // Fetch all the goals
         let allGoalsOperation = FetchAllOperation(recordType: RecordType.goal, inReferenceTo: nil)
         CKEngine.privateDatabase.add(allGoalsOperation)
@@ -57,34 +58,51 @@ class CKEngine {
         processGoalsOperation.addDependency(allGoalsOperation)
         processGoalsOperation.completionBlock = {
             
+            // Get the goals that this operation has processed
             guard let goals = processGoalsOperation.objects as? Goals else {
                 completionHandler(nil, NSError(domain: "cloudkit", code: 1, userInfo: nil))
                 return
             }
             
-            // Make a completion block that is dependent on all fetch transaction blocks
-            let completionBlock = BlockOperation {
-                print("ALL TRANSACTION QUERIES HAVE FINISHED")
-                completionHandler(CKResult(result: goals), nil)
+            let allDoneBlock = BlockOperation{
+                
+                guard let goals = processGoalsOperation.objects as? Goals else {
+                    completionHandler(nil, NSError(domain: "cloudkit", code: -1, userInfo: nil))
+                    return
+                }
+                
+                // WARNING: Do not remove the wait period. It ensures all transactions have been fetched and added to the appropriate goal
+                // before returning the goals to the caller
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    print("ALL TRANSACTION QUERIES HAVE FINISHED")
+                    completionHandler(CKResult(result: goals), nil)
+                })
+                
             }
             
             for goal in goals {
+                // Make an operation to fetch the goal's transactions
                 let transactionOp = FetchAllOperation(recordType: .transaction, inReferenceTo: goal)
+                
+                // Process the transactions
                 let processOp = ProcessRecordsOperation(recordType: .transaction)
                 processOp.addDependency(transactionOp)
                 processOp.completionBlock = {
+                    // Extract the processed transactions
                     guard let transactions = processOp.objects as? Transactions else {
                         completionHandler(nil, NSError(domain: "cloudkit", code: 1, userInfo: nil))
-                        return
+                        fatalError()
                     }
                     goal.replaceTransactions(transactions)
                 }
+                
                 CKEngine.privateDatabase.add(transactionOp)
-                completionBlock.addDependency(processOp)
+                allDoneBlock.addDependency(processOp)
                 opQueue.addOperation(processOp)
             }
             
-            opQueue.addOperation(completionBlock)
+            opQueue.addOperation(allDoneBlock)
+            
         }
         
         opQueue.addOperation(processGoalsOperation)
@@ -386,7 +404,8 @@ extension CKEngine {
         // Delete the record zones
         let savingsZoneID = CKRecordZoneID(zoneName: RecordZone.savings.zoneName, ownerName: CKOwnerDefaultName)
         let petZoneID = CKRecordZoneID(zoneName: RecordZone.pets.zoneName, ownerName: CKOwnerDefaultName)
-        let deleteZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: nil, recordZoneIDsToDelete: [savingsZoneID, petZoneID])
+        let expensesZoneID = CKRecordZoneID(zoneName: RecordZone.expenses.zoneName, ownerName: CKOwnerDefaultName)
+        let deleteZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: nil, recordZoneIDsToDelete: [savingsZoneID, petZoneID, expensesZoneID])
         deleteZoneOperation.modifyRecordZonesCompletionBlock = { savedRecordZones, deletedRecordZoneIDs, error in
             print("Deleted record zone")
         }
