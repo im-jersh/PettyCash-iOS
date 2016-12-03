@@ -12,6 +12,7 @@ import CloudKit
 enum RecordType : String {
     case goal = "Goal"
     case transaction = "Transaction"
+    case action = "Action"
 }
 
 enum RecordZone : String {
@@ -181,22 +182,31 @@ class CKEngine {
         // Prepare
         let zoneID = CKRecordZoneID(zoneName: RecordZone.savings.zoneName, ownerName: CKOwnerDefaultName)
         var actionDescription = ""
+        var actionType = ""
+        
         switch prepData.action {
         case .poop:
             actionDescription += "Poop scoop'n 💩"
+            actionType = "poop"
         case .feed:
             actionDescription += "Chow time 🍖"
+            actionType = "feed"
         case .bathe:
             actionDescription += "Squeeky clean! 🚿"
+            actionType = "bathe"
         case .treat:
             actionDescription += "Treat yo self 🍬"
+            actionType = "treat"
         case .groom:
             actionDescription += "Look'n sharp 🕶"
+            actionType = "groom"
         }
         let bundleName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
         
         // Iterate over the goals, create contributions, then save the contributions
-        let contributionRecords : [CKRecord] = prepData.goals.map { (data : (goal: Goal, ica: Double)) in
+        let actionRecord = CKRecord(recordType: RecordType.action.rawValue, zoneID: zoneID)
+        actionRecord.setObject(actionType as CKRecordValue, forKey: "type")
+        var contributionRecords : [CKRecord] = prepData.goals.map { (data : (goal: Goal, ica: Double)) in
             
             // Set the record values
             let record = CKRecord(recordType: RecordType.transaction.rawValue, zoneID: zoneID)
@@ -204,29 +214,31 @@ class CKEngine {
             record.setObject(Date() as CKRecordValue, forKey: TransactionKey.date.rawValue)
             record.setObject("\(actionDescription) \(bundleName) transfer to \(prepData.toAccount) for \(data.goal.description)" as CKRecordValue, forKey: TransactionKey.description.rawValue)
             
-            // Set a reference to the associated goal
+            // Set a reference to the associated goal and action
             let goalID = CKRecordID(recordName: data.goal.id, zoneID: zoneID)
-            let ref = CKReference(recordID: goalID, action: CKReferenceAction.none)
-            record.setObject(ref, forKey: TransactionKey.goal.rawValue)
+            let goalRef = CKReference(recordID: goalID, action: CKReferenceAction.none)
+            record.setObject(goalRef, forKey: TransactionKey.goal.rawValue)
+            
+            let actionRef = CKReference(record: actionRecord, action: .none)
+            record.setObject(actionRef, forKey: "action")
+            
             
             return record
         }
+        contributionRecords.append(actionRecord)
         
         let saveOp = CKModifyRecordsOperation(recordsToSave: contributionRecords, recordIDsToDelete: nil)
         saveOp.perRecordCompletionBlock = { record, error in
-            guard let record = record else {
-                print("Error saving contribution record")
-                return
-            }
             print("Contribution Record Saved Successfully")
         }
         saveOp.modifyRecordsCompletionBlock = { savedRecords, deletedRecordIDs, error in
-            guard let savedRecords = savedRecords else {
-                print("Error saving contribution records")
-                return
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                completionHandler(nil, error)
             }
             
-            guard savedRecords.count == prepData.goals.count else {
+            guard let savedRecords = savedRecords else {
                 print("Error saving contribution records")
                 return
             }
@@ -304,6 +316,9 @@ fileprivate class FetchAllOperation : CKQueryOperation {
             self.query = query
             query.sortDescriptors = [sortDescriptor]
             break
+        case .action :
+            
+            break
         }
         
         // Set up the blocks
@@ -360,6 +375,8 @@ fileprivate class ProcessRecordsOperation : Operation {
             case .transaction:
                 self.objects.append(Transaction(fromRecord: record))
                 continue
+            case .action:
+                break
             }
             
         }

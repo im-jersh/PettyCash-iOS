@@ -175,6 +175,7 @@ class PCController : PCHandler {
     class func fullReset(completionHandler: @escaping () -> Void) {
         
         // Reset settings and app data stored in UserDefaults
+        UserDefaults.standard.set(false, forKey: "onboarding-complete")
         
         // Reset CloudKit
         CKEngine.resetPrivateDatabase {

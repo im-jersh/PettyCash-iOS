@@ -99,7 +99,7 @@ extension SettingsViewController {
         let confirmAction = UIAlertAction(title: "I Understand", style: .destructive) { action in
             
             let confirmController = UIAlertController(title: "Last Chance", message: "This action can't be reversed. This is your last warning.", preferredStyle: .alert)
-            let dummyDataAction = UIAlertAction(title: "Use Dummy Data", style: .destructive, handler: { alert in
+            let dummyDataAction = UIAlertAction(title: "Full Reset", style: .destructive, handler: { alert in
                 FTIndicator.showProgressWithmessage(resetAppDataIndicatorMessage, userInteractionEnable: false)
                 PCController.fullReset {
                     DispatchQueue.main.async {

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,6 +24,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PettyCash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFr-lO-3O7">
+                                    <rect key="frame" x="18" y="34" width="129.5" height="31.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -39,11 +43,11 @@
                                         <rect key="frame" x="0.0" y="99" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UUg-xS-q1I" id="C70-yk-YFT">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Pet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WcE-8d-OaP">
-                                                    <frame key="frameInset" minX="15" width="345" height="59"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                     <color key="textColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,11 +61,11 @@
                                         <rect key="frame" x="0.0" y="159" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a6A-lu-qr1" id="QuL-ZF-7a7">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gUH-3d-e3w">
-                                                    <frame key="frameInset" minX="15" width="345" height="59"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                     <color key="textColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,11 +79,11 @@
                                         <rect key="frame" x="0.0" y="219" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F8e-SL-Exb" id="RVE-Xc-36M">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FCE-GB-mA5">
-                                                    <frame key="frameInset" minX="15" width="345" height="59"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                     <color key="textColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,11 +97,11 @@
                                         <rect key="frame" x="0.0" y="279" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="msH-SK-itU" id="P3j-e7-If2">
-                                            <frame key="frameInset" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PBC-Hk-Exd">
-                                                    <frame key="frameInset" minX="15" width="345" height="59"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                     <color key="textColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -120,6 +124,132 @@
             </objects>
             <point key="canvasLocation" x="-364" y="190.25487256371815"/>
         </scene>
+        <!--Link Account Onboarding View Controller-->
+        <scene sceneID="Qo1-g3-nlr">
+            <objects>
+                <viewController storyboardIdentifier="LinkAccountOnboardingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dGj-zV-k5R" customClass="LinkAccountOnboardingViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FL9-kS-zdK"/>
+                        <viewControllerLayoutGuide type="bottom" id="APU-oU-XPp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ycV-JJ-MYP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="cKj-aY-Je2">
+                                <rect key="frame" x="20" y="137" width="335" height="393.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PettyCash!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKH-PU-49f">
+                                        <rect key="frame" x="44.5" y="0.0" width="246.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggy-bank" translatesAutoresizingMaskIntoConstraints="NO" id="lGr-aK-jmZ">
+                                        <rect key="frame" x="92.5" y="66.5" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="lGr-aK-jmZ" secondAttribute="height" multiplier="1:1" id="nYF-Uy-3vo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're on your way to forming better savings habits and having fun while doing it. Let's start by linking your bank account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfP-zq-PzH">
+                                        <rect key="frame" x="5.5" y="256.5" width="324.5" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKt-zg-0Xl">
+                                        <rect key="frame" x="104.5" y="357.5" width="126" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Link Account">
+                                            <color key="titleColor" red="0.49744248390197754" green="0.64893847703933716" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="linkAccountButtonWasTapped:" destination="dGj-zV-k5R" eventType="touchUpInside" id="gCH-Yj-dIr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cKj-aY-Je2" firstAttribute="centerX" secondItem="ycV-JJ-MYP" secondAttribute="centerX" id="BZy-97-fju"/>
+                            <constraint firstItem="cKj-aY-Je2" firstAttribute="leading" secondItem="ycV-JJ-MYP" secondAttribute="leading" constant="20" id="Hzv-Bz-8hR"/>
+                            <constraint firstItem="cKj-aY-Je2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ycV-JJ-MYP" secondAttribute="top" constant="10" id="c0o-Zz-LO6"/>
+                            <constraint firstItem="cKj-aY-Je2" firstAttribute="centerY" secondItem="ycV-JJ-MYP" secondAttribute="centerY" id="j8G-ci-kqG"/>
+                            <constraint firstAttribute="trailing" secondItem="cKj-aY-Je2" secondAttribute="trailing" constant="20" id="xzC-Gl-Zwd"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cKj-aY-Je2" secondAttribute="bottom" constant="10" id="z3Z-B6-ym8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YQK-oH-1DB"/>
+                    <connections>
+                        <segue destination="ZJd-bY-BIh" kind="show" identifier="createGoalOnboardingSegue" id="JSs-gh-LK6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCH-bm-wpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="178" y="1013"/>
+        </scene>
+        <!--Create Goal Onboarding View Controller-->
+        <scene sceneID="8Tf-tq-QHa">
+            <objects>
+                <viewController storyboardIdentifier="CreateGoalOnboardingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZJd-bY-BIh" customClass="CreateGoalOnboardingViewController" customModule="PettyCash" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qaX-kP-1g6"/>
+                        <viewControllerLayoutGuide type="bottom" id="0PS-XG-ggE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q8r-ts-KxS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="KeM-ed-pnz">
+                                <rect key="frame" x="20" y="137" width="335" height="393.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Awesome!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mc-yO-tpW">
+                                        <rect key="frame" x="112.5" y="0.0" width="110.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggy-bank" translatesAutoresizingMaskIntoConstraints="NO" id="We4-Ur-xL9">
+                                        <rect key="frame" x="92.5" y="66.5" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="We4-Ur-xL9" secondAttribute="height" multiplier="1:1" id="1uA-9y-azi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PettyCash can now transfer funds to your savings account. Now let's create your first goal." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxQ-zS-jOj">
+                                        <rect key="frame" x="1" y="256.5" width="333" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TW-Ib-CXY">
+                                        <rect key="frame" x="102.5" y="357.5" width="130" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Create a Goal">
+                                            <color key="titleColor" red="0.49744248390197754" green="0.64893847703933716" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createGoalButtonWasTapped:" destination="ZJd-bY-BIh" eventType="touchUpInside" id="F1y-QY-YpU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KeM-ed-pnz" firstAttribute="centerY" secondItem="Q8r-ts-KxS" secondAttribute="centerY" id="3N0-N7-x4V"/>
+                            <constraint firstItem="KeM-ed-pnz" firstAttribute="leading" secondItem="Q8r-ts-KxS" secondAttribute="leading" constant="20" id="D22-1z-LK6"/>
+                            <constraint firstItem="0PS-XG-ggE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KeM-ed-pnz" secondAttribute="bottom" constant="20" id="RHI-9l-w6j"/>
+                            <constraint firstItem="KeM-ed-pnz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qaX-kP-1g6" secondAttribute="bottom" constant="20" id="VlM-09-YTS"/>
+                            <constraint firstAttribute="trailing" secondItem="KeM-ed-pnz" secondAttribute="trailing" constant="20" id="Vt8-GF-dMV"/>
+                            <constraint firstItem="KeM-ed-pnz" firstAttribute="centerX" secondItem="Q8r-ts-KxS" secondAttribute="centerX" id="pPT-vN-huJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bLW-1e-hLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714" y="1013"/>
+        </scene>
         <!--Pet View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -133,6 +263,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5F-DE-JOr">
+                                <rect key="frame" x="16" y="20" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="H5F-DE-JOr" secondAttribute="height" multiplier="1:1" id="GuL-go-tgB"/>
                                     <constraint firstAttribute="height" constant="44" id="RXF-SW-T6A"/>
@@ -151,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="190"/>
+            <point key="canvasLocation" x="178" y="190"/>
         </scene>
         <!--CreateGoalViewController-->
         <scene sceneID="LU8-Sr-PRb">
@@ -159,7 +290,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="CreateGoalViewController" storyboardName="Goals" referencedIdentifier="CreateGoalViewController" id="MJQ-TX-sj0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vg7-px-XCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2638" y="-312"/>
+            <point key="canvasLocation" x="1067" y="-797"/>
         </scene>
         <!--GoalsViewController-->
         <scene sceneID="aeF-TJ-eiR">
@@ -167,7 +298,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="GoalsViewController" storyboardName="Goals" referencedIdentifier="GoalsViewController" id="3gK-Db-YSp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1b-re-oaH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2515" y="-393"/>
+            <point key="canvasLocation" x="944" y="-878"/>
         </scene>
         <!--GoalsNavController-->
         <scene sceneID="qNh-mE-C8p">
@@ -175,7 +306,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="GoalsNavController" storyboardName="Goals" referencedIdentifier="GoalsNavController" id="e4V-1a-5Rs" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="br8-8o-b50" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2389" y="-432"/>
+            <point key="canvasLocation" x="818" y="-917"/>
         </scene>
         <!--GoalDetailViewController-->
         <scene sceneID="P1y-d5-OdD">
@@ -183,7 +314,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="GoalDetailViewController" storyboardName="Goals" referencedIdentifier="GoalDetailViewController" id="Pqi-EZ-kot" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eWL-tJ-NJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2634" y="-354"/>
+            <point key="canvasLocation" x="1063" y="-839"/>
         </scene>
         <!--ExpensesNavController-->
         <scene sceneID="TcI-vA-hLm">
@@ -191,7 +322,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ExpensesNavController" storyboardName="Expenses" referencedIdentifier="ExpensesNavController" id="vCF-fA-1mK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdL-Px-oiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2514" y="201"/>
+            <point key="canvasLocation" x="943" y="-284"/>
         </scene>
         <!--AddBankViewController-->
         <scene sceneID="E0f-UP-UFP">
@@ -199,7 +330,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="AddBankViewController" storyboardName="Expenses" referencedIdentifier="AddBankViewController" id="HKT-Bk-ibz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibm-da-Kcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390" y="151"/>
+            <point key="canvasLocation" x="819" y="-334"/>
         </scene>
         <!--ExpensesViewController-->
         <scene sceneID="QJJ-uB-e0y">
@@ -207,7 +338,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ExpensesViewController" storyboardName="Expenses" referencedIdentifier="ExpensesViewController" id="szx-JT-XCt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EwD-eF-E5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2629" y="256"/>
+            <point key="canvasLocation" x="1058" y="-229"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="Sma-YF-D7H">
@@ -215,7 +346,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SettingsViewController" storyboardName="Settings" referencedIdentifier="SettingsViewController" id="Q2Z-6C-ZtL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJQ-Sm-yqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2522" y="681"/>
+            <point key="canvasLocation" x="910" y="209"/>
         </scene>
         <!--AllContributionsTableViewController-->
         <scene sceneID="mPb-zU-vtI">
@@ -223,7 +354,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="AllContributionsTableViewController" storyboardName="Settings" referencedIdentifier="AllContributionsTableViewController" id="5lN-A8-Do0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJo-Eg-BkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2702" y="754"/>
+            <point key="canvasLocation" x="1090" y="282"/>
         </scene>
         <!--SettingsNavController-->
         <scene sceneID="lg7-7d-ocI">
@@ -231,10 +362,31 @@
                 <viewControllerPlaceholder storyboardIdentifier="SettingsNavController" storyboardName="Settings" referencedIdentifier="SettingsNavController" id="G5R-Pr-SxO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpz-4i-nbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2402" y="621"/>
+            <point key="canvasLocation" x="831" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UK3-bt-N8W">
+            <objects>
+                <navigationController storyboardIdentifier="OnboardingNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gvW-dx-KCe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Doo-Ck-iXF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dGj-zV-k5R" kind="relationship" relationship="rootViewController" id="N9a-xe-1gT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G95-dN-W6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-364" y="1014.2428785607198"/>
         </scene>
     </scenes>
     <resources>
         <image name="hamburger-menu" width="22" height="21"/>
+        <image name="piggy-bank" width="150" height="150"/>
     </resources>
 </document>
